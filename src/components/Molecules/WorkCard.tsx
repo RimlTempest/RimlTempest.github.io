@@ -3,11 +3,25 @@ import { Box, Image, Text, useColorModeValue } from '@chakra-ui/react';
 import { ArrowRightIcon } from '@chakra-ui/icons';
 import { useRouter } from 'next/router';
 import { WorkCardProps } from '../../types/CardTypes';
+import { useRecoilState } from 'recoil';
+import { workState } from '../../store/WorkStore';
 
 export const WorkCard = (props: WorkCardProps) => {
   const router = useRouter();
+  const [workList, setWorkList] = useRecoilState(workState);
+
   const BoxClicked = () => {
-    router.push('work/' + props.navigationLink);
+    const data = {
+      image: props.image,
+      appName: props.appName,
+      description: props.description,
+    };
+    setWorkList((state) => ({
+      ...state,
+      workList: data,
+    }));
+
+    router.push({ pathname: 'work/' + props.navigationLink });
   };
 
   return (
