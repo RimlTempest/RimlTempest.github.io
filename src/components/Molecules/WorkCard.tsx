@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Image, Text } from '@chakra-ui/react';
+import { Box, Image, Text, useColorModeValue } from '@chakra-ui/react';
 import { ArrowRightIcon } from '@chakra-ui/icons';
 import { useRouter } from 'next/router';
 
@@ -28,7 +28,7 @@ export const WorkCard = (props: WorkCardProps) => {
       cursor="pointer"
     >
       <Box
-        bg="#ffffff"
+        bg={useColorModeValue('whiteAlpha.800', 'blackAlpha.800')} // "#ffffff"
         borderRadius="20px"
         width="250px"
         border="1px solid lightgrey"
@@ -57,10 +57,20 @@ export const WorkCard = (props: WorkCardProps) => {
             mb={1}
             flexDirection="row"
           />
-          <Text fontWeight="bold" fontSize="xl">
+          <Text
+            fontWeight="bold"
+            fontSize="xl"
+            color={useColorModeValue('blackAlpha.800', 'whiteAlpha.800')}
+          >
             {props.appName}
           </Text>
-          <Text fontSize="sm" mb={3} minHeight="100px" maxHeight="150px">
+          <Text
+            fontSize="sm"
+            mb={3}
+            minHeight="100px"
+            maxHeight="150px"
+            color={useColorModeValue('blackAlpha.800', 'whiteAlpha.800')}
+          >
             {props.description}
           </Text>
           <Box
@@ -74,6 +84,7 @@ export const WorkCard = (props: WorkCardProps) => {
               border="2px solid gray"
               borderRadius="50%"
               p={4}
+              color={useColorModeValue('blackAlpha.800', 'whiteAlpha.800')}
             />
           </Box>
         </Box>

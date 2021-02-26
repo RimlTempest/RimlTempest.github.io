@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Image, Text } from '@chakra-ui/react';
+import { Box, Image, Text, useColorModeValue } from '@chakra-ui/react';
 import { ArrowRightIcon } from '@chakra-ui/icons';
 
 type ComingSoonCard = {
@@ -16,7 +16,7 @@ export const ComingSoonCard = (props: ComingSoonCard) => {
       p={5}
     >
       <Box
-        bg="#ffffff"
+        bg={useColorModeValue('whiteAlpha.800', 'blackAlpha.800')} // "#ffffff"
         borderRadius="20px"
         width="250px"
         border="1px solid lightgrey"
