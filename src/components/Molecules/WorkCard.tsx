@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Image, Text, useColorModeValue } from '@chakra-ui/react';
-import { ArrowRightIcon } from '@chakra-ui/icons';
+import { BsBoxArrowUpRight } from 'react-icons/bs';
 import { useRouter } from 'next/router';
 import { WorkCardProps } from '../../types/CardTypes';
 import { useRecoilState } from 'recoil';
@@ -35,7 +35,7 @@ export const WorkCard = (props: WorkCardProps) => {
       cursor="pointer"
     >
       <Box
-        bg={useColorModeValue('whiteAlpha.800', 'blackAlpha.800')} // "#ffffff"
+        bg={useColorModeValue('whiteAlpha.800', 'grayAlpha.200')} // "#ffffff"
         borderRadius="20px"
         width="250px"
         border="1px solid lightgrey"
@@ -54,6 +54,7 @@ export const WorkCard = (props: WorkCardProps) => {
             width="100%"
             height="auto"
             alt="appIcon"
+            maxHeight="165px"
           />
         </Box>
         <Box p={5} pb={8} maxHeight="300px">
@@ -86,13 +87,7 @@ export const WorkCard = (props: WorkCardProps) => {
             flexDirection="row"
             justifyContent="flex-end"
           >
-            <ArrowRightIcon
-              boxSize={5}
-              border="2px solid gray"
-              borderRadius="50%"
-              p={4}
-              color={useColorModeValue('blackAlpha.800', 'whiteAlpha.800')}
-            />
+            <BsBoxArrowUpRight />
           </Box>
         </Box>
       </Box>
