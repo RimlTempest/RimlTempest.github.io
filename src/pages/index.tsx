@@ -18,7 +18,7 @@ const Index = () => (
         p={10}
       >
         <Flex justifyContent="flex-start" alignItems="center" mb={50}>
-          <Avatar size="2xl" />
+          <Avatar size="2xl" src="/icon-512x512.png" />
           <Text
             color="gray.500"
             fontSize="2xl"
