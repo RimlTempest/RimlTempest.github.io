@@ -1,41 +1,3 @@
-// import NextDocument, {
-//   Html,
-//   Head,
-//   Main,
-//   NextScript,
-//   DocumentContext,
-//   DocumentInitialProps,
-// } from 'next/document';
-// import { ColorModeScript } from '@chakra-ui/react';
-
-// export default class Document extends NextDocument {
-//   static async getInitialProps(
-//     ctx: DocumentContext
-//   ): Promise<DocumentInitialProps> {
-//     return await Document.getInitialProps(ctx);
-//   }
-//   render() {
-//     return (
-//       <Html lang="ja-JP">
-//         <Head>
-//           <meta name="application-name" content="DaikiTakahashi" />
-//           <meta name="theme-color" content="#000" />
-//           <meta name="description" content="Portfolio Page" />
-//           {/* <link rel="icon" sizes="192x192" href="/icon-192x192.png" /> */}
-//           <link rel="icon" href="/favicon.ico" />
-//           <link rel="manifest" href="/manifest.json" />
-//         </Head>
-//         <body>
-//           {/* Make Color mode to persists when you refresh the page. */}
-//           <ColorModeScript />
-//           <Main />
-//           <NextScript />
-//         </body>
-//       </Html>
-//     );
-//   }
-// }
-
 import Document, {
   Html,
   Head,
@@ -79,16 +41,16 @@ class MyDocument extends Document {
           {/* safari */}
           <meta name="apple-mobile-web-app-capable" content="yes" />
           <meta name="apple-mobile-web-app-status-bar-style" content="#000" />
-          <meta name="apple-mobile-web-app-title" content="myapp" />
+          <meta name="apple-mobile-web-app-title" content="DaikiTakahashi" />
           <link
             rel="apple-touch-icon"
             sizes="180x180"
             href="/apple-touch-icon-180x180.png"
           />
           {/* 一般 */}
-          <meta name="application-name" content="myapp" />
+          <meta name="application-name" content="DaikiTakahashi" />
           <meta name="theme-color" content="#000" />
-          <meta name="description" content="this is myapp" />
+          <meta name="description" content="PortfolioPage" />
           <link rel="icon" sizes="192x192" href="/icon-192x192.png" />
           <link rel="icon" href="/favicon.ico" />
           <link rel="manifest" href="/manifest.json" />
