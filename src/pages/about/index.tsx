@@ -1,30 +1,7 @@
 import React from 'react';
-import {
-  ChakraProvider,
-  Stack,
-  Avatar,
-  AvatarBadge,
-  Alert,
-  AlertIcon,
-  AlertTitle,
-  AlertDescription,
-  FormLabel,
-  Input,
-  FormHelperText,
-  FormErrorMessage,
-  Switch,
-  InputGroup,
-  InputRightElement,
-  Icon,
-  Flex,
-  Text,
-  List,
-  ListItem,
-  Divider,
-  Progress,
-} from '@chakra-ui/react';
-import { EmailIcon, CopyIcon } from '@chakra-ui/icons';
+import { Avatar, Flex, Text, List, ListItem, Divider } from '@chakra-ui/react';
 import { Layout } from '../../layout/Layout';
+import { SkillGroup } from '../../components/Molecules/SkillGroup';
 
 const About = () => (
   <Layout height="100vh">
@@ -65,7 +42,7 @@ const About = () => (
               <Text fontSize="xl" letterSpacing="wider">
                 Riml
               </Text>
-              <Text>髙橋 大貴 / Takahashi Daiki</Text>
+              <Text fontSize="sm">髙橋 大貴 / Takahashi Daiki</Text>
             </Flex>
           </Flex>
           <Flex flexDirection="column">
@@ -147,152 +124,16 @@ const About = () => (
                   ml={3}
                   alignItems="stretch"
                 >
-                  <Flex justifyContent="flex-start" alignItems="center" mb={2}>
-                    <CopyIcon boxSize={5} />
-                    <Flex flexDirection="column">
-                      <Text pl={2}>HTML</Text>
-                      <Progress
-                        value={49}
-                        max={100}
-                        colorScheme="whatsapp"
-                        hasStripe
-                        isAnimated
-                        size="lg"
-                        border="1px solid green"
-                        height={3}
-                        minWidth="100px"
-                        ml={2}
-                      />
-                    </Flex>
-                  </Flex>
-                  <Flex justifyContent="flex-start" alignItems="center" mb={2}>
-                    <CopyIcon boxSize={5} />
-                    <Flex flexDirection="column">
-                      <Text pl={3}>SCSS</Text>
-                      <Progress
-                        value={53}
-                        max={100}
-                        colorScheme="whatsapp"
-                        hasStripe
-                        isAnimated
-                        size="lg"
-                        border="1px solid green"
-                        height={3}
-                        minWidth="100px"
-                        ml={2}
-                      />
-                    </Flex>
-                  </Flex>
-                  <Flex justifyContent="flex-start" alignItems="center" mb={2}>
-                    <CopyIcon boxSize={5} />
-                    <Flex flexDirection="column">
-                      <Text pl={3}>JavaScript</Text>
-                      <Progress
-                        value={66}
-                        max={100}
-                        colorScheme="whatsapp"
-                        hasStripe
-                        isAnimated
-                        size="lg"
-                        border="1px solid green"
-                        height={3}
-                        minWidth="100px"
-                        ml={2}
-                      />
-                    </Flex>
-                  </Flex>
-                  <Flex justifyContent="flex-start" alignItems="center" mb={2}>
-                    <CopyIcon boxSize={5} />
-                    <Flex flexDirection="column">
-                      <Text pl={3}>TypeScript</Text>
-                      <Progress
-                        value={66}
-                        max={100}
-                        colorScheme="whatsapp"
-                        hasStripe
-                        isAnimated
-                        size="lg"
-                        border="1px solid green"
-                        height={3}
-                        minWidth="100px"
-                        ml={2}
-                      />
-                    </Flex>
-                  </Flex>
+                  <SkillGroup skillName="HTML" progressValue={49} />
+                  <SkillGroup skillName="SCSS" progressValue={53} />
+                  <SkillGroup skillName="JavaScript" progressValue={66} />
+                  <SkillGroup skillName="TypeScript" progressValue={66} />
                 </Flex>
                 <Flex flexDirection="column" justifyContent="center" ml={10}>
-                  <Flex justifyContent="flex-start" alignItems="center" mb={2}>
-                    <CopyIcon boxSize={5} />
-                    <Flex flexDirection="column">
-                      <Text pl={3}>Next.js</Text>
-                      <Progress
-                        value={68}
-                        max={100}
-                        colorScheme="whatsapp"
-                        hasStripe
-                        isAnimated
-                        size="lg"
-                        border="1px solid green"
-                        height={3}
-                        minWidth="100px"
-                        ml={2}
-                      />
-                    </Flex>
-                  </Flex>
-                  <Flex justifyContent="flex-start" alignItems="center" mb={2}>
-                    <CopyIcon boxSize={5} />
-                    <Flex flexDirection="column">
-                      <Text pl={3}>React.js</Text>
-                      <Progress
-                        value={68}
-                        max={100}
-                        colorScheme="whatsapp"
-                        hasStripe
-                        isAnimated
-                        size="lg"
-                        border="1px solid green"
-                        height={3}
-                        minWidth="100px"
-                        ml={2}
-                      />
-                    </Flex>
-                  </Flex>
-                  <Flex justifyContent="flex-start" alignItems="center" mb={2}>
-                    <CopyIcon boxSize={5} />
-                    <Flex flexDirection="column">
-                      <Text pl={3}>Nuxt.js</Text>
-                      <Progress
-                        value={57}
-                        max={100}
-                        colorScheme="whatsapp"
-                        hasStripe
-                        isAnimated
-                        size="lg"
-                        border="1px solid green"
-                        height={3}
-                        minWidth="100px"
-                        ml={2}
-                      />
-                    </Flex>
-                  </Flex>
-                  <Flex justifyContent="flex-start" alignItems="center" mb={2}>
-                    <CopyIcon boxSize={5} />
-                    <Flex flexDirection="column">
-                      <Text pl={3}>Vue.js</Text>
-                      <Progress
-                        value={55}
-                        max={100}
-                        colorScheme="whatsapp"
-                        hasStripe
-                        isAnimated
-                        size="lg"
-                        border="1px solid green"
-                        height={3}
-                        minWidth="100px"
-                        ml={2}
-                      />
-                    </Flex>
-                  </Flex>
+                  <SkillGroup skillName="Next.js" progressValue={68} />
+                  <SkillGroup skillName="React.js" progressValue={68} />
+                  <SkillGroup skillName="Nuxt.js" progressValue={57} />
+                  <SkillGroup skillName="Vue.js" progressValue={55} />
                 </Flex>
               </Flex>
             </Flex>
