@@ -38,6 +38,7 @@ const Work = () => {
           <Flex justifyContent="center" alignItems="center" width="100%" mb={5}>
             <Image
               src={workList.workList.image}
+              fallbackSrc={'https://via.placeholder.com/150'}
               objectFit="cover"
               boxSize="80%"
               alt="appImage"

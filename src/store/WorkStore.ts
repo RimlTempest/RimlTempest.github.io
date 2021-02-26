@@ -6,7 +6,11 @@ export type WorkState = {
 }
 
 const initialState: WorkState = {
-  workList: null
+  workList: {
+    image: 'https://via.placeholder.com/150',
+    appName: undefined,
+    description: undefined
+  }
 }
 
 export const workState = atom({
