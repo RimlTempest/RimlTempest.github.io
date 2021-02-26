@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Image, Text, useColorModeValue } from '@chakra-ui/react';
-import { ArrowRightIcon } from '@chakra-ui/icons';
+import { HiOutlineLockClosed } from 'react-icons/hi';
 import { CardProps } from '../../types/CardTypes';
 
 export const ComingSoonCard = (props: CardProps) => {
@@ -13,7 +13,7 @@ export const ComingSoonCard = (props: CardProps) => {
       p={5}
     >
       <Box
-        bg={useColorModeValue('whiteAlpha.800', 'blackAlpha.800')} // "#ffffff"
+        bg={useColorModeValue('whiteAlpha.800', 'grayAlpha.200')} // "#ffffff"
         borderRadius="20px"
         width="250px"
         border="1px solid lightgrey"
@@ -52,12 +52,7 @@ export const ComingSoonCard = (props: CardProps) => {
             flexDirection="row"
             justifyContent="flex-end"
           >
-            <ArrowRightIcon
-              boxSize={5}
-              border="2px solid gray"
-              borderRadius="50%"
-              p={4}
-            />
+            <HiOutlineLockClosed />
           </Box>
         </Box>
       </Box>

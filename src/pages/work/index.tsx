@@ -9,25 +9,25 @@ const Work = () => {
   const testData = [
     {
       image:
-        'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
-      appName: 'testApp',
+        'https://github.com/RimlTempest/dotart/blob/develop/Front/dotart/static/icon.png?raw=true',
+      appName: 'DotArt',
       description:
-        '説明ああああああああああああああああああああああああああああああああああああああああああああああああああああああ',
-      navigationLink: 'testApp',
+        'Webでかんたんにドット絵が書けるサービスです。\n https://github.com/RimlTempest/dotart',
+      navigationLink: 'DotArt',
     },
     {
-      image:
-        'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
-      appName: 'AAAAAA',
-      description: 'あいうえお',
-      navigationLink: '12345',
+      image: '/noimage.jpg',
+      appName: 'Kizuna',
+      description:
+        'あいことばを入力するだけで通話できる簡易ビデオ通話アプリ。現在プライベート設定中\n https://github.com/RimlTempest/d4tj',
+      navigationLink: 'Kizuna',
     },
     {
-      image:
-        'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
-      appName: 'BBBBBB',
-      description: 'aaaaaaaaaaaaaaaaaaaaaaaaaaa',
-      navigationLink: 'component',
+      image: '/noimage.jpg',
+      appName: '福島タイピング',
+      description:
+        '福島県を題材にしたタイピングアプリ。現在プライベート設定中\n https://github.com/RimlTempest/chiikikassei',
+      navigationLink: 'F_Typing',
     },
   ];
   return (
