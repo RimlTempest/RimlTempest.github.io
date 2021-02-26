@@ -2,14 +2,7 @@ import React from 'react';
 import { Box, Image, Text, useColorModeValue } from '@chakra-ui/react';
 import { ArrowRightIcon } from '@chakra-ui/icons';
 import { useRouter } from 'next/router';
-
-type WorkCardProps = {
-  fallbackSrc?: string;
-  image: string;
-  appName: string;
-  description: string;
-  navigationLink: string;
-};
+import { WorkCardProps } from '../../types/CardTypes';
 
 export const WorkCard = (props: WorkCardProps) => {
   const router = useRouter();

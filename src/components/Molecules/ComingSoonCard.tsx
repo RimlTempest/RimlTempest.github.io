@@ -1,12 +1,9 @@
 import React from 'react';
 import { Box, Image, Text, useColorModeValue } from '@chakra-ui/react';
 import { ArrowRightIcon } from '@chakra-ui/icons';
+import { CardProps } from '../../types/CardTypes';
 
-type ComingSoonCard = {
-  fallbackSrc?: string;
-};
-
-export const ComingSoonCard = (props: ComingSoonCard) => {
+export const ComingSoonCard = (props: CardProps) => {
   return (
     <Box
       display="flex"
