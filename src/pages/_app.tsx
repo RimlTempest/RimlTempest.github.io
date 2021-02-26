@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { ChakraProvider, ColorModeProvider } from '@chakra-ui/react';
+import { RecoilRoot } from 'recoil';
 import { extendTheme } from '@chakra-ui/react';
 
 const colors = {
@@ -14,13 +15,15 @@ const theme = extendTheme({ colors });
 function MyApp({ Component, pageProps }) {
   return (
     <ChakraProvider resetCSS theme={theme}>
-      <ColorModeProvider
-        options={{
-          useSystemColorMode: true,
-        }}
-      >
-        <Component {...pageProps} />
-      </ColorModeProvider>
+      <RecoilRoot>
+        <ColorModeProvider
+          options={{
+            useSystemColorMode: true,
+          }}
+        >
+          <Component {...pageProps} />
+        </ColorModeProvider>
+      </RecoilRoot>
     </ChakraProvider>
   );
 }
