@@ -14,7 +14,7 @@ type WorkCardProps = {
 export const WorkCard = (props: WorkCardProps) => {
   const router = useRouter();
   const BoxClicked = () => {
-    router.push(props.navigationLink);
+    router.push('work/' + props.navigationLink);
   };
 
   return (
@@ -25,6 +25,7 @@ export const WorkCard = (props: WorkCardProps) => {
       justifyContent="center"
       p={5}
       onClick={BoxClicked}
+      cursor="pointer"
     >
       <Box
         bg="#ffffff"
