@@ -41,6 +41,7 @@ const Work = () => {
               fallbackSrc={'https://via.placeholder.com/150'}
               objectFit="cover"
               boxSize="80%"
+              maxW={'300px'}
               alt="appImage"
             />
           </Flex>
