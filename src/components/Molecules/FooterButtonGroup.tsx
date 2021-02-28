@@ -15,7 +15,7 @@ export const FooterButtonGroup = () => {
       <SocialButton label={'Github'} href={github}>
         <FaGithub />
       </SocialButton>
-      <SocialButton label={'Instagram'} href={facebook}>
+      <SocialButton label={'Facebook'} href={facebook}>
         <FaFacebook />
       </SocialButton>
     </Stack>
