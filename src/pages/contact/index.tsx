@@ -1,33 +1,14 @@
 import React from 'react';
-import {
-  ChakraProvider,
-  Stack,
-  Avatar,
-  AvatarBadge,
-  Alert,
-  AlertIcon,
-  AlertTitle,
-  AlertDescription,
-  FormLabel,
-  Input,
-  FormHelperText,
-  FormErrorMessage,
-  Switch,
-  InputGroup,
-  InputRightElement,
-  Icon,
-  Flex,
-  Text,
-  Tag,
-  IconButton,
-} from '@chakra-ui/react';
-import { FaFacebook, FaTwitter, FaGithub } from 'react-icons/fa';
-import { EmailIcon, InfoOutlineIcon, CopyIcon } from '@chakra-ui/icons';
-import { Layout } from '../../layout/Layout';
+import { Flex, Text, Grid } from '@chakra-ui/react';
+import { FullLayout } from '../../layout/FullLayout';
+import { SnsCard } from '../../components/Organisms/SnsCard';
+import { SubSnsCard } from '../../components/Organisms/SubSnsCard';
+import { ACGameCard } from '../../components/Organisms/ACGameCard';
+import { MobileGameCard } from '../../components/Organisms/MobileGameCard';
 
-const Contact = () => (
-  <Layout height="100vh">
-    <Flex flexDirection="column" p={10} width="100%" height="100%">
+const Contact = () => {
+  return (
+    <FullLayout>
       <Flex
         flexDirection="row"
         justifyContent="flex-start"
@@ -42,95 +23,28 @@ const Contact = () => (
       <Flex
         overflow="visible"
         justifyContent="center"
-        alignItems="flex-start"
+        alignItems="center"
         flexDirection="column"
         opacity={1}
+        m={4}
       >
-        <Flex
-          justifyContent="center"
-          alignItems="flex-start"
-          flexDirection="column"
-          mb="10vh"
-          backgroundColor="whiteAlpha.300"
-          border="1px"
-          p={5}
-          borderRadius="20px"
+        <Grid
+          templateColumns={{
+            base: 'repeat(auto-fit, minmax(340px, 1fr))',
+            sm: 'repeat(auto-fit, minmax(240px, 1fr))',
+            md: 'repeat(auto-fit, minmax(340px, 1fr))',
+            lg: 'repeat(2, minmax(500px, 1fr))',
+          }}
+          gap={5}
         >
-          <Tag
-            variant="solid"
-            size="lg"
-            rounded="lg"
-            colorScheme="red"
-            mb="5px"
-          >
-            メイン連絡先
-          </Tag>
-          <Flex
-            justifyContent="center"
-            alignItems="center"
-            flexDirection="row"
-            ml="5vh"
-            mt="3vh"
-          >
-            <IconButton
-              aria-label="icon"
-              icon={<FaTwitter />}
-              size="lg"
-              mr={5}
-            />
-            <IconButton
-              aria-label="icon"
-              icon={<FaFacebook />}
-              size="lg"
-              mr={5}
-            />
-            <IconButton aria-label="icon" icon={<FaGithub />} size="lg" />
-          </Flex>
-        </Flex>
-        <Flex
-          justifyContent="center"
-          alignItems="flex-start"
-          flexDirection="column"
-          mb="10vh"
-          backgroundColor="whiteAlpha.300"
-          border="1px"
-          p={5}
-          borderRadius="20px"
-        >
-          <Tag
-            variant="solid"
-            size="lg"
-            rounded="lg"
-            colorScheme="twitter"
-            mb="5px"
-          >
-            予備連絡先
-          </Tag>
-          <Flex
-            justifyContent="center"
-            alignItems="center"
-            flexDirection="row"
-            ml="5vh"
-            mt="3vh"
-          >
-            <IconButton
-              aria-label="icon"
-              icon={<FaTwitter />}
-              size="lg"
-              mr={5}
-            />
-            <IconButton
-              aria-label="icon"
-              icon={<FaFacebook />}
-              size="lg"
-              mr={5}
-            />
-            <IconButton aria-label="icon" icon={<FaGithub />} size="lg" />
-          </Flex>
-        </Flex>
+          <SnsCard title="Contact" color="red" />
+          <SubSnsCard title="SubContact" color="twitter" />
+          <ACGameCard />
+          <MobileGameCard />
+        </Grid>
       </Flex>
-    </Flex>
-  </Layout>
-);
+    </FullLayout>
+  );
+};
 
 export default Contact;
