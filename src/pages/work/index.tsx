@@ -2,8 +2,8 @@ import React from 'react';
 import { Box, Image, Text, Flex } from '@chakra-ui/react';
 import { ArrowRightIcon } from '@chakra-ui/icons';
 import { Layout } from '../../layout/Layout';
-import { WorkCard } from '../../components/Molecules/WorkCard';
-import { ComingSoonCard } from '../../components/Molecules/ComingSoonCard';
+import { WorkCard } from '../../components/Organisms/WorkCard';
+import { ComingSoonCard } from '../../components/Organisms/ComingSoonCard';
 
 const Work = () => {
   const testData = [
