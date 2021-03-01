@@ -38,3 +38,12 @@ yarn-error.log*
 /public/sw.js.map
 /public/workbox-*.js
 /public/workbox-*.map
+
+# テストのスナップショット
+/test/components/Atoms/__snapshots__/
+/test/components/Molecules/__snapshots__/
+/test/components/Organisms/__snapshots__/
+/test/pages/__snapshots__/
+/test/layout/__snapshots__/
+/test/store/__snapshots__/
+/test/types/__snapshots__/
