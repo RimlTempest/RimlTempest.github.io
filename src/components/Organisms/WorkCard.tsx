@@ -1,13 +1,13 @@
 import React from 'react';
 import { Box, Image, Text, useColorModeValue } from '@chakra-ui/react';
 import { BsBoxArrowUpRight } from 'react-icons/bs';
-import { useRouter } from 'next/router';
+import { NextRouter, useRouter } from 'next/router';
 import { WorkCardProps } from '../../types/CardTypes';
 import { useRecoilState } from 'recoil';
 import { workState } from '../../store/WorkStore';
 
-export const WorkCard = (props: WorkCardProps) => {
-  const router = useRouter();
+export const WorkCard: React.FC<WorkCardProps> = (props: WorkCardProps) => {
+  const router: NextRouter = useRouter();
   const [workList, setWorkList] = useRecoilState(workState);
 
   const BoxClicked = () => {
