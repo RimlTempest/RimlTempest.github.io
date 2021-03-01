@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useRouter } from 'next/router';
+import { NextRouter, useRouter } from 'next/router';
 import {
   Box,
   Flex,
@@ -32,7 +32,7 @@ const colorPink = {
 
 export const Header: React.FC = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const router = useRouter();
+  const router: NextRouter = useRouter();
 
   return (
     <>
