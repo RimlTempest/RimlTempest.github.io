@@ -9,13 +9,7 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react';
 import { CopyIcon } from '@chakra-ui/icons';
-
-type GameGroupProps = {
-  gameName: string;
-  friendCode: string;
-  tagColor: string;
-  copiedClicked: any;
-};
+import { GameGroupProps } from '../../types/GameGroupTypes';
 
 const colorGreen = {
   color: 'green.400',
@@ -25,7 +19,7 @@ const colorPink = {
   color: 'pink.200',
 };
 
-export const GameGroup = (props: GameGroupProps) => {
+export const GameGroup: React.FC<GameGroupProps> = (props: GameGroupProps) => {
   return (
     <Flex
       justifyContent="flex-start"
