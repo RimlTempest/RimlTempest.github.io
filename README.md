@@ -14,7 +14,3 @@ ESLint
   
 JEST 単体TEST実行  
 `yarn test`
-  
-  
-JEST TEST実行  
-`yarn test-all`
