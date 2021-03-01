@@ -19,6 +19,13 @@ type FrindCodeTypes = {
   PROSEKA: string;
 };
 
+type GameItemType = {
+  id: number,
+  title: string,
+  friendCode: string,
+  tagColor: string
+}
+
 /**
 * 各ゲームのID
 * @constant CHUNITHM 値は0
@@ -60,3 +67,45 @@ export const FrindCodes: FrindCodeTypes = {
   GARUPA: '349329',
   PROSEKA: '5178262687051784',
 }
+
+/**
+* アーケードゲームのテストデータ
+*/
+export const acGameItems: GameItemType[] = [
+  {
+    id: 0,
+    title: 'CHUNITHM',
+    friendCode: FrindCodes.CHUNITHM,
+    tagColor: 'yellow.400',
+  },
+  {
+    id: 1,
+    title: 'maimai',
+    friendCode: FrindCodes.MAIMAI,
+    tagColor: 'pink.400',
+  },
+];
+
+/**
+* モバイルゲームのテストデータ
+*/
+export const mobileGameItems: GameItemType[] = [
+  {
+    id: 2,
+    title: 'D4DJ',
+    friendCode: FrindCodes.D4DJ,
+    tagColor: 'purple.500',
+  },
+  {
+    id: 3,
+    title: 'ガルパ',
+    friendCode: FrindCodes.GARUPA,
+    tagColor: 'red.500',
+  },
+  {
+    id: 4,
+    title: 'プロセカ',
+    friendCode: FrindCodes.PROSEKA,
+    tagColor: 'linkedin.500',
+  },
+];
