@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Text, Box, Flex, useColorModeValue, Avatar } from '@chakra-ui/react';
 import { Layout } from '../layout/Layout';
 
@@ -10,7 +10,7 @@ const colorPink = {
   color: 'pink.200',
 };
 
-const Index = () => {
+const Index: React.FC = () => {
   return (
     <Layout height="100vh">
       <Flex

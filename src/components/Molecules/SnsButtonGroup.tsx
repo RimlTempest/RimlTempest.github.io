@@ -4,7 +4,7 @@ import { SocialButton } from '../Atoms/SocialButton';
 import { ImFacebook, ImTwitter } from 'react-icons/im';
 import { SNS } from '../../types/Sns';
 
-export const SnsButtonGroup = () => {
+export const SnsButtonGroup: React.FC = () => {
   return (
     <>
       <chakra.div mr={5}>

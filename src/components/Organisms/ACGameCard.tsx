@@ -1,29 +1,14 @@
 import React, { useState } from 'react';
 import { Flex, Tag, useClipboard, useToast } from '@chakra-ui/react';
-import { FrindCodes, Games } from '../../types/Game';
+import { Games, acGameItems } from '../../types/Game';
 import { GameGroup } from '../../components/Molecules/GameGroup';
 
-const acGameItems = [
-  {
-    id: 0,
-    title: 'CHUNITHM',
-    friendCode: FrindCodes.CHUNITHM,
-    tagColor: 'yellow.400',
-  },
-  {
-    id: 1,
-    title: 'maimai',
-    friendCode: FrindCodes.MAIMAI,
-    tagColor: 'pink.400',
-  },
-];
-
-export const ACGameCard = () => {
+export const ACGameCard: React.FC = () => {
   const [copyText, setCopyText] = useState('');
   const toast = useToast();
   const { onCopy } = useClipboard(copyText);
 
-  const gameCopyClicked = (id: any) => {
+  const gameCopyClicked: (id: number) => void = (id: number) => {
     switch (id) {
       case Games.CHUNITHM:
         setCopyText(acGameItems.find((item) => item.id === id).friendCode);

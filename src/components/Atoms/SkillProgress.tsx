@@ -1,13 +1,10 @@
 import React from 'react';
 import { Progress } from '@chakra-ui/react';
+import { SkillProgressProps } from '../../types/SkillProgressTypes';
 
-type SkillProgressProps = {
-  max?: number;
-  value: number;
-  colorScheme?: string;
-};
-
-export const SkillProgress = (props: SkillProgressProps) => {
+export const SkillProgress: React.FC<SkillProgressProps> = (
+  props: SkillProgressProps
+) => {
   return (
     <Progress
       value={props.value}

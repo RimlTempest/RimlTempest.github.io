@@ -2,16 +2,16 @@ import {
   useColorMode,
   Switch,
   useColorModeValue,
-  chakra,
   Flex,
 } from '@chakra-ui/react';
 import React from 'react';
 import { FaMoon, FaSun } from 'react-icons/fa';
+import { IconType } from 'react-icons/lib';
 
-export const DarkModeSwitch = () => {
+export const DarkModeSwitch: React.FC = () => {
   const { colorMode, toggleColorMode } = useColorMode();
-  const isDark = colorMode === 'dark';
-  const SwitchIcon = useColorModeValue(FaMoon, FaSun);
+  const isDark: boolean = colorMode === 'dark';
+  const SwitchIcon: IconType = useColorModeValue(FaMoon, FaSun);
   return (
     <Flex justifyContent="center" alignItems="center" direction="row">
       <SwitchIcon />

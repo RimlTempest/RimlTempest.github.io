@@ -1,11 +1,14 @@
+import { ReactNode } from 'react';
 import { Flex, useColorMode } from '@chakra-ui/react';
 import { Header } from '../components/Organisms/Header';
 import { Footer } from '../components/Organisms/Footer';
+import { ColorType } from '../types/ColorTypes';
+import { LayoutProps } from '../types/LayoutTypes';
 
-export const Layout = (props) => {
+export const Layout: React.FC<LayoutProps> = (props) => {
   const { colorMode } = useColorMode();
-  const bgColor = { light: 'gray.50', dark: 'gray.900' };
-  const color = { light: 'black', dark: 'white' };
+  const bgColor: ColorType = { light: 'gray.50', dark: 'gray.900' };
+  const color: ColorType = { light: 'black', dark: 'white' };
 
   return (
     <>

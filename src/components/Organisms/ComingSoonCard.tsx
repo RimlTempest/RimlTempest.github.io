@@ -3,7 +3,7 @@ import { Box, Image, Text, useColorModeValue } from '@chakra-ui/react';
 import { HiOutlineLockClosed } from 'react-icons/hi';
 import { CardProps } from '../../types/CardTypes';
 
-export const ComingSoonCard = (props: CardProps) => {
+export const ComingSoonCard: React.FC<CardProps> = (props: CardProps) => {
   return (
     <Box
       display="flex"

@@ -1,13 +1,9 @@
 import React from 'react';
 import { Flex, Tag } from '@chakra-ui/react';
 import { SnsButtonGroup } from '../Molecules/SnsButtonGroup';
+import { SnsCardProps } from '../../types/CardTypes';
 
-type SnsCardProps = {
-  title: string;
-  color: string;
-};
-
-export const SnsCard = (props: SnsCardProps) => {
+export const SnsCard: React.FC<SnsCardProps> = (props: SnsCardProps) => {
   return (
     <Flex
       justifyContent="center"

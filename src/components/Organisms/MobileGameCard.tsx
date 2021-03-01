@@ -1,30 +1,9 @@
 import React, { useState } from 'react';
 import { Text, Flex, Tag, useClipboard, useToast } from '@chakra-ui/react';
-import { FrindCodes, Games } from '../../types/Game';
+import { Games, mobileGameItems } from '../../types/Game';
 import { GameGroup } from '../../components/Molecules/GameGroup';
 
-const mobileGameItems = [
-  {
-    id: 2,
-    title: 'D4DJ',
-    friendCode: FrindCodes.D4DJ,
-    tagColor: 'purple.500',
-  },
-  {
-    id: 3,
-    title: 'ガルパ',
-    friendCode: FrindCodes.GARUPA,
-    tagColor: 'red.500',
-  },
-  {
-    id: 4,
-    title: 'プロセカ',
-    friendCode: FrindCodes.PROSEKA,
-    tagColor: 'linkedin.500',
-  },
-];
-
-export const MobileGameCard = () => {
+export const MobileGameCard: React.FC = () => {
   const [copyText, setCopyText] = useState('');
   const toast = useToast();
   const { onCopy } = useClipboard(copyText);
