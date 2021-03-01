@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Flex, Text, Image } from '@chakra-ui/react';
 import { Layout } from '../../layout/Layout';
-import { useRouter } from 'next/router';
+import { NextRouter, useRouter } from 'next/router';
 import { useRecoilState } from 'recoil';
 import { workState } from '../../store/WorkStore';
 
-const Work = () => {
-  const router = useRouter();
+const Works: React.FC = () => {
+  const router: NextRouter = useRouter();
   const [query, setPost] = useState(router.query);
   const [workList, setWorkList] = useRecoilState(workState);
 
@@ -64,4 +64,4 @@ const Work = () => {
   );
 };
 
-export default Work;
+export default Works;

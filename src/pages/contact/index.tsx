@@ -6,7 +6,7 @@ import { SubSnsCard } from '../../components/Organisms/SubSnsCard';
 import { ACGameCard } from '../../components/Organisms/ACGameCard';
 import { MobileGameCard } from '../../components/Organisms/MobileGameCard';
 
-const Contact = () => {
+const Contact: React.FC = () => {
   return (
     <FullLayout>
       <Flex
