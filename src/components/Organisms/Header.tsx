@@ -29,7 +29,7 @@ const colorPink = {
 export const Header: React.FC = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const router: NextRouter = useRouter();
-  const { locale, i18n } = useLocale();
+  const { i18n } = useLocale();
 
   const Links = [
     { id: 0, name: i18n.TOPPAGE_HEADER_TEXT, path: '/' },
@@ -38,16 +38,16 @@ export const Header: React.FC = () => {
     { id: 3, name: i18n.CONTACT_HEADER_TEXT, path: '/contact' },
   ];
 
-  const localeHandler = (e) => {
-    console.log(e.target.value, locale);
-    if (locale !== e.target.value) {
-      if ('en' === e.target.value) {
-        router.push('/', '/', { locale: 'en' });
-      } else {
-        router.push('/', '/', { locale: 'ja' });
-      }
-    }
-  };
+  // const localeHandler = (e) => {
+  //   console.log(e.target.value, locale);
+  //   if (locale !== e.target.value) {
+  //     if ('en' === e.target.value) {
+  //       router.push('/', '/', { locale: 'en' });
+  //     } else {
+  //       router.push('/', '/', { locale: 'ja' });
+  //     }
+  //   }
+  // };
 
   return (
     <>
@@ -95,10 +95,10 @@ export const Header: React.FC = () => {
           </HStack>
           <Flex alignItems={'center'}>
             <DarkModeSwitch />
-            <Select defaultValue="ja" ml={1} onChange={localeHandler}>
+            {/* <Select defaultValue="ja" ml={1} onChange={localeHandler}>
               <option value="ja">日本語</option>
               <option value="en">English</option>
-            </Select>
+            </Select> */}
           </Flex>
         </Flex>
 
