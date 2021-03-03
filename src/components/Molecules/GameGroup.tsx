@@ -10,6 +10,7 @@ import {
 } from '@chakra-ui/react';
 import { CopyIcon } from '@chakra-ui/icons';
 import { GameGroupProps } from '../../types/GameGroupTypes';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 const colorGreen = {
   color: 'green.400',
@@ -50,17 +51,19 @@ export const GameGroup: React.FC<GameGroupProps> = (props: GameGroupProps) => {
           </Text>
         </Code>
       </Stack>
-      <Button
-        variant="outline"
-        size="sm"
-        rightIcon={<CopyIcon />}
-        colorScheme="whatsapp"
-        position="absolute"
-        right="2%"
-        onClick={props.copiedClicked}
-      >
-        Copy
-      </Button>
+      <CopyToClipboard text={props.friendCode}>
+        <Button
+          variant="outline"
+          size="sm"
+          rightIcon={<CopyIcon />}
+          colorScheme="whatsapp"
+          position="absolute"
+          right="2%"
+          onClick={props.copiedClicked}
+        >
+          Copy
+        </Button>
+      </CopyToClipboard>
     </Flex>
   );
 };

@@ -19,7 +19,7 @@ type FrindCodeTypes = {
   PROSEKA: string;
 };
 
-type GameItemType = {
+export type GameItemType = {
   id: number,
   title: string,
   friendCode: string,
