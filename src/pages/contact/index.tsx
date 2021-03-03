@@ -5,8 +5,10 @@ import { SnsCard } from '../../components/Organisms/SnsCard';
 import { SubSnsCard } from '../../components/Organisms/SubSnsCard';
 import { ACGameCard } from '../../components/Organisms/ACGameCard';
 import { MobileGameCard } from '../../components/Organisms/MobileGameCard';
+import { useLocale } from '../../hooks/useLocale';
 
 const Contact: React.FC = () => {
+  const { i18n } = useLocale();
   return (
     <FullLayout>
       <Flex
@@ -17,7 +19,7 @@ const Contact: React.FC = () => {
         mt={5}
       >
         <Text fontSize="3xl" textAlign="center" letterSpacing="wide">
-          Contact
+          {i18n.CONTACT_TITLE}
         </Text>
       </Flex>
       <Flex
@@ -37,8 +39,8 @@ const Contact: React.FC = () => {
           }}
           gap={5}
         >
-          <SnsCard title="Contact" color="red" />
-          <SubSnsCard title="SubContact" color="twitter" />
+          <SnsCard title={i18n.CONTACT_CARD_TITLE} color="red" />
+          <SubSnsCard title={i18n.SUB_CONTACT_CARD_TITLE} color="twitter" />
           <ACGameCard />
           <MobileGameCard />
         </Grid>

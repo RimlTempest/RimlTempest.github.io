@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import { Flex, Tag, useClipboard, useToast } from '@chakra-ui/react';
 import { Games, acGameItems } from '../../types/Game';
 import { GameGroup } from '../../components/Molecules/GameGroup';
+import { useLocale } from '../../hooks/useLocale';
 
 export const ACGameCard: React.FC = () => {
   const [copyText, setCopyText] = useState('');
   const toast = useToast();
   const { onCopy } = useClipboard(copyText);
+  const { locale, i18n } = useLocale();
 
   const gameCopyClicked: (id: number) => void = (id: number) => {
     switch (id) {
@@ -21,9 +23,14 @@ export const ACGameCard: React.FC = () => {
         break;
     }
     toast({
-      title: `${
-        acGameItems.find((item) => item.id === id).title
-      }のフレンドコードをコピーしました。`,
+      title:
+        locale === 'ja'
+          ? `${acGameItems.find((item) => item.id === id).title} ${
+              i18n.FRIEND_CODE_COPY_MESSAGE
+            }`
+          : `${i18n.FRIEND_CODE_COPY_MESSAGE} ${
+              acGameItems.find((item) => item.id === id).title
+            }`,
     });
     onCopy();
   };
@@ -38,7 +45,7 @@ export const ACGameCard: React.FC = () => {
       borderRadius="20px"
     >
       <Tag variant="solid" size="lg" rounded="lg" colorScheme="green" mb="5px">
-        AC Game
+        {i18n.ARCADE_GAME_CARD_TITLE}
       </Tag>
       <Flex
         justifyContent="center"

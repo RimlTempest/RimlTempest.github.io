@@ -9,16 +9,12 @@ import {
   IconButton,
   useDisclosure,
   Stack,
+  Select,
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { DarkModeSwitch } from '../Molecules/DarkModeSwitch';
-
-const Links = [
-  { id: 0, name: 'Profile', path: '/' },
-  { id: 1, name: 'About', path: '/about' },
-  { id: 2, name: 'Works', path: '/work' },
-  { id: 3, name: 'Contact', path: '/contact' },
-];
+import { useLocale } from '../../hooks/useLocale';
+import { RecoilValueReadOnly } from 'recoil';
 
 const colorGreen = {
   header: 'green.300',
@@ -33,6 +29,25 @@ const colorPink = {
 export const Header: React.FC = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const router: NextRouter = useRouter();
+  const { locale, i18n } = useLocale();
+
+  const Links = [
+    { id: 0, name: i18n.TOPPAGE_HEADER_TEXT, path: '/' },
+    { id: 1, name: i18n.ABOUT_HEADER_TEXT, path: '/about' },
+    { id: 2, name: i18n.PRODUCTS_HEADER_TEXT, path: '/work' },
+    { id: 3, name: i18n.CONTACT_HEADER_TEXT, path: '/contact' },
+  ];
+
+  const localeHandler = (e) => {
+    console.log(e.target.value, locale);
+    if (locale !== e.target.value) {
+      if ('en' === e.target.value) {
+        router.push('/', '/', { locale: 'en' });
+      } else {
+        router.push('/', '/', { locale: 'ja' });
+      }
+    }
+  };
 
   return (
     <>
@@ -80,6 +95,10 @@ export const Header: React.FC = () => {
           </HStack>
           <Flex alignItems={'center'}>
             <DarkModeSwitch />
+            <Select defaultValue="ja" ml={1} onChange={localeHandler}>
+              <option value="ja">日本語</option>
+              <option value="en">English</option>
+            </Select>
           </Flex>
         </Flex>
 
