@@ -93,7 +93,6 @@ const About: React.FC = () => {
                             color="green.500"
                           />
                           <List styleType="none" ml={2}>
-                            <ListItem fontSize="sm">Paiza Sランク到達</ListItem>
                             <ListItem fontSize="sm">
                               校内ハッカソン最優秀賞、企業賞
                             </ListItem>

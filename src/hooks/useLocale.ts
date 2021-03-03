@@ -4,6 +4,6 @@ import { en } from '../../locales/en';
 
 export const useLocale = () => {
     const { locale } = useRouter();
-    const i18n = locale === "ja" ? ja : en;
+    const i18n = ja; // locale === "ja" ? ja : en;
     return { locale, i18n }
 }
