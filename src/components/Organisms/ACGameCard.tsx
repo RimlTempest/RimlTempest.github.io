@@ -8,7 +8,7 @@ export const ACGameCard: React.FC = () => {
   const [copyText, setCopyText] = useState('');
   const toast = useToast();
   const { onCopy } = useClipboard(copyText);
-  const { locale, i18n } = useLocale();
+  const { /*locale,*/ i18n } = useLocale();
 
   const gameCopyClicked: (id: number) => void = (id: number) => {
     switch (id) {
@@ -23,14 +23,16 @@ export const ACGameCard: React.FC = () => {
         break;
     }
     toast({
-      title:
-        locale === 'ja'
-          ? `${acGameItems.find((item) => item.id === id).title} ${
-              i18n.FRIEND_CODE_COPY_MESSAGE
-            }`
-          : `${i18n.FRIEND_CODE_COPY_MESSAGE} ${
-              acGameItems.find((item) => item.id === id).title
-            }`,
+      title: `${acGameItems.find((item) => item.id === id).title} ${
+        i18n.FRIEND_CODE_COPY_MESSAGE
+      }`,
+      // locale === 'ja'
+      //   ? `${acGameItems.find((item) => item.id === id).title} ${
+      //       i18n.FRIEND_CODE_COPY_MESSAGE
+      //     }`
+      //   : `${i18n.FRIEND_CODE_COPY_MESSAGE} ${
+      //       acGameItems.find((item) => item.id === id).title
+      //     }`,
     });
     onCopy();
   };
