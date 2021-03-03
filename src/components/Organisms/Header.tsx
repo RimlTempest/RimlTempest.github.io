@@ -9,12 +9,10 @@ import {
   IconButton,
   useDisclosure,
   Stack,
-  Select,
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { DarkModeSwitch } from '../Molecules/DarkModeSwitch';
 import { useLocale } from '../../hooks/useLocale';
-import { RecoilValueReadOnly } from 'recoil';
 
 const colorGreen = {
   header: 'green.300',
