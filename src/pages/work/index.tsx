@@ -4,8 +4,10 @@ import { Layout } from '../../layout/Layout';
 import { WorkCard } from '../../components/Organisms/WorkCard';
 import { ComingSoonCard } from '../../components/Organisms/ComingSoonCard';
 import { WorkTestData } from '../../types/Work';
+import { useLocale } from '../../hooks/useLocale';
 
 const Work: React.FC = () => {
+  const { i18n } = useLocale();
   return (
     <Layout height="100vh">
       <Flex flexDirection="column" p={10} width="100%" height="100%">
@@ -17,7 +19,7 @@ const Work: React.FC = () => {
           mt={5}
         >
           <Text fontSize="3xl" textAlign="center" letterSpacing="wide">
-            Works
+            {i18n.PRODUCTS_TITLE}
           </Text>
         </Flex>
         <Flex

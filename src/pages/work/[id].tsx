@@ -4,11 +4,13 @@ import { Layout } from '../../layout/Layout';
 import { NextRouter, useRouter } from 'next/router';
 import { useRecoilState } from 'recoil';
 import { workState } from '../../store/WorkStore';
+import { useLocale } from '../../hooks/useLocale';
 
 const Works: React.FC = () => {
   const router: NextRouter = useRouter();
   const [query, setPost] = useState(router.query);
   const [workList, setWorkList] = useRecoilState(workState);
+  const { i18n } = useLocale();
 
   useEffect(() => {
     setPost(router.query);
@@ -25,7 +27,7 @@ const Works: React.FC = () => {
           mt={5}
         >
           <Text fontSize="3xl" textAlign="center" letterSpacing="wide">
-            Work
+            {i18n.PRODUCT_TITLE}
           </Text>
         </Flex>
         <Flex
