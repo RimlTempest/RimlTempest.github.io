@@ -1,34 +1,18 @@
-import React, { useState } from 'react';
-import { Text, Flex, Tag, useClipboard, useToast } from '@chakra-ui/react';
-import { Games, mobileGameItems } from '../../types/Game';
+import React from 'react';
+import { Flex, Tag, useToast } from '@chakra-ui/react';
+import { mobileGameItems } from '../../types/Game';
 import { GameGroup } from '../../components/Molecules/GameGroup';
 import { useLocale } from '../../hooks/useLocale';
+import { useGameItem } from '../../hooks/useGameItem';
 
 export const MobileGameCard: React.FC = () => {
-  const [copyText, setCopyText] = useState('');
   const toast = useToast();
-  const { onCopy } = useClipboard(copyText);
   const { /*locale*/ i18n } = useLocale();
 
-  const gameCopyClicked = (id: any) => {
-    switch (id) {
-      case Games.D4DJ:
-        setCopyText(mobileGameItems.find((item) => item.id === id).friendCode);
-        break;
-      case Games.GARUPA:
-        setCopyText(mobileGameItems.find((item) => item.id === id).friendCode);
-        break;
-      case Games.PROSEKA:
-        setCopyText(mobileGameItems.find((item) => item.id === id).friendCode);
-        break;
-
-      default:
-        break;
-    }
+  const gameCopyClicked = (id: number) => {
+    const { ret } = useGameItem(id);
     toast({
-      title: `${mobileGameItems.find((item) => item.id === id).title} ${
-        i18n.FRIEND_CODE_COPY_MESSAGE
-      }`,
+      title: `${ret.title} ${i18n.FRIEND_CODE_COPY_MESSAGE}`,
       // locale === 'ja'
       //   ? `${mobileGameItems.find((item) => item.id === id).title} ${
       //       i18n.FRIEND_CODE_COPY_MESSAGE
@@ -37,7 +21,6 @@ export const MobileGameCard: React.FC = () => {
       //       mobileGameItems.find((item) => item.id === id).title
       //     }`,
     });
-    onCopy();
   };
   return (
     <Flex
