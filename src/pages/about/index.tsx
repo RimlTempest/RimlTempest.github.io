@@ -1,11 +1,13 @@
 import React from 'react';
 import { Avatar, Flex, Text, List, ListItem, Divider } from '@chakra-ui/react';
-import { Layout } from '../../layout/Layout';
 import { SkillGroup } from '../../components/Molecules/SkillGroup';
+import { FullLayout } from '../../layout/FullLayout';
+import { useLocale } from '../../hooks/useLocale';
 
 const About: React.FC = () => {
+  const { i18n } = useLocale();
   return (
-    <Layout height="100vh">
+    <FullLayout>
       <Flex flexDirection="column" pr={10} pl={10} width="100%" height="100%">
         <Flex
           flexDirection="row"
@@ -15,7 +17,7 @@ const About: React.FC = () => {
           mt={5}
         >
           <Text fontSize="3xl" textAlign="center" letterSpacing="wide">
-            About
+            {i18n.ABOUT_TITLE}
           </Text>
         </Flex>
         <Flex
@@ -144,7 +146,7 @@ const About: React.FC = () => {
           </Flex>
         </Flex>
       </Flex>
-    </Layout>
+    </FullLayout>
   );
 };
 

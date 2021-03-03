@@ -1,8 +1,10 @@
 import React from 'react';
 import { Flex, Tag, Text } from '@chakra-ui/react';
 import { SnsCardProps } from '../../types/CardTypes';
+import { useLocale } from '../../hooks/useLocale';
 
 export const SubSnsCard: React.FC<SnsCardProps> = (props: SnsCardProps) => {
+  const { i18n } = useLocale();
   return (
     <Flex
       justifyContent="center"
@@ -29,7 +31,7 @@ export const SubSnsCard: React.FC<SnsCardProps> = (props: SnsCardProps) => {
         mt="3vh"
         width="100%"
       >
-        <Text fontSize="2xl">Coming Soon...</Text>
+        <Text fontSize="2xl">{i18n.FUTURE_RELEASE}</Text>
       </Flex>
     </Flex>
   );

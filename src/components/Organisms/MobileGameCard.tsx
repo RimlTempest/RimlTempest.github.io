@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import { Text, Flex, Tag, useClipboard, useToast } from '@chakra-ui/react';
 import { Games, mobileGameItems } from '../../types/Game';
 import { GameGroup } from '../../components/Molecules/GameGroup';
+import { useLocale } from '../../hooks/useLocale';
 
 export const MobileGameCard: React.FC = () => {
   const [copyText, setCopyText] = useState('');
   const toast = useToast();
   const { onCopy } = useClipboard(copyText);
+  const { locale, i18n } = useLocale();
 
   const gameCopyClicked = (id: any) => {
     switch (id) {
@@ -24,8 +26,14 @@ export const MobileGameCard: React.FC = () => {
         break;
     }
     toast({
-      title: `${mobileGameItems.find((item) => item.id === id).title}
-            のフレンドコードをコピーしました。`,
+      title:
+        locale === 'ja'
+          ? `${mobileGameItems.find((item) => item.id === id).title} ${
+              i18n.FRIEND_CODE_COPY_MESSAGE
+            }`
+          : `${i18n.FRIEND_CODE_COPY_MESSAGE} ${
+              mobileGameItems.find((item) => item.id === id).title
+            }`,
     });
     onCopy();
   };
@@ -40,7 +48,7 @@ export const MobileGameCard: React.FC = () => {
       p={5}
     >
       <Tag variant="solid" size="lg" rounded="lg" colorScheme="gray">
-        <Text>Mobile Game</Text>
+        {i18n.MOBILE_GAME_CARD_TITLE}
       </Tag>
       <Flex
         justifyContent="center"
