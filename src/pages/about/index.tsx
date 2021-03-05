@@ -188,16 +188,16 @@ const About: React.FC = () => {
                     width="100%"
                   >
                     <TabList mb="1em" width="100%">
-                      <Tab>プログラミング</Tab>
-                      <Tab>フレームワーク</Tab>
+                      <Tab whiteSpace="nowrap">プログラミング</Tab>
+                      <Tab whiteSpace="nowrap">フレームワーク</Tab>
                     </TabList>
                     <TabPanels>
                       <TabPanel>
                         <Table size="sm">
                           <Thead>
                             <Tr>
-                              <Th>言語</Th>
-                              <Th>学習率</Th>
+                              <Th textAlign="center">言語</Th>
+                              <Th textAlign="center">学習率</Th>
                             </Tr>
                           </Thead>
                           <Tbody>
@@ -218,8 +218,10 @@ const About: React.FC = () => {
                         <Table size="sm">
                           <Thead>
                             <Tr>
-                              <Th>フレームワーク</Th>
-                              <Th>学習率</Th>
+                              <Th textAlign="center" whiteSpace="nowrap">
+                                フレームワーク
+                              </Th>
+                              <Th textAlign="center">学習率</Th>
                             </Tr>
                           </Thead>
                           <Tbody>
