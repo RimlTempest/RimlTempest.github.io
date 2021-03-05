@@ -5,9 +5,10 @@ import { WorkCard } from '../../components/Organisms/WorkCard';
 import { ComingSoonCard } from '../../components/Organisms/ComingSoonCard';
 import { WorkTestData } from '../../types/Work';
 import { useLocale } from '../../hooks/useLocale';
+import { Locale } from '../../../locales/localeTypes';
 
 const Work: React.FC = () => {
-  const { i18n } = useLocale();
+  const { i18n }: Locale = useLocale();
   return (
     <Layout height="100vh">
       <Flex flexDirection="column" p={10} width="100%" height="100%">

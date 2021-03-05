@@ -2,9 +2,10 @@ import React from 'react';
 import { Flex, Tag, Text } from '@chakra-ui/react';
 import { SnsCardProps } from '../../types/CardTypes';
 import { useLocale } from '../../hooks/useLocale';
+import { Locale } from '../../../locales/localeTypes';
 
 export const SubSnsCard: React.FC<SnsCardProps> = (props: SnsCardProps) => {
-  const { i18n } = useLocale();
+  const { i18n }: Locale = useLocale();
   return (
     <Flex
       justifyContent="center"

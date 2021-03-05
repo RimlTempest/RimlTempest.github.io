@@ -6,9 +6,10 @@ import { SubSnsCard } from '../../components/Organisms/SubSnsCard';
 import { ACGameCard } from '../../components/Organisms/ACGameCard';
 import { MobileGameCard } from '../../components/Organisms/MobileGameCard';
 import { useLocale } from '../../hooks/useLocale';
+import { Locale } from '../../../locales/localeTypes';
 
 const Contact: React.FC = () => {
-  const { i18n } = useLocale();
+  const { i18n }: Locale = useLocale();
   return (
     <FullLayout>
       <Flex

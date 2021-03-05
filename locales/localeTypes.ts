@@ -20,3 +20,8 @@ export type LocaleType = {
     CONTACT_CARD_TITLE: string,
     SUB_CONTACT_CARD_TITLE: string
 }
+
+export type Locale = {
+    locale?: string;
+    i18n: LocaleType;
+}

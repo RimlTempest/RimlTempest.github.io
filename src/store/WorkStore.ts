@@ -8,8 +8,8 @@ export type WorkState = {
 const initialState: WorkState = {
   workList: {
     image: 'https://via.placeholder.com/150',
-    appName: undefined,
-    description: undefined
+    appName: '',
+    description: ''
   }
 }
 
