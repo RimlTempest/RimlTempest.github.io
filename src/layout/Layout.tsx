@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { Flex, useColorMode } from '@chakra-ui/react';
 import { Header } from '../components/Organisms/Header';
 import { Footer } from '../components/Organisms/Footer';
