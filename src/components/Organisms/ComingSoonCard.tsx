@@ -3,9 +3,10 @@ import { Box, Image, Text, useColorModeValue } from '@chakra-ui/react';
 import { HiOutlineLockClosed } from 'react-icons/hi';
 import { CardProps } from '../../types/CardTypes';
 import { useLocale } from '../../hooks/useLocale';
+import { Locale } from '../../../locales/localeTypes';
 
 export const ComingSoonCard: React.FC<CardProps> = (props: CardProps) => {
-  const { i18n } = useLocale();
+  const { i18n }: Locale = useLocale();
   return (
     <Box
       display="flex"
