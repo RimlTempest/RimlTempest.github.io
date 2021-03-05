@@ -9,10 +9,12 @@ import {
   IconButton,
   useDisclosure,
   Stack,
+  UseDisclosureProps,
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { DarkModeSwitch } from '../Molecules/DarkModeSwitch';
 import { useLocale } from '../../hooks/useLocale';
+import { Locale } from '../../../locales/localeTypes';
 
 const colorGreen = {
   header: 'green.300',
@@ -25,9 +27,9 @@ const colorPink = {
 };
 
 export const Header: React.FC = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const { isOpen, onOpen, onClose }: UseDisclosureProps = useDisclosure();
   const router: NextRouter = useRouter();
-  const { i18n } = useLocale();
+  const { i18n }: Locale = useLocale();
 
   const Links = [
     { id: 0, name: i18n.TOPPAGE_HEADER_TEXT, path: '/' },

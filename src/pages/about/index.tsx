@@ -3,9 +3,10 @@ import { Avatar, Flex, Text, List, ListItem, Divider } from '@chakra-ui/react';
 import { SkillGroup } from '../../components/Molecules/SkillGroup';
 import { FullLayout } from '../../layout/FullLayout';
 import { useLocale } from '../../hooks/useLocale';
+import { Locale } from '../../../locales/localeTypes';
 
 const About: React.FC = () => {
-  const { i18n } = useLocale();
+  const { i18n }: Locale = useLocale();
   return (
     <FullLayout>
       <Flex flexDirection="column" pr={10} pl={10} width="100%" height="100%">

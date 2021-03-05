@@ -1,16 +1,21 @@
 import React from 'react';
 import { Flex, Tag, useToast } from '@chakra-ui/react';
-import { acGameItems } from '../../types/Game';
+import { acGameItems, GameItemType } from '../../types/Game';
 import { GameGroup } from '../../components/Molecules/GameGroup';
 import { useLocale } from '../../hooks/useLocale';
 import { useGameItem } from '../../hooks/useGameItem';
+import { Locale } from '../../../locales/localeTypes';
+
+type GameItem = {
+  ret: GameItemType;
+};
 
 export const ACGameCard: React.FC = () => {
   const toast = useToast();
-  const { /*locale,*/ i18n } = useLocale();
+  const { /*locale,*/ i18n }: Locale = useLocale();
 
   const gameCopyClicked: (id: number) => void = (id: number) => {
-    const { ret } = useGameItem(id);
+    const { ret }: GameItem = useGameItem(id);
     toast({
       title: `${ret.title} ${i18n.FRIEND_CODE_COPY_MESSAGE}`,
       // locale === 'ja'

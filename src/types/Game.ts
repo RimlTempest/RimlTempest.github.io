@@ -20,10 +20,10 @@ type FrindCodeTypes = {
 };
 
 export type GameItemType = {
-  id: number,
-  title: string,
-  friendCode: string,
-  tagColor: string
+  id: number;
+  title: string;
+  friendCode: string;
+  tagColor: string;
 }
 
 /**

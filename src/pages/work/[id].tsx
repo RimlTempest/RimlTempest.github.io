@@ -2,15 +2,19 @@ import React, { useEffect, useState } from 'react';
 import { Flex, Text, Image } from '@chakra-ui/react';
 import { Layout } from '../../layout/Layout';
 import { NextRouter, useRouter } from 'next/router';
-import { useRecoilState } from 'recoil';
-import { workState } from '../../store/WorkStore';
+import { SetterOrUpdater, useRecoilState } from 'recoil';
+import { WorkState, workState } from '../../store/WorkStore';
 import { useLocale } from '../../hooks/useLocale';
+import { Locale } from '../../../locales/localeTypes';
 
 const Works: React.FC = () => {
   const router: NextRouter = useRouter();
   const [query, setPost] = useState(router.query);
-  const [workList, setWorkList] = useRecoilState(workState);
-  const { i18n } = useLocale();
+  const [workList, setWorkList]: [
+    WorkState,
+    SetterOrUpdater<WorkState>
+  ] = useRecoilState(workState);
+  const { i18n }: Locale = useLocale();
 
   useEffect(() => {
     setPost(router.query);
