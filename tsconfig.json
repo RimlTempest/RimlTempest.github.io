@@ -1,10 +1,18 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
+    // コンパイルのオプション
+    "target": "es5", // どのバージョンのjsを吐き出すか
+    "lib": ["dom", "dom.iterable", "esnext"], // コンパイルする際に組み込むライブラリ
+    "allowJs": true, // .js、.jsxをコンパイル対象にする
     "skipLibCheck": true,
-    "strict": false,
+    "strict": true, //TypeScriptの恩恵を受けるためのstrictを設定
+    // -- noImplicitAny = true
+    // -- noImplicitThis = true
+    // -- alwaysStrict = true
+    // -- strictBindCallApply = true
+    // -- strictNullChecks = true
+    // -- strictFunctionTypes = true
+    // -- strictPropertyInitialization = true
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
@@ -12,7 +20,12 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve"
+    "declaration": false, // 型定義ファイルをファイルごとに作成
+    "declarationMap": false, // 型定義のmapファイルをファイルごとに作成
+    "sourceMap": false, // jsファイルのmapファイルを作成
+    "jsx": "preserve", // tsファイルをjsxやjsにコンパイルする際の出力の形式を指定
+    "noFallthroughCasesInSwitch": true, // switch文の脱出処理がないものにエラー
+    "removeComments": false // コンパイル結果の出力ファイルからコメントを削除
   },
   "exclude": ["node_modules", ".next", "out"],
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.js"]
