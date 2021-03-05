@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Flex, Text, Image } from '@chakra-ui/react';
+import { Flex, Text, Image, Heading } from '@chakra-ui/react';
 import { Layout } from '../../layout/Layout';
 import { NextRouter, useRouter } from 'next/router';
 import { SetterOrUpdater, useRecoilState } from 'recoil';
@@ -30,9 +30,9 @@ const Works: React.FC = () => {
           mb={5}
           mt={5}
         >
-          <Text fontSize="3xl" textAlign="center" letterSpacing="wide">
+          <Heading as="h2" size="2xl" textAlign="center" letterSpacing="wide">
             {i18n.PRODUCT_TITLE}
-          </Text>
+          </Heading>
         </Flex>
         <Flex
           overflow="visible"

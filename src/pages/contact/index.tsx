@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flex, Text, Grid } from '@chakra-ui/react';
+import { Flex, Text, Grid, Heading } from '@chakra-ui/react';
 import { FullLayout } from '../../layout/FullLayout';
 import { SnsCard } from '../../components/Organisms/SnsCard';
 import { SubSnsCard } from '../../components/Organisms/SubSnsCard';
@@ -19,9 +19,9 @@ const Contact: React.FC = () => {
         mb={5}
         mt={5}
       >
-        <Text fontSize="3xl" textAlign="center" letterSpacing="wide">
+        <Heading as="h2" size="2xl" textAlign="center" letterSpacing="wide">
           {i18n.CONTACT_TITLE}
-        </Text>
+        </Heading>
       </Flex>
       <Flex
         overflow="visible"
