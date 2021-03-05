@@ -1,5 +1,30 @@
 import React from 'react';
-import { Avatar, Flex, Text, List, ListItem, Divider } from '@chakra-ui/react';
+import {
+  Avatar,
+  Flex,
+  Text,
+  List,
+  ListItem,
+  Heading,
+  Table,
+  Thead,
+  Tr,
+  Th,
+  Tbody,
+  Tabs,
+  TabList,
+  Tab,
+  TabPanels,
+  TabPanel,
+  Accordion,
+  AccordionButton,
+  AccordionIcon,
+  AccordionItem,
+  AccordionPanel,
+  Box,
+  Badge,
+  chakra,
+} from '@chakra-ui/react';
 import { SkillGroup } from '../../components/Molecules/SkillGroup';
 import { FullLayout } from '../../layout/FullLayout';
 import { useLocale } from '../../hooks/useLocale';
@@ -17,25 +42,33 @@ const About: React.FC = () => {
           mb={5}
           mt={5}
         >
-          <Text fontSize="3xl" textAlign="center" letterSpacing="wide">
+          <Heading as="h2" size="2xl" textAlign="center" letterSpacing="wide">
             {i18n.ABOUT_TITLE}
-          </Text>
+          </Heading>
         </Flex>
         <Flex
           overflow="visible"
           justifyContent="center"
           alignItems="center"
           flexDirection="column"
-          opacity={1}
         >
           <Flex
             justifyContent="flex-start"
             alignItems="flex-start"
             flexDirection="column"
             backgroundColor="whiteAlpha.300"
+            boxShadow={'0px 0px 33px -1px rgba(0, 0, 0, 0.45);'}
             p={5}
+            position="relative"
           >
-            <Flex mb={5}>
+            <chakra.div
+              borderLeft="40px solid transparent;"
+              borderBottom="40px solid #68D391;"
+              position="absolute"
+              bottom={0}
+              right={0}
+            ></chakra.div>
+            <Flex mb={5} justifyContent="center" width="100%">
               <Avatar size="2xl" />
               <Flex
                 flexDirection="column"
@@ -46,7 +79,7 @@ const About: React.FC = () => {
                 <Text fontSize="xl" letterSpacing="wider">
                   Riml
                 </Text>
-                <Text fontSize="sm">髙橋 大貴 / Takahashi Daiki</Text>
+                <Text fontSize="sm">髙橋 大貴</Text>
               </Flex>
             </Flex>
             <Flex flexDirection="column">
@@ -56,90 +89,158 @@ const About: React.FC = () => {
                 alignItems="flex-start"
               >
                 <Text>趣味</Text>
-                <Flex>
+                <Flex mt="3">
                   <List styleType="disc" ml={5}>
-                    <ListItem>動画鑑賞（Youtube、niconico動画）</ListItem>
-                    <Flex flexDirection="row">
-                      <Flex flexDirection="column">
-                        <ListItem mt={3}>リズムゲーム</ListItem>
-                        <Flex>
-                          <Divider
-                            borderColor="red.500"
-                            orientation="vertical"
-                            border="1px"
-                            height="100%"
-                          />
-                          <List styleType="none" ml={2}>
-                            <ListItem fontSize="sm">
-                              第2回ガルパ杯　二次予選出場（仙台）
-                            </ListItem>
-                            <ListItem fontSize="sm">
-                              チュウニズム、maimai 虹レート到達
-                            </ListItem>
-                            <ListItem fontSize="sm">
-                              BeatTube PR 最大５位
-                            </ListItem>
-                          </List>
-                        </Flex>
-                      </Flex>
-                      <List styleType="disc" ml={3}>
-                        <ListItem mt={3} ml={3}>
-                          プログラミング
+                    <Accordion allowMultiple>
+                      <AccordionItem>
+                        <ListItem>
+                          <AccordionButton>
+                            <Box flex="1" textAlign="left" mr={5}>
+                              <Text>VTuber、アニメ鑑賞などの動画鑑賞</Text>
+                            </Box>
+                            <AccordionIcon />
+                          </AccordionButton>
+                          <AccordionPanel pb={4}>
+                            <Text fontSize="sm">
+                              VTuber最推しはホロライブ三期生の
+                              <Badge
+                                variant="outline"
+                                colorScheme="green"
+                                ml="1"
+                              >
+                                潤羽るしあ
+                              </Badge>
+                            </Text>
+                            <Text fontSize="sm">
+                              一番好きなアニメは
+                              <Badge
+                                variant="outline"
+                                colorScheme="cyan"
+                                ml="1"
+                              >
+                                転生したらスライムだった件
+                              </Badge>
+                            </Text>
+                          </AccordionPanel>
                         </ListItem>
-                        <Flex>
-                          <Divider
-                            borderColor="red.500"
-                            border="1px"
-                            orientation="vertical"
-                            color="green.500"
-                          />
-                          <List styleType="none" ml={2}>
-                            <ListItem fontSize="sm">
+                      </AccordionItem>
+                      {/* リズムゲーム */}
+                      <AccordionItem>
+                        <ListItem>
+                          <AccordionButton>
+                            <Box flex="1" textAlign="left" mr={5}>
+                              <Text>リズムゲーム</Text>
+                            </Box>
+                            <AccordionIcon />
+                          </AccordionButton>
+                          <AccordionPanel pb={4}>
+                            <Text fontSize="sm">
+                              第2回ガルパ杯　二次予選出場（仙台）
+                            </Text>
+                            <Text fontSize="sm">
+                              チュウニズム、maimai 虹レート到達
+                            </Text>
+                            <Text fontSize="sm">
+                              BeatTubeプレイヤーランキング 最大５位
+                            </Text>
+                          </AccordionPanel>
+                        </ListItem>
+                      </AccordionItem>
+                      {/* プログラミング */}
+                      <AccordionItem>
+                        <ListItem>
+                          <AccordionButton>
+                            <Box flex="1" textAlign="left" mr={5}>
+                              <Text>プログラミング</Text>
+                            </Box>
+                            <AccordionIcon />
+                          </AccordionButton>
+                          <AccordionPanel pb={4}>
+                            <Text fontSize="sm">Connect2019　優秀賞</Text>
+                            <Text fontSize="sm">
                               校内ハッカソン最優秀賞、企業賞
-                            </ListItem>
-                            <ListItem fontSize="sm">
-                              Connect2019　優秀賞
-                            </ListItem>
-                          </List>
-                        </Flex>
-                      </List>
-                    </Flex>
+                            </Text>
+                          </AccordionPanel>
+                        </ListItem>
+                      </AccordionItem>
+                    </Accordion>
                   </List>
                 </Flex>
-              </Flex>
-              <Flex justifyContent="center" alignItems="center" mt={3} mb={3}>
-                <Divider
-                  borderColor="green.500"
-                  orientation="horizontal"
-                  color="green.500"
-                  border="1px"
-                  width="100%"
-                />
               </Flex>
               <Flex
                 justifyContent="center"
                 flexDirection="column"
                 alignItems="flex-start"
+                mt={3}
+                mb={3}
               >
                 <Text>Skill</Text>
-                <Flex justifyContent="center" alignItems="center">
-                  <Flex
-                    flexDirection="column"
-                    justifyContent="center"
-                    ml={3}
-                    alignItems="stretch"
+                <Flex
+                  justifyContent="center"
+                  alignItems="center"
+                  width="100%"
+                  mt="5"
+                >
+                  <Tabs
+                    isFitted
+                    variant="soft-rounded"
+                    colorScheme="green"
+                    width="100%"
                   >
-                    <SkillGroup skillName="HTML" progressValue={49} />
-                    <SkillGroup skillName="SCSS" progressValue={53} />
-                    <SkillGroup skillName="JavaScript" progressValue={66} />
-                    <SkillGroup skillName="TypeScript" progressValue={66} />
-                  </Flex>
-                  <Flex flexDirection="column" justifyContent="center" ml={10}>
-                    <SkillGroup skillName="Next.js" progressValue={68} />
-                    <SkillGroup skillName="React.js" progressValue={68} />
-                    <SkillGroup skillName="Nuxt.js" progressValue={57} />
-                    <SkillGroup skillName="Vue.js" progressValue={55} />
-                  </Flex>
+                    <TabList mb="1em" width="100%">
+                      <Tab>プログラミング</Tab>
+                      <Tab>フレームワーク</Tab>
+                    </TabList>
+                    <TabPanels>
+                      <TabPanel>
+                        <Table size="sm">
+                          <Thead>
+                            <Tr>
+                              <Th>言語</Th>
+                              <Th>学習率</Th>
+                            </Tr>
+                          </Thead>
+                          <Tbody>
+                            <SkillGroup skillName="HTML" progressValue={49} />
+                            <SkillGroup skillName="SCSS" progressValue={53} />
+                            <SkillGroup
+                              skillName="JavaScript"
+                              progressValue={66}
+                            />
+                            <SkillGroup
+                              skillName="TypeScript"
+                              progressValue={66}
+                            />
+                          </Tbody>
+                        </Table>
+                      </TabPanel>
+                      <TabPanel>
+                        <Table size="sm">
+                          <Thead>
+                            <Tr>
+                              <Th>フレームワーク</Th>
+                              <Th>学習率</Th>
+                            </Tr>
+                          </Thead>
+                          <Tbody>
+                            <SkillGroup
+                              skillName="Next.js"
+                              progressValue={68}
+                            />
+                            <SkillGroup
+                              skillName="React.js"
+                              progressValue={68}
+                            />
+                            <SkillGroup
+                              skillName="Nuxt.js"
+                              progressValue={57}
+                            />
+                            <SkillGroup skillName="Vue.js" progressValue={55} />
+                          </Tbody>
+                        </Table>
+                      </TabPanel>
+                    </TabPanels>
+                  </Tabs>
                 </Flex>
               </Flex>
             </Flex>

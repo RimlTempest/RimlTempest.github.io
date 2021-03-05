@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, Flex } from '@chakra-ui/react';
+import { Text, Flex, Heading } from '@chakra-ui/react';
 import { Layout } from '../../layout/Layout';
 import { WorkCard } from '../../components/Organisms/WorkCard';
 import { ComingSoonCard } from '../../components/Organisms/ComingSoonCard';
@@ -19,9 +19,9 @@ const Work: React.FC = () => {
           mb={5}
           mt={5}
         >
-          <Text fontSize="3xl" textAlign="center" letterSpacing="wide">
+          <Heading as="h2" size="2xl" textAlign="center" letterSpacing="wide">
             {i18n.PRODUCTS_TITLE}
-          </Text>
+          </Heading>
         </Flex>
         <Flex
           overflow="visible"
