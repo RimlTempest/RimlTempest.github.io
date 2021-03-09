@@ -20,5 +20,5 @@ export const ja: LocaleType = {
     ARCADE_GAME_CARD_TITLE: 'アーケードゲーム',
     MOBILE_GAME_CARD_TITLE: 'モバイルゲーム',
     CONTACT_CARD_TITLE: '連絡先',
-    SUB_CONTACT_CARD_TITLE: 'その他連絡先'
+    SUB_CONTACT_CARD_TITLE: 'アカウント'
 }
