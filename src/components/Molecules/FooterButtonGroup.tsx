@@ -13,9 +13,6 @@ export const FooterButtonGroup: React.FC = () => {
       <SocialButton label={'Github'} href={SNS.GITHUB}>
         <FaGithub />
       </SocialButton>
-      <SocialButton label={'Facebook'} href={SNS.FACEBOOK}>
-        <FaFacebook />
-      </SocialButton>
     </Stack>
   );
 };

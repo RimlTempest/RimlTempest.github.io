@@ -36,7 +36,7 @@ const Contact: React.FC = () => {
             base: 'repeat(auto-fit, minmax(340px, 1fr))',
             sm: 'repeat(auto-fit, minmax(240px, 1fr))',
             md: 'repeat(auto-fit, minmax(340px, 1fr))',
-            lg: 'repeat(2, minmax(500px, 1fr))',
+            lg: 'repeat(2, minmax(460px, 1fr))',
           }}
           gap={5}
         >
