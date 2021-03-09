@@ -17,6 +17,7 @@ export const Layout: React.FC<LayoutProps> = (props) => {
         justifyContent="flex-start"
         bg={bgColor[colorMode]}
         color={color[colorMode]}
+        fontFamily="Comic Sans MS"
         {...props}
       >
         <Header />
