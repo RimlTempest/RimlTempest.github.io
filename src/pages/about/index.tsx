@@ -195,12 +195,12 @@ const About: React.FC = () => {
                 mt={3}
                 mb={3}
               >
-                <Text>Skill</Text>
+                <Text mt={3}>スキル</Text>
                 <Flex
                   justifyContent="center"
                   alignItems="center"
                   width="100%"
-                  mt="5"
+                  mt="3"
                 >
                   <Tabs
                     isFitted

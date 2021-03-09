@@ -30,11 +30,10 @@ const Index: React.FC = () => {
             <Avatar size="2xl" src="/icon-512x512.png" />
             <Text
               color={useColorModeValue(colorGreen.color, colorPink.color)}
-              fontSize="2xl"
+              fontSize="4xl"
               textAlign="center"
               letterSpacing="wider"
               ml={30}
-              as="kbd"
             >
               Riml
             </Text>
@@ -50,7 +49,6 @@ const Index: React.FC = () => {
               fontWeight="bold"
               letterSpacing="wider"
               color={useColorModeValue(colorGreen.color, colorPink.color)}
-              as="kbd"
             >
               Daiki Takahashi
             </Text>
