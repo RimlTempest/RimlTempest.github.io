@@ -20,6 +20,7 @@ export const FullLayout: React.FC<FullLayoutProps> = (
         justifyContent="flex-start"
         bg={bgColor[colorMode]}
         color={color[colorMode]}
+        fontFamily="Comic Sans MS"
       >
         <Header />
         <Flex flexDirection="column" p={10} width="100%" height="100%">
