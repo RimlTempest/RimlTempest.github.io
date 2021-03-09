@@ -101,8 +101,10 @@ const About: React.FC = () => {
                             <AccordionIcon />
                           </AccordionButton>
                           <AccordionPanel pb={4}>
-                            <Text fontSize="sm">
-                              VTuber最推しはホロライブ三期生の
+                            <Flex flexDirection="row" alignItems="center">
+                              <Text fontSize="sm">
+                                VTuber最推しはホロライブ三期生の
+                              </Text>
                               <Badge
                                 variant="outline"
                                 colorScheme="green"
@@ -110,9 +112,9 @@ const About: React.FC = () => {
                               >
                                 潤羽るしあ
                               </Badge>
-                            </Text>
-                            <Text fontSize="sm">
-                              一番好きなアニメは
+                            </Flex>
+                            <Flex flexDirection="row" alignItems="center">
+                              <Text fontSize="sm">一番好きなアニメは</Text>
                               <Badge
                                 variant="outline"
                                 colorScheme="cyan"
@@ -120,7 +122,7 @@ const About: React.FC = () => {
                               >
                                 転生したらスライムだった件
                               </Badge>
-                            </Text>
+                            </Flex>
                           </AccordionPanel>
                         </ListItem>
                       </AccordionItem>
@@ -134,15 +136,34 @@ const About: React.FC = () => {
                             <AccordionIcon />
                           </AccordionButton>
                           <AccordionPanel pb={4}>
-                            <Text fontSize="sm">
-                              第2回ガルパ杯　二次予選出場（仙台）
-                            </Text>
-                            <Text fontSize="sm">
-                              チュウニズム、maimai 虹レート到達
-                            </Text>
-                            <Text fontSize="sm">
-                              BeatTubeプレイヤーランキング 最大５位
-                            </Text>
+                            <Flex flexDirection="row" alignItems="center">
+                              <Badge variant="outline" colorScheme="pink">
+                                第2回ガルパ杯
+                              </Badge>
+                              <Text fontSize="sm" ml="1">
+                                二次予選出場（仙台）
+                              </Text>
+                            </Flex>
+                            <Flex flexDirection="row" alignItems="center">
+                              <Badge variant="outline" colorScheme="yellow">
+                                チュウニズム
+                              </Badge>
+                              <Text fontSize="sm">、</Text>
+                              <Badge variant="outline" colorScheme="purple">
+                                maimai
+                              </Badge>
+                              <Text fontSize="sm" ml="1">
+                                虹レート到達
+                              </Text>
+                            </Flex>
+                            <Flex flexDirection="row" alignItems="center">
+                              <Badge variant="outline" colorScheme="cyan">
+                                BeatTube
+                              </Badge>
+                              <Text fontSize="sm" ml="1">
+                                プレイヤーランキング 最大５位
+                              </Text>
+                            </Flex>
                           </AccordionPanel>
                         </ListItem>
                       </AccordionItem>
@@ -196,7 +217,9 @@ const About: React.FC = () => {
                         <Table size="sm">
                           <Thead>
                             <Tr>
-                              <Th textAlign="center">言語</Th>
+                              <Th textAlign="center" whiteSpace="nowrap">
+                                プログラミング
+                              </Th>
                               <Th textAlign="center">学習率</Th>
                             </Tr>
                           </Thead>

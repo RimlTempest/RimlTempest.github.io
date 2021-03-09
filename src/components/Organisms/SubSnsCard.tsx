@@ -1,8 +1,11 @@
 import React from 'react';
-import { Flex, Tag, Text } from '@chakra-ui/react';
+import { chakra, Flex, Tag, Text } from '@chakra-ui/react';
 import { SnsCardProps } from '../../types/CardTypes';
 import { useLocale } from '../../hooks/useLocale';
 import { Locale } from '../../../locales/localeTypes';
+import { SocialButton } from '../Atoms/SocialButton';
+import { ImYoutube } from 'react-icons/im';
+import { SNS } from '../../types/Sns';
 
 export const SubSnsCard: React.FC<SnsCardProps> = (props: SnsCardProps) => {
   const { i18n }: Locale = useLocale();
@@ -32,7 +35,12 @@ export const SubSnsCard: React.FC<SnsCardProps> = (props: SnsCardProps) => {
         mt="3vh"
         width="100%"
       >
-        <Text fontSize="2xl">{i18n.FUTURE_RELEASE}</Text>
+        {/* <Text fontSize="2xl">{i18n.FUTURE_RELEASE}</Text> */}
+        <chakra.div mr={5}>
+          <SocialButton label={'Youtube'} href={SNS.YOUTUBE}>
+            <ImYoutube />
+          </SocialButton>
+        </chakra.div>
       </Flex>
     </Flex>
   );

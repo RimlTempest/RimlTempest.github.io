@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, Flex, Heading } from '@chakra-ui/react';
+import { Flex, Heading } from '@chakra-ui/react';
 import { Layout } from '../../layout/Layout';
 import { WorkCard } from '../../components/Organisms/WorkCard';
 import { ComingSoonCard } from '../../components/Organisms/ComingSoonCard';
