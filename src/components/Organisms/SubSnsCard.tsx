@@ -6,6 +6,7 @@ import { Locale } from '../../../locales/localeTypes';
 import { SocialButton } from '../Atoms/SocialButton';
 import { ImYoutube } from 'react-icons/im';
 import { SNS } from '../../types/Sns';
+import { FaGithub } from 'react-icons/fa';
 
 export const SubSnsCard: React.FC<SnsCardProps> = (props: SnsCardProps) => {
   const { i18n }: Locale = useLocale();
@@ -39,6 +40,11 @@ export const SubSnsCard: React.FC<SnsCardProps> = (props: SnsCardProps) => {
         <chakra.div mr={5}>
           <SocialButton label={'Youtube'} href={SNS.YOUTUBE}>
             <ImYoutube />
+          </SocialButton>
+        </chakra.div>
+        <chakra.div mr={5}>
+          <SocialButton label={'Github'} href={SNS.GITHUB}>
+            <FaGithub />
           </SocialButton>
         </chakra.div>
       </Flex>
