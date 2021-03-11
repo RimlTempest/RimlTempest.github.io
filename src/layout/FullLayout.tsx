@@ -4,6 +4,7 @@ import { Header } from '../components/Organisms/Header';
 import { Footer } from '../components/Organisms/Footer';
 import { ColorType } from '../types/ColorTypes';
 import { FullLayoutProps } from '../types/FullLayoutTypes';
+import { AnimationLayout } from './AnimationLayout';
 
 export const FullLayout: React.FC<FullLayoutProps> = (
   props: FullLayoutProps
@@ -13,21 +14,21 @@ export const FullLayout: React.FC<FullLayoutProps> = (
   const color: ColorType = { light: 'black', dark: 'white' };
 
   return (
-    <>
-      <Flex
-        direction="column"
-        alignItems="center"
-        justifyContent="flex-start"
-        bg={bgColor[colorMode]}
-        color={color[colorMode]}
-        fontFamily="Comic Sans MS"
-      >
-        <Header />
+    <Flex
+      direction="column"
+      alignItems="center"
+      justifyContent="flex-start"
+      bg={bgColor[colorMode]}
+      color={color[colorMode]}
+      fontFamily="Comic Sans MS"
+    >
+      <Header />
+      <AnimationLayout width="100%" height="100%">
         <Flex flexDirection="column" p={10} width="100%" height="100%">
           {props.children}
         </Flex>
-        <Footer />
-      </Flex>
-    </>
+      </AnimationLayout>
+      <Footer />
+    </Flex>
   );
 };

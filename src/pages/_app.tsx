@@ -3,6 +3,7 @@ import { AppProps } from 'next/app';
 import { ChakraProvider, ColorModeProvider } from '@chakra-ui/react';
 import { RecoilRoot } from 'recoil';
 import { extendTheme } from '@chakra-ui/react';
+import { AnimateSharedLayout } from 'framer-motion';
 
 const colors = {
   brand: {
@@ -22,7 +23,9 @@ function MyApp({ Component, pageProps }: AppProps) {
             useSystemColorMode: true,
           }}
         >
-          <Component {...pageProps} />
+          <AnimateSharedLayout>
+            <Component {...pageProps} />
+          </AnimateSharedLayout>
         </ColorModeProvider>
       </RecoilRoot>
     </ChakraProvider>
