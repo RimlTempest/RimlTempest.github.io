@@ -1,9 +1,10 @@
 import React from 'react';
 import { Flex, Tag, useToast } from '@chakra-ui/react';
-import { GameItemType, mobileGameItems } from '../../types/Game';
+import { GameItemType } from '../../types/Game';
 import { GameGroup } from '../../components/Molecules/GameGroup';
 import { useLocale } from '../../hooks/useLocale';
 import { useGameItem } from '../../hooks/useGameItem';
+import { useGame } from '../../hooks/useGame';
 import { Locale } from '../../../locales/localeTypes';
 
 type GameItem = {
@@ -13,6 +14,7 @@ type GameItem = {
 export const MobileGameCard: React.FC = () => {
   const toast = useToast();
   const { /*locale*/ i18n }: Locale = useLocale();
+  const { game } = useGame();
 
   const gameCopyClicked = (id: number) => {
     const { ret }: GameItem = useGameItem(id);
@@ -47,7 +49,7 @@ export const MobileGameCard: React.FC = () => {
         m="2vh"
         width="90%"
       >
-        {mobileGameItems.map((item) => {
+        {game?.gameList.mobileGame_info.map((item: GameItemType) => {
           return (
             <GameGroup
               key={item.id}
