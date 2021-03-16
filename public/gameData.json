@@ -1,0 +1,38 @@
+{
+  "gameList": {
+    "acGame_info": [
+      {
+        "id": 0,
+        "title": "CHUNITHM",
+        "friendCode": "1007302938635",
+        "tagColor": "yellow.400"
+      },
+      {
+        "id": 1,
+        "title": "MAIMAI",
+        "friendCode": "1002322731605",
+        "tagColor": "pink.400"
+      }
+    ],
+    "mobileGame_info": [
+      {
+        "id": 2,
+        "title": "D4DJ",
+        "friendCode": "qsZQX3iL",
+        "tagColor": "purple.500"
+      },
+      {
+        "id": 3,
+        "title": "ガルパ",
+        "friendCode": "349329",
+        "tagColor": "red.500"
+      },
+      {
+        "id": 4,
+        "title": "プロセカ",
+        "friendCode": "5178262687051784",
+        "tagColor": "linkedin.500"
+      }
+    ]
+  }
+}
