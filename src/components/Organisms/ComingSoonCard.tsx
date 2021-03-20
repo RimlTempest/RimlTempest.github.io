@@ -27,9 +27,7 @@ export const ComingSoonCard: React.FC<CardProps> = (props: CardProps) => {
           <Image
             size="100px"
             fallbackSrc={
-              !props.fallbackSrc
-                ? 'https://via.placeholder.com/150'
-                : props.fallbackSrc
+              !props.fallbackSrc ? '/noimage.jpg' : props.fallbackSrc
             }
             width="100%"
             height="auto"
