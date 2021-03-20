@@ -20,7 +20,7 @@ export const WorkTestData: WorkTypes[] = [
         'https://github.com/RimlTempest/dotart/blob/develop/Front/dotart/static/icon.png?raw=true',
       appName: 'DotArt',
       description:
-        'Webでかんたんにドット絵が書けるサービスです。\n https://github.com/RimlTempest/dotart',
+        'かんたんにドット絵が書けるWebアプリケーションです。製作中。\n https://github.com/RimlTempest/dotart',
       navigationLink: 'DotArt',
     },
     {
