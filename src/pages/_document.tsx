@@ -49,8 +49,20 @@ class MyDocument extends Document {
           />
           {/* 一般 */}
           <meta name="application-name" content="DaikiTakahashi" />
-          <meta name="theme-color" content="#000" />
-          <meta name="description" content="PortfolioPage" />
+          <meta name="theme-color" content="#68D391" />
+          <meta name="description" content="TakahashiDaiki/RimlのPortfolio" />
+          <meta property="og:url" content="https://RimlTempest.github.io" />
+          <meta property="og:type" content="website" />
+          <meta property="og:title" content="Portfolio" />
+          <meta
+            property="og:description"
+            content="TakahashiDaiki/RimlのPortfolio"
+          />
+          <meta property="og:site_name" content="DaikiTakahashi" />
+          <meta property="og:image" content="/icon-512x512.png" />
+          <meta name="twitter:card" content="Summary Card" />
+          <meta name="twitter:site" content="@Fande4d" />
+          <meta name="twitter:creator" content="@Fande4d" />
           <link rel="icon" sizes="192x192" href="/icon-192x192.png" />
           <link rel="icon" href="/favicon.ico" />
           <link rel="manifest" href="/manifest.json" />
