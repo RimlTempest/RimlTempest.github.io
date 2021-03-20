@@ -44,7 +44,7 @@ const Works: React.FC = () => {
           <Flex justifyContent="center" alignItems="center" width="100%" mb={5}>
             <Image
               src={workList.workList.image}
-              fallbackSrc={'https://via.placeholder.com/150'}
+              fallbackSrc={'/noimage.jpg'}
               objectFit="cover"
               boxSize="80%"
               maxW={'300px'}

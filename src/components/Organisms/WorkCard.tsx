@@ -49,9 +49,7 @@ export const WorkCard: React.FC<WorkCardProps> = (props: WorkCardProps) => {
           <Image
             size="100px"
             fallbackSrc={
-              !props.fallbackSrc
-                ? 'https://via.placeholder.com/150'
-                : props.fallbackSrc
+              !props.fallbackSrc ? '/noimage.jpg' : props.fallbackSrc
             }
             src={props.image}
             width="100%"
