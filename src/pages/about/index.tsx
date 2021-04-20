@@ -32,6 +32,7 @@ import { Locale } from '../../../locales/localeTypes';
 
 const About: React.FC = () => {
   const { i18n }: Locale = useLocale();
+  /* TODO:細かくコンポーネントを分けられるはず */
   return (
     <FullLayout>
       <Flex flexDirection="column" pr={10} pl={10} width="100%" height="100%">
@@ -69,6 +70,7 @@ const About: React.FC = () => {
               right={0}
             ></chakra.div>
             <Flex mb={5} justifyContent="center" width="100%">
+              {/* TODO:画像を設定する */}
               <Avatar size="2xl" />
               <Flex
                 flexDirection="column"

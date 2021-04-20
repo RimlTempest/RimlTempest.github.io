@@ -17,6 +17,7 @@ class MyDocument extends Document {
   }
 
   render() {
+    /* TODO:今後metaタグ部分はSSRするなりしてページごとにogp等の生成ができるようにする */
     return (
       <Html lang="ja-JP" dir="ltr">
         <Head>

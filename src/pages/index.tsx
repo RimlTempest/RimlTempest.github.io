@@ -11,6 +11,7 @@ const colorPink = {
   color: 'pink.200',
 };
 
+/* TODO:アニメーションを学ぶためにいろいろ使ってみる */
 const Index: React.FC = () => {
   return (
     <Layout height="100vh">

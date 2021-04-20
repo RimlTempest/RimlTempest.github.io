@@ -9,4 +9,5 @@ describe('Aboutページのテスト', () => {
       expect(asFragment()).toMatchSnapshot();
     });
   });
+  /* TODO:他のテストも記述する */
 });

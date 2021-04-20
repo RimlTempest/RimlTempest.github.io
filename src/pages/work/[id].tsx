@@ -7,6 +7,7 @@ import { WorkState, workState } from '../../store/WorkStore';
 import { useLocale } from '../../hooks/useLocale';
 import { Locale } from '../../../locales/localeTypes';
 
+/* TODO:静的生成させる getStaticPath等の実装をする */
 const Works: React.FC = () => {
   const router: NextRouter = useRouter();
   const [query, setPost] = useState(router.query);

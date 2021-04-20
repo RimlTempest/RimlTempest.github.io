@@ -11,6 +11,8 @@ type WorkTypes = WorkType & {
     navigationLink: string;
 };
 
+/* TODO:以下はバックエンドで実装する */
+
 /**
 * Workのテストデータ
 */
