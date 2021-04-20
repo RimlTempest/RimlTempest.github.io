@@ -26,6 +26,8 @@ export type GameItemType = {
   tagColor: string;
 }
 
+/* TODO:以下は今後バックエンドで実装する */
+
 /**
 * 各ゲームのID
 * @constant CHUNITHM 値は0

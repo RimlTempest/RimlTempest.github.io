@@ -8,6 +8,7 @@ import {
 } from '@chakra-ui/react';
 import { FooterButtonGroup } from '../Molecules/FooterButtonGroup';
 
+/* TODO:StatelessなのでReact.VFCに置き換える */
 export const Footer: React.FC = () => {
   return (
     <Box

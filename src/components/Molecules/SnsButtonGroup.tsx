@@ -4,6 +4,7 @@ import { SocialButton } from '../Atoms/SocialButton';
 import { ImTwitter } from 'react-icons/im';
 import { SNS } from '../../types/Sns';
 
+/* TODO:StatelessなのでReact.VFCに置き換える */
 export const SnsButtonGroup: React.FC = () => {
   return (
     <>
