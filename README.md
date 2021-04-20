@@ -31,6 +31,10 @@ Deploy: GithubPages, GithubAction
 ### デバック環境立ち上げ  
 `yarn dev`
 
+### ビルド方法  
+`yarn build`  
+※GithubActionsを用いており`mainブランチ`のほうにマージされた場合にGithubPagesにデプロイされるようにしています。
+
 ### storybook立ち上げ
 `yarn storybook`
   
