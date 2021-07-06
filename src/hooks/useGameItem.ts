@@ -1,5 +1,6 @@
 import { Games, acGameItems, mobileGameItems, GameItemType } from '../types/Game';
 
+/* TODO:バックエンドを今後実装した際最適な形に修正する */
 export const useGameItem = (id: number) => {
   let ret: GameItemType = {
     id: 0,

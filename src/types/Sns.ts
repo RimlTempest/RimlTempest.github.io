@@ -6,6 +6,8 @@ type SNSTypes = {
     YOUTUBE: string
 };
 
+/* TODO:以下はバックエンドで実装する */
+
 /**
 * SNSのリンク定数
 * @constant TWITTER Twitterのリンク

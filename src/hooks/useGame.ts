@@ -5,6 +5,7 @@ async function fetcher(url: string): Promise<any | null> {
     return response.json();
 }
 
+/* TODO:バックエンドからデータを取得するように今後変更 */
 export function useGame () {
   const { data, error } = useSWR('./gameData.json', fetcher);
 

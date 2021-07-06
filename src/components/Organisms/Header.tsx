@@ -26,6 +26,7 @@ const colorPink = {
   hover: 'pink.200',
 };
 
+/* TODO:StatelessなのでReact.VFCに置き換える */
 export const Header: React.FC = () => {
   const { isOpen, onOpen, onClose }: UseDisclosureProps = useDisclosure();
   const router: NextRouter = useRouter();

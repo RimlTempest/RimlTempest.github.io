@@ -5,6 +5,7 @@ import { RecoilRoot } from 'recoil';
 import { extendTheme } from '@chakra-ui/react';
 import { AnimateSharedLayout } from 'framer-motion';
 
+/* TODO:オリジナルカラーを選定しbrandカラーを定義する */
 const colors = {
   brand: {
     900: '#1a365d',

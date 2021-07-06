@@ -11,6 +11,7 @@ type GameItem = {
   ret: GameItemType;
 };
 
+/* TODO:StatelessなのでReact.VFCに置き換える */
 export const MobileGameCard: React.FC = () => {
   const toast = useToast();
   const { /*locale*/ i18n }: Locale = useLocale();
