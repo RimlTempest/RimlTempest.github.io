@@ -1,7 +1,5 @@
 # Portfolio
 
-[![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/RimlTempest/RimlTempest.github.io)
-
 RimlことTakahashi Daikiのポートフォリオページとなります。   
 [実際デプロイしたポートフォリオはこちら](https://www.riml.work)
 
@@ -18,6 +16,10 @@ RimlことTakahashi Daikiのポートフォリオページとなります。
 言語: TypeScript  
 FW/Lib: Next.js, React.js, ChakraUI, StoryBook, Recoil, Jest
 Deploy: GithubPages, GithubAction
+
+## インフラ構成図
+
+<img alt="インフラ構成図" src="./portfolio.drawio.svg"/>
 
 ## 自己評価 / 感想
 
