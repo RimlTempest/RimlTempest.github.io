@@ -67,154 +67,29 @@
   margin-block-start: var(--rd-space-1);
 }
 
-/* 全身 5 方向。指で弾いて 1 体ずつ止まる帯にする */
-.bodyRail {
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: minmax(8rem, 1fr);
-  gap: var(--rd-space-4);
-  padding: 0;
-  padding-block-end: var(--rd-space-3);
-  margin: 0;
-  overflow-x: auto;
-  scroll-snap-type: x proximity;
-  overscroll-behavior-x: contain;
-  list-style: none;
-
-  --riml-body-height: min(26rem, 52vb);
-}
-
-.bodyItem {
-  display: grid;
-  gap: var(--rd-space-2);
-  justify-items: center;
-  scroll-snap-align: center;
-}
-
-.bodyImage {
-  inline-size: auto;
-  block-size: var(--riml-body-height);
-  object-fit: contain;
-}
-
-.bodyLabel {
-  color: var(--rd-color-text-muted);
-  font: var(--rd-type-small);
-}
-
-@supports (scrollbar-gutter: stable) {
-  .bodyRail {
-    scrollbar-gutter: stable;
-  }
-}
-
-/* カラーパレット */
-
-/* 表情と小物 */
-.faceGrid {
-  --riml-face: min(8rem, 26vi);
-
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(var(--riml-face), 1fr));
-  gap: var(--rd-space-4);
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
-
-.faceItem {
-  display: grid;
-  gap: var(--rd-space-2);
-  justify-items: center;
-}
-
-.faceImage {
-  inline-size: var(--riml-face);
-  block-size: auto;
-  object-fit: contain;
-}
-
-.faceLabel {
-  color: var(--rd-color-text-muted);
-  font: var(--rd-type-small);
-}
-
-.palette {
-  display: grid;
-  gap: var(--rd-space-3);
-  padding: 0;
-  margin: 0;
-}
-
-.paletteRow {
-  display: grid;
-  grid-template-columns: 3.5rem 1fr;
-  gap: var(--rd-space-3);
-  align-items: center;
-}
-
-.paletteLabel {
-  color: var(--rd-color-text-muted);
-  font: var(--rd-type-small);
-}
-
-.swatches {
+/* 道具の一覧。説明のすぐ下にぶら下げる */
+.tools {
   display: flex;
   flex-wrap: wrap;
   gap: var(--rd-space-2);
   padding: 0;
   margin: 0;
+  margin-block-start: var(--rd-space-2);
   list-style: none;
 }
 
-.swatch {
-  display: grid;
-  gap: var(--rd-space-1);
-  justify-items: center;
-}
-
-.chip {
-  inline-size: var(--rd-space-8);
-  block-size: var(--rd-space-8);
-  border-width: var(--rd-border-width-default);
-  border-style: solid;
-  border-color: var(--rd-color-border-default);
+.tool {
+  padding-inline: var(--rd-space-3);
+  padding-block: var(--rd-space-1);
   border-radius: var(--rd-radius-full);
-  background: var(--riml-swatch);
-}
-
-.hex {
-  color: var(--rd-color-text-muted);
-  font-family: var(--rd-font-family-mono);
-  font-size: var(--rd-type-small-font-size);
-  font-variant-numeric: tabular-nums;
-}
-
-/* シート全体へのリンク */
-.sheetLink {
-  display: grid;
-  gap: var(--rd-space-3);
-  justify-items: start;
-}
-
-.sheetImage {
-  inline-size: 100%;
-  block-size: auto;
-  border-radius: var(--rd-radius-md);
-}
-
-.caption {
-  margin: 0;
-  color: var(--rd-color-text-muted);
+  background: var(--rd-color-surface-sunken);
   font: var(--rd-type-small);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .chip {
-    transition: scale var(--rd-motion-duration-fast) var(--riml-ease-out);
-  }
-
-  .swatch:hover .chip {
-    scale: 1.15;
-  }
+.more {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--rd-space-6);
+  margin: 0;
+  font-weight: var(--rd-font-weight-bold);
 }

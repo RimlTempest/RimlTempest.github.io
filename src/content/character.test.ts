@@ -1,8 +1,8 @@
 import { describe, expect, test } from 'bun:test'
-import { bodyViews, bust, bustHappy, faces, fullSheet, palette } from './character'
+import { bust, bustHappy, faces } from './character'
 import type { Plate } from './character'
 
-const all: readonly Plate[] = [bust, bustHappy, ...bodyViews, ...faces, fullSheet]
+const all: readonly Plate[] = [bust, bustHappy, ...faces]
 
 /** WebP のヘッダから実寸を読む。next/image に書いた値とずれていないか確かめる */
 async function sizeOf(src: string): Promise<{ width: number; height: number } | null> {
@@ -62,23 +62,6 @@ describe('設定資料の図版', () => {
   test('すべて public/riml/chibi/ を指している', () => {
     for (const plate of all) {
       expect(plate.src.startsWith('/riml/chibi/')).toBe(true)
-    }
-  })
-})
-
-describe('カラーパレット', () => {
-  test('どの系統にも 1 色以上ある', () => {
-    expect(palette.length).toBeGreaterThan(0)
-    for (const row of palette) {
-      expect(row.swatches.length).toBeGreaterThan(0)
-    }
-  })
-
-  test('色は 6 桁の小文字 16 進', () => {
-    for (const row of palette) {
-      for (const swatch of row.swatches) {
-        expect(swatch.hex).toMatch(/^#[0-9a-f]{6}$/)
-      }
     }
   })
 })

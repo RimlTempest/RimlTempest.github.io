@@ -172,11 +172,10 @@ export default function Home() {
                 ))}
               </div>
               <p className={styles.sectionLead}>
-                青い髪、赤い目、クリーム色の肌。この 3 色が riml-ds の配色の出発点になっています。
-                全身 4 方向と配色は「私について」に置きました。
+                いま作っているもの、使う道具、画面の外で好きなこと。
               </p>
               <Link className={styles.buttonGhost} href="/about">
-                設定資料を開く
+                もっと読む
               </Link>
             </div>
           </div>
