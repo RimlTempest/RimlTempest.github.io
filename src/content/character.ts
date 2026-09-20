@@ -33,11 +33,11 @@ const sheet = (
 
 /** 全身 5 方向 */
 export const bodyViews: readonly Plate[] = [
-  sheet('body-front', '正面', 272, 848, 'cutout'),
-  sheet('body-side', '横', 174, 840, 'cutout'),
-  sheet('body-back', '背面', 242, 842, 'cutout'),
-  sheet('body-front45', '斜め前', 252, 844, 'cutout'),
-  sheet('body-back45', '斜め後ろ', 236, 842, 'cutout'),
+  sheet('body-front', '正面', 272, 846, 'cutout'),
+  sheet('body-side', '横', 172, 836, 'cutout'),
+  sheet('body-back', '背面', 242, 840, 'cutout'),
+  sheet('body-front45', '斜め前', 248, 842, 'cutout'),
+  sheet('body-back45', '斜め後ろ', 230, 838, 'cutout'),
 ] as const
 
 /** 顔のアップ */
@@ -59,23 +59,23 @@ export const expressions: readonly Plate[] = [
 
 /** 髪型の詳細 */
 export const hairPlates: readonly Plate[] = [
-  sheet('hair-front', '前髪', 282, 212, 'cutout'),
-  sheet('hair-side', '横髪（左側）', 244, 212, 'cutout'),
-  sheet('hair-back', '後ろ髪', 232, 276, 'cutout'),
-  sheet('hair-ornament', '髪飾り', 220, 196, 'cutout', '後ろの襟元に「×」の飾りがある'),
+  sheet('hair-front', '前髪', 280, 212, 'cutout'),
+  sheet('hair-side', '横髪（左側）', 240, 212, 'cutout'),
+  sheet('hair-back', '後ろ髪', 230, 272, 'cutout'),
+  sheet('hair-ornament', '髪飾り', 216, 194, 'cutout', '後ろの襟元に「×」の飾りがある'),
 ] as const
 
 /** 衣装・小物 */
 export const wearPlates: readonly Plate[] = [
-  sheet('wear-jacket-front', '上着（前面）', 360, 356, 'cutout', 'セーラージャケット'),
-  sheet('wear-jacket-back', '上着（背面）', 272, 384, 'cutout', '襟の背面に「×」'),
-  sheet('wear-inner', 'インナー', 224, 328, 'cutout', 'ノースリーブのハイネック'),
-  sheet('wear-bottoms', 'ボトムス', 322, 284, 'cutout', 'スカート + ショートパンツ'),
-  sheet('wear-socks', 'ソックス・ガーター', 190, 342, 'cutout', '右太ももにガーター'),
-  sheet('wear-shoes', 'シューズ', 390, 188, 'cutout', '厚底のスニーカー'),
-  sheet('wear-tie', 'ネクタイ', 132, 192, 'cutout', 'セーラーのリボン'),
-  sheet('wear-tags', '装飾・タグ', 128, 190, 'cutout', 'サイドのストラップとタグ'),
-  sheet('wear-extras', 'その他の装飾', 392, 196, 'cutout', '腕のポケットとベルト'),
+  sheet('wear-jacket-front', '上着（前面）', 360, 354, 'cutout', 'セーラージャケット'),
+  sheet('wear-jacket-back', '上着（背面）', 238, 346, 'cutout', '襟の背面に「×」'),
+  sheet('wear-inner', 'インナー', 224, 324, 'cutout', 'ノースリーブのハイネック'),
+  sheet('wear-bottoms', 'ボトムス', 318, 276, 'cutout', 'スカート + ショートパンツ'),
+  sheet('wear-socks', 'ソックス・ガーター', 218, 337, 'plate', '右太ももにガーター'),
+  sheet('wear-shoes', 'シューズ', 386, 184, 'cutout', '厚底のスニーカー'),
+  sheet('wear-tie', 'ネクタイ', 124, 188, 'cutout', 'セーラーのリボン'),
+  sheet('wear-tags', '装飾・タグ', 122, 188, 'cutout', 'サイドのストラップとタグ'),
+  sheet('wear-extras', 'その他の装飾', 384, 192, 'cutout', '腕のポケットとベルト'),
 ] as const
 
 export type Swatch = {
