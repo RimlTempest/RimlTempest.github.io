@@ -89,6 +89,10 @@ export default {
             '100dvi',
             '100cqi',
             '100cqb',
+            // 割合とビューポート単位は「レイアウトの相対値」であって
+            // デザインの決めごとではない。トークン化しても意味がないので許す
+            '/^-?\\d+(\\.\\d+)?%$/',
+            '/^-?\\d+(\\.\\d+)?(dvb|dvi|dvh|dvw|vb|vi|vh|vw|cqi|cqb)$/',
           ],
           '/color$/': colorKeywords,
           background: colorKeywords,
@@ -100,12 +104,33 @@ export default {
           fill: colorKeywords,
           stroke: colorKeywords,
           'font-weight': ['inherit', 'bolder', 'lighter'],
-          // スクロール駆動のアニメーションは進行をスクロール量に一致させる必要が
-          // あるので linear 固定。イージングのトークンを当てると対応がずれる
-          'animation-timing-function': ['linear', 'inherit'],
-          'z-index': ['auto', '-1', '0', '1'],
+          // 操作への応答（transition）はトークンの時間に揃える。一方 animation は
+          // 「ずっと続く装飾の周期」で、部位ごとに周期をずらすことに意味がある
+          // （同期すると機械的に見える）。ここだけ生の時間とイージングを許す
+          animation: [
+            '/^\\d+(\\.\\d+)?m?s$/',
+            'ease-in-out',
+            'ease-out',
+            'ease-in',
+            'linear',
+            'infinite',
+            'alternate',
+            'both',
+            'backwards',
+            'forwards',
+            'none',
+          ],
+          'animation-duration': ['/^\\d+(\\.\\d+)?m?s$/', 'auto', 'inherit'],
+          'animation-timing-function': ['linear', 'ease-in-out', 'ease-out', 'ease-in', 'inherit'],
+          'z-index': ['auto', '-2', '-1', '0', '1'],
           'line-height': ['normal', 'inherit', '1'],
-          '/^(padding|margin|gap|inset)/': ['auto', '0', 'inherit'],
+          '/^(padding|margin|gap|inset)/': [
+            'auto',
+            '0',
+            'inherit',
+            '/^-?\\d+(\\.\\d+)?%$/',
+            '/^-?\\d+(\\.\\d+)?(dvb|dvi|dvh|dvw|vb|vi|vh|vw|cqi|cqb)$/',
+          ],
         },
         ignoreFunctions: true,
         expandShorthand: true,

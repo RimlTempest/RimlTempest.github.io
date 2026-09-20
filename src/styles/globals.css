@@ -13,6 +13,24 @@
 
   /* 紙の目。窓が乗る下地 */
   --riml-paper-dot: color-mix(in oklab, var(--rd-color-border-default) 28%, transparent);
+
+  /*
+   * このサイトのイージング。行き過ぎて戻る 1 つだけを決めて、
+   * 反応のある動き（hover / press）は全部これで統一する。
+   * 画面に入ってくる動きは riml-ds の easing-standard を使う。
+   */
+  --riml-ease-out: cubic-bezier(0.19, 1.6, 0.42, 0.97);
+
+  /*
+   * ずっと動き続ける装飾（呼吸・床のスクロール）の再生状態。
+   * ヘッダーの「動きを止める」で :root[data-motion='off'] に切り替わる。
+   * WCAG 2.2.2（自動で始まり 5 秒を超える動きには止める手段を用意する）のため。
+   */
+  --riml-play: running;
+}
+
+:root[data-motion='off'] {
+  --riml-play: paused;
 }
 
 html {
@@ -55,6 +73,18 @@ body {
 .riml-stack {
   display: grid;
   gap: var(--rd-space-4);
+}
+
+/* 欧文の大見出し。LP の骨格を作る、細長い大文字 */
+.riml-display-latin {
+  margin: 0;
+  color: var(--rd-color-brand-primary);
+  font-family: var(--rd-font-family-display);
+  font-size: clamp(3rem, 12vi, 9rem);
+  font-weight: var(--rd-font-weight-bold);
+  line-height: var(--rd-line-height-display);
+  letter-spacing: var(--rd-letter-spacing-wide);
+  text-transform: uppercase;
 }
 
 /* 見出しの組み。DESIGN.md「見出しは丸ゴシック、balance で折る」 */

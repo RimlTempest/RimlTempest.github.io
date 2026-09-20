@@ -1,0 +1,32 @@
+/*
+ * ずっと動き続ける装飾を止める。
+ * WCAG 2.2.2「自動で始まり 5 秒を超える動きには、止める手段を用意する」のため。
+ * OS 側で動きを減らす設定になっているときは、そもそも動かないのでボタンを出さない。
+ */
+.button {
+  display: none;
+  place-items: center;
+  min-block-size: var(--rd-sizing-target-min);
+  padding-inline: var(--rd-space-3);
+  border-width: 0;
+  border-radius: var(--rd-radius-full);
+  background: transparent;
+  color: inherit;
+  font-size: var(--rd-type-small-font-size);
+  cursor: pointer;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .button {
+    display: grid;
+  }
+}
+
+.button:hover {
+  background: color-mix(in oklab, currentcolor 16%, transparent);
+}
+
+.icon {
+  inline-size: var(--rd-space-4);
+  block-size: var(--rd-space-4);
+}

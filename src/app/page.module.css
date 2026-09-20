@@ -1,81 +1,156 @@
-/* ------------------------------------------------------------------ hero */
+/* =========================================================== キービジュアル */
 
-.hero {
+.kv {
   position: relative;
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--rd-space-8);
   align-items: center;
-  min-block-size: var(--riml-hero-block);
-  padding-block: clamp(var(--rd-space-8), 8vb, var(--rd-space-16));
+  min-block-size: 88dvb;
+  padding-block: var(--rd-space-12) var(--rd-space-16);
+  overflow: clip;
 
-  --riml-hero-block: 78dvb;
-  --riml-art-size: min(26rem, 76vi);
-  --riml-x-size: 2.5rem;
+  --riml-kv-art: min(30rem, 88vi);
+  --riml-grid-cell: 2.5rem;
+  --riml-x-size: 2.75rem;
 }
 
 @media (width >= 56rem) {
-  .hero {
-    grid-template-columns: 1.1fr 1fr;
+  .kv {
+    grid-template-columns: 1.15fr 1fr;
+    gap: var(--rd-space-8);
   }
 }
 
-.heroCopy {
+/* 奥行きのある床。線は 2 本のグラデーションだけで引き、画像を使わない */
+.stageGrid {
+  position: absolute;
+  z-index: -1;
+  inset-block-end: 0;
+  inset-inline: calc(-1 * var(--rd-space-16));
+  block-size: 70%;
+  transform: perspective(50rem) rotateX(58deg);
+  transform-origin: center bottom;
+  background-image:
+    linear-gradient(90deg, transparent calc(100% - 0.0625rem), var(--rd-color-border-default) 0),
+    linear-gradient(180deg, transparent calc(100% - 0.0625rem), var(--rd-color-border-default) 0);
+  background-size: var(--riml-grid-cell) var(--riml-grid-cell);
+  opacity: 0.55;
+  mask-image: linear-gradient(to top, black 10%, transparent 88%);
+}
+
+/* 放射状の光。conic グラデーション 1 枚で 12 本引く */
+.stageRays {
+  position: absolute;
+  z-index: -2;
+  inset-block-start: -30%;
+  inset-inline-start: 50%;
+  inline-size: 140vi;
+  aspect-ratio: 1;
+  translate: -50% 0;
+  background-image: repeating-conic-gradient(
+    from 0deg,
+    color-mix(in oklab, var(--rd-color-brand-primary) 12%, transparent) 0deg 3deg,
+    transparent 3deg 30deg
+  );
+  mask-image: radial-gradient(circle closest-side, black 8%, transparent 62%);
+}
+
+/* キャラクターの後ろのほのかな光 */
+.stageGlow {
+  position: absolute;
+  z-index: -1;
+  inset-block-start: 8%;
+  inset-inline-end: 4%;
+  inline-size: min(38rem, 92vi);
+  aspect-ratio: 1;
+  border-radius: var(--rd-radius-full);
+  background-image: radial-gradient(
+    circle closest-side,
+    color-mix(in oklab, var(--rd-color-brand-primary) 24%, transparent) 0%,
+    transparent 70%
+  );
+}
+
+.kvCopy {
   display: grid;
   gap: var(--rd-space-4);
   justify-items: start;
 }
 
-.eyebrow {
+.kvEyebrow {
   display: inline-grid;
   place-items: center;
-  padding-inline: var(--rd-space-3);
   min-block-size: var(--rd-space-8);
+  padding-inline: var(--rd-space-3);
   border-radius: var(--rd-radius-full);
   background: var(--rd-color-surface-raised);
   box-shadow: var(--rd-shadow-raised);
   color: var(--rd-color-text-muted);
-  font: var(--rd-type-small);
-}
-
-.name {
-  margin: 0;
-  font: var(--rd-type-display);
-}
-
-/* 名前の下の線は髪の青。装飾なので文字を載せない */
-.nameRule {
-  inline-size: var(--rd-space-16);
-  block-size: var(--rd-space-1);
-  border-radius: var(--rd-radius-full);
-  background: var(--rd-color-brand-primary);
-}
-
-.latin {
-  margin: 0;
-  color: var(--rd-color-text-muted);
-  font: var(--rd-type-heading-2);
+  font-family: var(--rd-font-family-mono);
+  font-size: var(--rd-type-small-font-size);
   letter-spacing: var(--rd-letter-spacing-wide);
 }
 
-.introList {
-  display: grid;
+/* 名前。欧文の巨大な見出しが LP の骨格を作る */
+.kvName {
+  margin: 0;
+  color: var(--rd-color-text-default);
+  font-family: var(--rd-font-family-display);
+  font-size: clamp(4rem, 15vi, 11rem);
+  font-weight: var(--rd-font-weight-bold);
+  line-height: var(--rd-line-height-display);
+  letter-spacing: var(--rd-letter-spacing-wide);
+  text-transform: uppercase;
+}
+
+.kvRule {
+  inline-size: var(--rd-space-16);
+  block-size: var(--rd-space-1);
+  border-radius: var(--rd-radius-full);
+  background: var(--rd-color-brand-signature);
+}
+
+.kvJa {
+  margin: 0;
+  color: var(--rd-color-text-default);
+  font: var(--rd-type-heading-2);
+}
+
+.kvLead {
+  margin: 0;
+  color: var(--rd-color-text-muted);
+}
+
+.kvTags {
+  display: flex;
+  flex-wrap: wrap;
   gap: var(--rd-space-2);
   padding: 0;
   margin: 0;
-  max-inline-size: var(--rd-sizing-measure-max);
   list-style: none;
 }
 
-.ctaRow {
+.kvTag {
+  padding-inline: var(--rd-space-3);
+  padding-block: var(--rd-space-1);
+  border-radius: var(--rd-radius-sm);
+  background: var(--rd-color-surface-sunken);
+  color: var(--rd-color-text-muted);
+  font-family: var(--rd-font-family-mono);
+  font-size: var(--rd-type-small-font-size);
+}
+
+.kvCta {
   display: flex;
   flex-wrap: wrap;
   gap: var(--rd-space-3);
   margin-block-start: var(--rd-space-2);
 }
 
-.ctaPrimary,
-.ctaSecondary {
+/* ================================================================ ボタン */
+
+.buttonPrimary,
+.buttonGhost {
   display: grid;
   place-items: center;
   min-block-size: var(--rd-sizing-target-min);
@@ -85,13 +160,13 @@
   text-decoration: none;
 }
 
-.ctaPrimary {
+.buttonPrimary {
   background: var(--rd-color-accent-default);
-  color: var(--rd-color-text-on-accent);
   box-shadow: var(--rd-shadow-raised);
+  color: var(--rd-color-text-on-accent);
 }
 
-.ctaSecondary {
+.buttonGhost {
   border-width: var(--rd-border-width-default);
   border-style: solid;
   border-color: var(--rd-color-border-strong);
@@ -99,56 +174,46 @@
   color: var(--rd-color-text-default);
 }
 
-.ctaPrimary:hover {
+.buttonPrimary:hover {
   background: var(--rd-color-accent-hover);
 }
 
-.ctaSecondary:hover {
+.buttonGhost:hover {
   background: var(--rd-color-surface-hover);
 }
 
-/* ------------------------------------------------------------- hero art */
+/* ============================================================ イラスト */
 
-.heroArt {
+.kvArt {
   position: relative;
   display: grid;
   place-items: center;
+  margin: 0;
   justify-self: center;
 }
 
-/* 後ろのほのかな光。紙の目からキャラクターを浮かせるためだけのもの。
-   面（surface）ではないので影は付けず、輪郭も作らない */
-.disc {
+/* 立ち絵を 2 枚重ね、ふだんは正面。触ると斜め前を向く。JS は使わない */
+.kvArtImage {
   grid-area: 1 / 1;
-  inline-size: calc(var(--riml-art-size) * 1.15);
-  block-size: calc(var(--riml-art-size) * 1.15);
-  border-radius: var(--rd-radius-full);
-  background-image: radial-gradient(
-    circle closest-side,
-    var(--rd-color-surface-raised) 0%,
-    color-mix(in oklab, var(--rd-color-surface-raised) 55%, transparent) 55%,
-    transparent 78%
-  );
-}
-
-/* 2 枚を重ね、ふだんは「ふつう」。触ると「笑顔」に変わる。JS は使わない */
-.artLayer {
-  grid-area: 1 / 1;
-  inline-size: var(--riml-art-size);
-  block-size: var(--riml-art-size);
+  inline-size: auto;
+  block-size: var(--riml-kv-art);
   object-fit: contain;
 }
 
-.artHappy {
+.kvArtAlt {
   opacity: 0;
 }
 
-.heroArt:hover .artHappy,
-.heroArt:focus-within .artHappy {
+.kvArt:hover .kvArtAlt,
+.kvArt:focus-within .kvArtAlt {
   opacity: 1;
 }
 
-/* 髪どめの ×。スクロールでゆっくり回る（自動では動かない） */
+.kvArt:hover .kvArtMain,
+.kvArt:focus-within .kvArtMain {
+  opacity: 0;
+}
+
 .xMark {
   position: absolute;
   inline-size: var(--riml-x-size);
@@ -157,91 +222,135 @@
 }
 
 .x1 {
-  inset-block-start: 0;
-  inset-inline-start: var(--rd-space-2);
+  inset-block-start: 4%;
+  inset-inline-start: 0;
 }
 
 .x2 {
-  inset-block-end: var(--rd-space-6);
-  inset-inline-end: 0;
+  inset-block-start: 38%;
+  inset-inline-end: 2%;
   color: var(--rd-color-brand-primary);
 }
 
 .x3 {
-  inset-inline-start: calc(-1 * var(--rd-space-4));
+  inset-block-end: 10%;
+  inset-inline-start: 6%;
   color: var(--rd-color-accent-default);
 }
 
-/* ヒーロー下端のスクロール合図。矢印は装飾なので aria-hidden */
+/* ===================================================== スクロールの合図 */
 
-/* ヒーローの下端に置く。グリッドの列割りから外し、常に横中央に来るようにする */
 .scrollCue {
   position: absolute;
-  inset-block-end: 0;
+  inset-block-end: var(--rd-space-2);
   inset-inline: 0;
   display: grid;
-  gap: var(--rd-space-1);
+  gap: var(--rd-space-2);
   justify-items: center;
-
-  /* riml-ds の base は p に読み幅の上限を掛ける。絶対配置では start 寄せに
-     なってしまうので、自動マージンで中央に戻す */
   margin-inline: auto;
   color: var(--rd-color-text-muted);
-  font: var(--rd-type-small);
+  font-family: var(--rd-font-family-mono);
+  font-size: var(--rd-type-small-font-size);
+  letter-spacing: var(--rd-letter-spacing-wide);
 }
 
-.scrollArrow {
-  inline-size: var(--rd-space-6);
-  block-size: var(--rd-space-6);
-  color: var(--rd-color-text-muted);
+.scrollTrack {
+  --riml-track-width: 0.125rem;
+
+  position: relative;
+  overflow: hidden;
+  inline-size: var(--riml-track-width);
+  block-size: var(--rd-space-12);
+  border-radius: var(--rd-radius-full);
+  background: var(--rd-color-surface-sunken);
 }
 
-.hint {
+.scrollTrack::after {
+  content: '';
+  position: absolute;
+  inset-inline: 0;
+  block-size: 100%;
+  border-radius: var(--rd-radius-full);
+  background: var(--rd-color-brand-primary);
+}
+
+/* ================================================================ 帯 */
+
+/* 横に流れる帯。同じ並びを 2 つ持ち、1 つ分だけ動かして継ぎ目を消す */
+.ticker {
+  overflow: hidden;
+  padding-block: var(--rd-space-3);
+  border-block: 0.125rem solid var(--rd-color-border-default);
+  background: var(--rd-color-surface-raised);
+  mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+}
+
+.tickerRow {
+  display: flex;
+  inline-size: max-content;
+  gap: var(--rd-space-6);
+  padding: 0;
   margin: 0;
-  color: var(--rd-color-text-muted);
-  font: var(--rd-type-small);
-  text-align: center;
+  list-style: none;
 }
 
-/* --------------------------------------------------------------- 各セクション */
+.tickerItem {
+  display: flex;
+  gap: var(--rd-space-6);
+  align-items: center;
+  color: var(--rd-color-text-muted);
+  font-family: var(--rd-font-family-mono);
+  font-size: var(--rd-type-small-font-size);
+  letter-spacing: var(--rd-letter-spacing-wide);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.tickerItem::after {
+  content: '';
+  inline-size: var(--rd-space-2);
+  block-size: var(--rd-space-2);
+  border-radius: var(--rd-radius-full);
+  background: var(--rd-color-brand-signature);
+}
+
+/* ============================================================ セクション */
+
+/* セクションの境目を楕円のドームで切る。ここに欧文の大見出しをまたがせる */
+.dome {
+  position: relative;
+  padding-block: clamp(var(--rd-space-12), 9vb, var(--rd-space-16));
+  border-start-start-radius: 40rem 8rem;
+  border-start-end-radius: 40rem 8rem;
+  background: var(--rd-color-surface-raised);
+}
 
 .sectionHead {
   display: grid;
   gap: var(--rd-space-2);
-  margin-block-end: var(--rd-space-6);
-}
-
-.sectionTitle {
-  margin: 0;
-  font: var(--rd-type-heading-1);
+  margin-block-end: var(--rd-space-8);
 }
 
 .sectionLead {
   margin: 0;
   color: var(--rd-color-text-muted);
-  max-inline-size: var(--rd-sizing-measure-max);
 }
 
-/* 横に流れる作品の帯。指で弾いても 1 枚ずつ止まる */
-.workRail {
+.workGrid {
   display: grid;
-  grid-auto-columns: min(22rem, 82vi);
-  grid-auto-flow: column;
+  grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
   gap: var(--rd-space-4);
-  padding-block-end: var(--rd-space-4);
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  overscroll-behavior-x: contain;
 }
 
-.workRail > * {
-  scroll-snap-align: start;
+/* 並んだカードの下端を揃える。包みがグリッドの枠いっぱいに伸びる */
+.workItem {
+  display: grid;
 }
 
-@supports (scrollbar-gutter: stable) {
-  .workRail {
-    scrollbar-gutter: stable;
-  }
+.more {
+  margin: 0;
+  margin-block-start: var(--rd-space-6);
+  font-weight: var(--rd-font-weight-bold);
 }
 
 .skillGrid {
@@ -267,9 +376,44 @@
   font: var(--rd-type-small);
 }
 
-.closing {
-  --riml-closing-art: 8rem;
+/* ========================================================== about の抜粋 */
 
+.aboutRow {
+  display: grid;
+  gap: var(--rd-space-8);
+  align-items: center;
+}
+
+@media (width >= 56rem) {
+  .aboutRow {
+    grid-template-columns: 1fr 1.2fr;
+  }
+}
+
+.aboutArt {
+  --riml-about-art: min(22rem, 70vi);
+
+  display: grid;
+  place-items: center;
+  margin: 0;
+  justify-self: center;
+}
+
+.aboutArtImage {
+  inline-size: auto;
+  block-size: var(--riml-about-art);
+  object-fit: contain;
+}
+
+.aboutText {
+  display: grid;
+  gap: var(--rd-space-4);
+  justify-items: start;
+}
+
+/* ================================================================ 締め */
+
+.closing {
   display: grid;
   gap: var(--rd-space-4);
   justify-items: center;
@@ -277,88 +421,166 @@
   text-align: center;
 }
 
-/* 円盤とイラストを重ねる。イラストは切り抜き済みなので contain で全体が入る */
-.closingArt {
-  display: grid;
-  place-items: center;
-}
-
-.closingDisc {
-  grid-area: 1 / 1;
-  inline-size: calc(var(--riml-closing-art) * 0.78);
-  block-size: calc(var(--riml-closing-art) * 0.78);
-  border-radius: var(--rd-radius-full);
-  background: var(--rd-color-surface-raised);
-  box-shadow: var(--rd-shadow-raised);
-}
-
-.closingImage {
-  grid-area: 1 / 1;
-  inline-size: var(--riml-closing-art);
-  block-size: var(--riml-closing-art);
-  object-fit: contain;
-}
-
-/* ------------------------------------------------------------------ 動き */
+/* ================================================================ 動き */
 
 @media (prefers-reduced-motion: no-preference) {
-  @keyframes riml-cue {
-    from {
-      opacity: 0.35;
-      translate: 0 calc(-1 * var(--rd-space-1));
-    }
-
-    to {
-      opacity: 1;
-      translate: 0 var(--rd-space-1);
-    }
-  }
-
-  /* ページの先頭にいる間だけ出る合図。スクロールすると消えるので、
-     見えているときしか動かない（自動再生の演出を置かないという規約の範囲） */
-  @supports (animation-timeline: view()) {
-    .scrollArrow {
-      animation-name: riml-cue;
-      animation-duration: auto;
-      animation-timing-function: linear;
-      animation-direction: alternate;
-      animation-timeline: view();
-    }
-  }
-
-  .artLayer,
-  .ctaPrimary,
-  .ctaSecondary {
+  .buttonPrimary,
+  .buttonGhost {
     transition:
-      opacity var(--rd-motion-duration-base) var(--rd-motion-easing-standard),
-      background var(--rd-motion-duration-fast) var(--rd-motion-easing-standard);
+      background var(--rd-motion-duration-fast) var(--riml-ease-out),
+      translate var(--rd-motion-duration-fast) var(--riml-ease-out);
   }
 
-  @supports ((animation-timeline: view()) and (animation-range: entry)) {
-    @keyframes riml-x-turn {
-      from {
-        rotate: -25deg;
-        scale: 0.7;
-      }
+  .buttonPrimary:hover,
+  .buttonGhost:hover {
+    translate: 0 calc(-1 * var(--rd-space-1));
+  }
 
-      to {
-        rotate: 25deg;
-        scale: 1;
-      }
+  .kvArtImage {
+    transition: opacity var(--rd-motion-duration-base) var(--rd-motion-easing-standard);
+  }
+
+  /* 登場。奥のものほど小さく、手前のものほど大きく持ち上げる */
+  @keyframes riml-enter {
+    from {
+      opacity: 0;
+      translate: 0 var(--riml-enter-from);
+    }
+  }
+
+  .kvCopy {
+    --riml-enter-from: 8%;
+
+    animation: riml-enter 900ms var(--rd-motion-easing-standard) 120ms backwards;
+  }
+
+  /* 止まっていても生きて見えるだけの、ごく小さい呼吸 */
+  @keyframes riml-breathe {
+    0%,
+    100% {
+      scale: 1 1;
     }
 
-    .xMark {
-      animation-name: riml-x-turn;
-      animation-duration: auto;
-      animation-timing-function: linear;
-      animation-fill-mode: both;
-      animation-timeline: view();
+    50% {
+      scale: 1.008 1.012;
     }
+  }
+
+  @keyframes riml-drift {
+    0%,
+    100% {
+      rotate: -6deg;
+      translate: 0 0;
+    }
+
+    50% {
+      rotate: 6deg;
+      translate: 0 -8%;
+    }
+  }
+
+  @keyframes riml-grid-move {
+    to {
+      background-position: 0 var(--riml-grid-cell);
+    }
+  }
+
+  @keyframes riml-ray-breathe {
+    0%,
+    100% {
+      opacity: 0.55;
+    }
+
+    50% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes riml-scroll-run {
+    0% {
+      translate: 0 -100%;
+    }
+
+    45% {
+      translate: 0 100%;
+    }
+
+    45.1% {
+      translate: 0 -100%;
+    }
+
+    100% {
+      translate: 0 -100%;
+    }
+  }
+
+  @keyframes riml-ticker {
+    to {
+      translate: calc(-50% - var(--rd-space-3)) 0;
+    }
+  }
+
+  .kvArt {
+    animation:
+      riml-enter 900ms var(--rd-motion-easing-standard) 180ms backwards,
+      riml-breathe 4s ease-in-out infinite;
+    animation-play-state: running, var(--riml-play);
+    transform-origin: center bottom;
+  }
+
+  .xMark {
+    animation: riml-drift 5s ease-in-out infinite;
+    animation-play-state: var(--riml-play);
+  }
+
+  .x2 {
+    animation-duration: 6.5s;
+    animation-delay: -2s;
+  }
+
+  .x3 {
+    animation-duration: 7.5s;
+    animation-delay: -4s;
+  }
+
+  /* 床と光は「登場」と「ループ」を 1 つの animation に重ねる */
+  .stageGrid {
+    --riml-enter-from: 4%;
+
+    animation:
+      riml-enter 900ms var(--rd-motion-easing-standard) 60ms backwards,
+      riml-grid-move 2.4s linear infinite;
+    animation-play-state: running, var(--riml-play);
+  }
+
+  .stageRays {
+    --riml-enter-from: 1.5%;
+
+    animation:
+      riml-enter 900ms var(--rd-motion-easing-standard) backwards,
+      riml-ray-breathe 6s ease-in-out infinite;
+    animation-play-state: running, var(--riml-play);
+  }
+
+  .scrollTrack::after {
+    animation: riml-scroll-run 2.2s cubic-bezier(0.63, 0.02, 0.31, 1.01) infinite;
+    animation-play-state: var(--riml-play);
+  }
+
+  .tickerRow {
+    animation: riml-ticker 26s linear infinite;
+    animation-play-state: var(--riml-play);
   }
 }
 
 @media (forced-colors: active) {
-  .ctaPrimary {
+  .stageGrid,
+  .stageRays,
+  .stageGlow {
+    display: none;
+  }
+
+  .buttonPrimary {
     border-block-end: var(--rd-border-width-default) solid ButtonText;
   }
 }

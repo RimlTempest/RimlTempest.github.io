@@ -1,0 +1,70 @@
+/* 設定資料の図版を並べる。切り抜き済みのものと、紙に載った図版の 2 種類がある */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--riml-plate-min, 9rem), 1fr));
+  gap: var(--rd-space-4);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.item {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  gap: var(--rd-space-2);
+  padding: var(--rd-space-3);
+  border-radius: var(--rd-radius-md);
+  background: var(--rd-color-surface-sunken);
+}
+
+/*
+ * 図版（plate）は背景が絵の一部なので、紙色の下地に載せる。
+ * 明るいままなのは写真と同じ扱い。riml-ds の面の色ではなく、絵の紙色に合わせる。
+ */
+.paper {
+  display: grid;
+  place-items: center;
+  padding: var(--rd-space-2);
+  border-radius: var(--rd-radius-sm);
+  background: oklch(97.5% 0.004 90deg);
+}
+
+.stage {
+  display: grid;
+  place-items: center;
+  min-block-size: var(--riml-plate-height, 9rem);
+}
+
+.image {
+  inline-size: auto;
+  max-inline-size: 100%;
+  block-size: auto;
+  max-block-size: var(--riml-plate-height, 9rem);
+  object-fit: contain;
+}
+
+.caption {
+  display: grid;
+  gap: var(--rd-space-1);
+  margin: 0;
+}
+
+.label {
+  font-weight: var(--rd-font-weight-bold);
+  font-size: var(--rd-type-small-font-size);
+}
+
+.note {
+  color: var(--rd-color-text-muted);
+  font-size: var(--rd-type-small-font-size);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .item {
+    transition: translate var(--rd-motion-duration-fast) var(--riml-ease-out);
+  }
+
+  .item:hover {
+    translate: 0 calc(-1 * var(--rd-space-1));
+  }
+}

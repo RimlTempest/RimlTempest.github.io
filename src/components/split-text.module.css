@@ -1,0 +1,41 @@
+/*
+ * 見出しを 1 文字ずつ出す。文字は --riml-i 番目として並び、遅延をその添字から作る。
+ * 分割はビルド時（Server Component）に済ませるので、クライアント JavaScript は要らない。
+ */
+.line {
+  display: inline-block;
+}
+
+.char {
+  display: inline-block;
+  white-space: pre;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports ((animation-timeline: view()) and (animation-range: entry)) {
+    @keyframes riml-char-in {
+      from {
+        opacity: 0;
+        transform: translateY(0.35em) scaleX(1.35);
+      }
+    }
+
+    /* 白く着地してから色がつく 2 段。単なるフェードと質感が変わる */
+    @keyframes riml-char-tint {
+      from {
+        color: var(--rd-color-text-default);
+      }
+    }
+
+    .char {
+      animation:
+        riml-char-in var(--rd-motion-duration-base) var(--riml-ease-out) backwards,
+        riml-char-tint var(--rd-motion-duration-fast) linear backwards;
+      animation-delay: calc(var(--riml-i) * 40ms), calc(var(--riml-i) * 40ms + 120ms);
+      animation-timeline: view(), view();
+      animation-range:
+        entry 8% entry 45%,
+        entry 8% entry 45%;
+    }
+  }
+}

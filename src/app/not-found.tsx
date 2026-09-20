@@ -7,10 +7,10 @@ export default function NotFound() {
     <div className={`riml-container ${styles.wrap}`}>
       <Image
         className={styles.art}
-        src="/riml/faces/surprised.webp"
+        src="/riml/sheet/expr-trouble.webp"
         alt=""
-        width={256}
-        height={256}
+        width={152}
+        height={332}
         aria-hidden="true"
       />
       <p className={styles.code}>404</p>

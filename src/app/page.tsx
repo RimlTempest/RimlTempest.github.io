@@ -1,9 +1,10 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { FacePicker } from '@/components/face-picker'
+import { SplitText } from '@/components/split-text'
 import { WindowPanel } from '@/components/window-panel'
 import { WorkCard } from '@/components/work-card'
-import { ChevronDown, XMark } from '@/components/x-mark'
+import { XMark } from '@/components/x-mark'
+import { bodyViews } from '@/content/character'
 import { intro } from '@/content/profile'
 import { site } from '@/content/site'
 import { skillGroups } from '@/content/skills'
@@ -13,99 +14,121 @@ import styles from './page.module.css'
 /** トップに出す作品。全部は出さず、いま動いているものだけ */
 const featured = works.filter((work) => work.status !== 'private').slice(0, 4)
 
+const [front, , , front45] = bodyViews
+
+/** 帯に流す短い言葉。2 周ぶん並べて継ぎ目を消す */
+const tickerWords = [
+  'frontend engineer',
+  'design system',
+  'web components',
+  'rhythm games',
+  'wcag aaa',
+  'bun + next.js',
+] as const
+
 export default function Home() {
   return (
     <>
-      <section className={`riml-container ${styles.hero}`}>
-        <div className={styles.heroCopy}>
-          <p className={styles.eyebrow}>フロントエンドを書いています</p>
-          <h1 className={styles.name}>{site.name}</h1>
-          <span className={styles.nameRule} aria-hidden="true" />
-          <p className={styles.latin}>{site.latinName}</p>
+      <section className={`riml-container ${styles.kv}`}>
+        <span className={styles.stageRays} aria-hidden="true" />
+        <span className={styles.stageGrid} aria-hidden="true" />
+        <span className={styles.stageGlow} aria-hidden="true" />
 
-          <ul className={styles.introList}>
-            {intro.map((line) => (
-              <li key={line}>{line}</li>
-            ))}
+        <div className={styles.kvCopy}>
+          <p className={styles.kvEyebrow}>PORTFOLIO — {site.latinName}</p>
+          <h1 className={styles.kvName}>
+            <SplitText text="riml" />
+          </h1>
+          <span className={styles.kvRule} aria-hidden="true" />
+          <p className={styles.kvJa}>{site.fullName}</p>
+          <p className={styles.kvLead}>{intro[0]}</p>
+
+          <ul className={styles.kvTags}>
+            <li className={styles.kvTag}>TypeScript</li>
+            <li className={styles.kvTag}>React / Next.js</li>
+            <li className={styles.kvTag}>Lit</li>
+            <li className={styles.kvTag}>CSS</li>
           </ul>
 
-          <div className={styles.ctaRow}>
-            <Link className={styles.ctaPrimary} href="/work">
+          <div className={styles.kvCta}>
+            <Link className={styles.buttonPrimary} href="/work">
               作ったものを見る
             </Link>
-            <Link className={styles.ctaSecondary} href="/about">
-              私について
+            <Link className={styles.buttonGhost} href="/about">
+              キャラクター設定を見る
             </Link>
           </div>
         </div>
 
-        <div className={styles.heroArt}>
-          <span className={styles.disc} aria-hidden="true" />
-          <Image
-            className={styles.artLayer}
-            src="/riml/riml-bust.webp"
-            alt={`${site.name} のイラスト`}
-            width={768}
-            height={768}
-            priority
-          />
-          <Image
-            className={`${styles.artLayer} ${styles.artHappy}`}
-            src="/riml/riml-bust-happy.webp"
-            alt=""
-            width={768}
-            height={768}
-            aria-hidden="true"
-          />
+        <figure className={styles.kvArt}>
+          {front === undefined ? null : (
+            <Image
+              className={`${styles.kvArtImage} ${styles.kvArtMain}`}
+              src={front.src}
+              alt={`${site.name} の立ち絵`}
+              width={front.width}
+              height={front.height}
+              priority
+            />
+          )}
+          {front45 === undefined ? null : (
+            <Image
+              className={`${styles.kvArtImage} ${styles.kvArtAlt}`}
+              src={front45.src}
+              alt=""
+              width={front45.width}
+              height={front45.height}
+              aria-hidden="true"
+            />
+          )}
           <XMark className={`${styles.xMark} ${styles.x1}`} />
           <XMark className={`${styles.xMark} ${styles.x2}`} />
           <XMark className={`${styles.xMark} ${styles.x3}`} />
-        </div>
+        </figure>
 
         <p className={styles.scrollCue}>
-          <ChevronDown className={styles.scrollArrow} />
-          下へ
+          SCROLL
+          <span className={styles.scrollTrack} aria-hidden="true" />
         </p>
       </section>
 
-      <section className={`riml-container riml-section riml-rise`} aria-labelledby="faces-title">
-        <div className={styles.sectionHead}>
-          <h2 className={styles.sectionTitle} id="faces-title">
-            ごあいさつ
-          </h2>
-          <p className={styles.sectionLead}>
-            キャラクターシートから切り出した 6
-            つの表情です。ボタンを押すか、矢印キーで切り替わります。
-          </p>
-        </div>
-        <WindowPanel title="riml の表情" headingLevel={3}>
-          <FacePicker />
-        </WindowPanel>
-      </section>
-
-      <section className="riml-container riml-section riml-rise" aria-labelledby="works-title">
-        <div className={styles.sectionHead}>
-          <h2 className={styles.sectionTitle} id="works-title">
-            作ったもの
-          </h2>
-          <p className={styles.sectionLead}>
-            いま動いているものを 4 つ。横に流して、気になったものを開いてください。
-          </p>
-        </div>
-        <div className={styles.workRail}>
-          {featured.map((work) => (
-            <WorkCard key={work.slug} work={work} />
+      <div className={styles.ticker} aria-hidden="true">
+        <ul className={styles.tickerRow}>
+          {[...tickerWords, ...tickerWords].map((word, index) => (
+            <li key={`${word}-${String(index)}`} className={styles.tickerItem}>
+              {word}
+            </li>
           ))}
+        </ul>
+      </div>
+
+      <section className={styles.dome} aria-labelledby="works-title">
+        <div className="riml-container">
+          <div className={styles.sectionHead}>
+            <h2 className="riml-display-latin" id="works-title">
+              <SplitText text="works" />
+            </h2>
+            <p className={styles.sectionLead}>
+              いま動いているものを 4 つ。止まっているものも、止まっていると書いてあります。
+            </p>
+          </div>
+          <div className={styles.workGrid}>
+            {featured.map((work) => (
+              <div key={work.slug} className={`riml-rise ${styles.workItem}`}>
+                <WorkCard work={work} />
+              </div>
+            ))}
+          </div>
+          <p className={styles.more}>
+            <Link href="/work">すべての作品を見る →</Link>
+          </p>
         </div>
-        <p className={styles.hint}>
-          <Link href="/work">すべての作品を見る</Link>
-        </p>
       </section>
 
-      <section className="riml-container riml-section riml-rise" aria-labelledby="skills-title">
+      <section className="riml-container riml-section" aria-labelledby="skills-title">
         <div className={styles.sectionHead}>
-          <h2 className={styles.sectionTitle} id="skills-title">
-            使う道具
+          <h2 className="riml-display-latin" id="skills-title">
+            <SplitText text="toolbox" />
           </h2>
           <p className={styles.sectionLead}>
             「習熟度 ◯ %」はやめました。実際にどれくらい触っているかで 3 つに分けています。
@@ -126,22 +149,49 @@ export default function Home() {
         </div>
       </section>
 
-      <section className={`riml-container ${styles.closing}`} aria-labelledby="closing-title">
-        <div className={styles.closingArt} aria-hidden="true">
-          <span className={styles.closingDisc} />
-          <Image
-            className={styles.closingImage}
-            src="/riml/riml-bust-happy.webp"
-            alt=""
-            width={768}
-            height={768}
-          />
+      <section className={styles.dome} aria-labelledby="about-title">
+        <div className="riml-container">
+          <div className={styles.sectionHead}>
+            <h2 className="riml-display-latin" id="about-title">
+              <SplitText text="about" />
+            </h2>
+          </div>
+          <div className={styles.aboutRow}>
+            {front45 === undefined ? null : (
+              <figure className={styles.aboutArt}>
+                <Image
+                  className={styles.aboutArtImage}
+                  src={front45.src}
+                  alt={`${site.name} の立ち絵（${front45.label}）`}
+                  width={front45.width}
+                  height={front45.height}
+                />
+              </figure>
+            )}
+            <div className={styles.aboutText}>
+              <div className="riml-prose">
+                {intro.map((line) => (
+                  <p key={line}>{line}</p>
+                ))}
+              </div>
+              <p className={styles.sectionLead}>
+                青い髪、赤い目、クリーム色の肌。この 3 色が riml-ds の配色の出発点になっています。
+                三面図から表情、衣装の細部まで「私について」に置きました。
+              </p>
+              <Link className={styles.buttonGhost} href="/about">
+                設定資料を開く
+              </Link>
+            </div>
+          </div>
         </div>
-        <h2 className={styles.sectionTitle} id="closing-title">
-          声をかけてください
+      </section>
+
+      <section className={`riml-container ${styles.closing}`} aria-labelledby="contact-title">
+        <h2 className="riml-display-latin" id="contact-title">
+          <SplitText text="contact" />
         </h2>
         <p className={styles.sectionLead}>仕事の話も、ゲームのフレンド申請も、どちらでも。</p>
-        <Link className={styles.ctaPrimary} href="/contact">
+        <Link className={styles.buttonPrimary} href="/contact">
           連絡先を見る
         </Link>
       </section>

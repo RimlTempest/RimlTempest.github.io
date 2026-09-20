@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { isCurrent, navItems } from '@/lib/nav'
+import { MotionToggle } from './motion-toggle'
 import { XMark } from './x-mark'
 import styles from './site-header.module.css'
 
@@ -30,10 +31,13 @@ export function SiteHeader() {
         ))}
       </nav>
 
-      <Link href="/" className={styles.brand}>
-        <XMark className={styles.brandMark ?? ''} />
-        <span>riml</span>
-      </Link>
+      <div className={styles.end}>
+        <MotionToggle />
+        <Link href="/" className={styles.brand}>
+          <XMark className={styles.brandMark ?? ''} />
+          <span>riml</span>
+        </Link>
+      </div>
     </header>
   )
 }

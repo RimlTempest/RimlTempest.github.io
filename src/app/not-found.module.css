@@ -9,10 +9,11 @@
 }
 
 .art {
-  inline-size: var(--riml-art);
+  inline-size: auto;
   block-size: var(--riml-art);
-  border-radius: var(--rd-radius-full);
-  background: var(--rd-color-surface-raised);
+  padding: var(--rd-space-2);
+  border-radius: var(--rd-radius-md);
+  background: oklch(97.5% 0.004 90deg);
   box-shadow: var(--rd-shadow-raised);
   object-fit: contain;
 }
