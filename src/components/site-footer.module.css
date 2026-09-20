@@ -1,0 +1,57 @@
+.footer {
+  /* 本文まわりのアイコンは 24px 相当（DESIGN.md） */
+  --riml-icon-size: 1.5rem;
+
+  margin-block-start: var(--rd-space-16);
+  padding-block: var(--rd-space-8);
+  border-block-start: 2px dotted var(--rd-color-border-default);
+  color: var(--rd-color-text-muted);
+}
+
+.inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--rd-space-4);
+  align-items: center;
+  justify-content: space-between;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--rd-space-1);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.iconLink {
+  display: grid;
+  place-items: center;
+  inline-size: var(--rd-sizing-target-min);
+  block-size: var(--rd-sizing-target-min);
+  border-radius: var(--rd-radius-full);
+  color: var(--rd-color-text-muted);
+}
+
+.iconLink:hover {
+  background: var(--rd-color-surface-hover);
+  color: var(--rd-color-accent-text);
+}
+
+.icon {
+  inline-size: var(--riml-icon-size);
+  block-size: var(--riml-icon-size);
+}
+
+.note {
+  font: var(--rd-type-small);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .iconLink {
+    transition:
+      background var(--rd-motion-duration-fast) var(--rd-motion-easing-standard),
+      color var(--rd-motion-duration-fast) var(--rd-motion-easing-standard);
+  }
+}

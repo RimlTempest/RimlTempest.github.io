@@ -1,0 +1,364 @@
+/* ------------------------------------------------------------------ hero */
+
+.hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--rd-space-8);
+  align-items: center;
+  min-block-size: var(--riml-hero-block);
+  padding-block: clamp(var(--rd-space-8), 8vb, var(--rd-space-16));
+
+  --riml-hero-block: 78dvb;
+  --riml-art-size: min(26rem, 76vi);
+  --riml-x-size: 2.5rem;
+}
+
+@media (width >= 56rem) {
+  .hero {
+    grid-template-columns: 1.1fr 1fr;
+  }
+}
+
+.heroCopy {
+  display: grid;
+  gap: var(--rd-space-4);
+  justify-items: start;
+}
+
+.eyebrow {
+  display: inline-grid;
+  place-items: center;
+  padding-inline: var(--rd-space-3);
+  min-block-size: var(--rd-space-8);
+  border-radius: var(--rd-radius-full);
+  background: var(--rd-color-surface-raised);
+  box-shadow: var(--rd-shadow-raised);
+  color: var(--rd-color-text-muted);
+  font: var(--rd-type-small);
+}
+
+.name {
+  margin: 0;
+  font: var(--rd-type-display);
+}
+
+/* 名前の下の線は髪の青。装飾なので文字を載せない */
+.nameRule {
+  inline-size: var(--rd-space-16);
+  block-size: var(--rd-space-1);
+  border-radius: var(--rd-radius-full);
+  background: var(--rd-color-brand-primary);
+}
+
+.latin {
+  margin: 0;
+  color: var(--rd-color-text-muted);
+  font: var(--rd-type-heading-2);
+  letter-spacing: var(--rd-letter-spacing-wide);
+}
+
+.introList {
+  display: grid;
+  gap: var(--rd-space-2);
+  padding: 0;
+  margin: 0;
+  max-inline-size: var(--rd-sizing-measure-max);
+  list-style: none;
+}
+
+.ctaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--rd-space-3);
+  margin-block-start: var(--rd-space-2);
+}
+
+.ctaPrimary,
+.ctaSecondary {
+  display: grid;
+  place-items: center;
+  min-block-size: var(--rd-sizing-target-min);
+  padding-inline: var(--rd-space-6);
+  border-radius: var(--rd-radius-full);
+  font-weight: var(--rd-font-weight-bold);
+  text-decoration: none;
+}
+
+.ctaPrimary {
+  background: var(--rd-color-accent-default);
+  color: var(--rd-color-text-on-accent);
+  box-shadow: var(--rd-shadow-raised);
+}
+
+.ctaSecondary {
+  border-width: var(--rd-border-width-default);
+  border-style: solid;
+  border-color: var(--rd-color-border-strong);
+  background: var(--rd-color-surface-raised);
+  color: var(--rd-color-text-default);
+}
+
+.ctaPrimary:hover {
+  background: var(--rd-color-accent-hover);
+}
+
+.ctaSecondary:hover {
+  background: var(--rd-color-surface-hover);
+}
+
+/* ------------------------------------------------------------- hero art */
+
+.heroArt {
+  position: relative;
+  display: grid;
+  place-items: center;
+  justify-self: center;
+}
+
+/* 後ろのほのかな光。紙の目からキャラクターを浮かせるためだけのもの。
+   面（surface）ではないので影は付けず、輪郭も作らない */
+.disc {
+  grid-area: 1 / 1;
+  inline-size: calc(var(--riml-art-size) * 1.15);
+  block-size: calc(var(--riml-art-size) * 1.15);
+  border-radius: var(--rd-radius-full);
+  background-image: radial-gradient(
+    circle closest-side,
+    var(--rd-color-surface-raised) 0%,
+    color-mix(in oklab, var(--rd-color-surface-raised) 55%, transparent) 55%,
+    transparent 78%
+  );
+}
+
+/* 2 枚を重ね、ふだんは「ふつう」。触ると「笑顔」に変わる。JS は使わない */
+.artLayer {
+  grid-area: 1 / 1;
+  inline-size: var(--riml-art-size);
+  block-size: var(--riml-art-size);
+  object-fit: contain;
+}
+
+.artHappy {
+  opacity: 0;
+}
+
+.heroArt:hover .artHappy,
+.heroArt:focus-within .artHappy {
+  opacity: 1;
+}
+
+/* 髪どめの ×。スクロールでゆっくり回る（自動では動かない） */
+.xMark {
+  position: absolute;
+  inline-size: var(--riml-x-size);
+  block-size: var(--riml-x-size);
+  color: var(--rd-color-brand-signature);
+}
+
+.x1 {
+  inset-block-start: 0;
+  inset-inline-start: var(--rd-space-2);
+}
+
+.x2 {
+  inset-block-end: var(--rd-space-6);
+  inset-inline-end: 0;
+  color: var(--rd-color-brand-primary);
+}
+
+.x3 {
+  inset-inline-start: calc(-1 * var(--rd-space-4));
+  color: var(--rd-color-accent-default);
+}
+
+/* ヒーロー下端のスクロール合図。矢印は装飾なので aria-hidden */
+
+/* ヒーローの下端に置く。グリッドの列割りから外し、常に横中央に来るようにする */
+.scrollCue {
+  position: absolute;
+  inset-block-end: 0;
+  inset-inline: 0;
+  display: grid;
+  gap: var(--rd-space-1);
+  justify-items: center;
+
+  /* riml-ds の base は p に読み幅の上限を掛ける。絶対配置では start 寄せに
+     なってしまうので、自動マージンで中央に戻す */
+  margin-inline: auto;
+  color: var(--rd-color-text-muted);
+  font: var(--rd-type-small);
+}
+
+.scrollArrow {
+  inline-size: var(--rd-space-6);
+  block-size: var(--rd-space-6);
+  color: var(--rd-color-text-muted);
+}
+
+.hint {
+  margin: 0;
+  color: var(--rd-color-text-muted);
+  font: var(--rd-type-small);
+  text-align: center;
+}
+
+/* --------------------------------------------------------------- 各セクション */
+
+.sectionHead {
+  display: grid;
+  gap: var(--rd-space-2);
+  margin-block-end: var(--rd-space-6);
+}
+
+.sectionTitle {
+  margin: 0;
+  font: var(--rd-type-heading-1);
+}
+
+.sectionLead {
+  margin: 0;
+  color: var(--rd-color-text-muted);
+  max-inline-size: var(--rd-sizing-measure-max);
+}
+
+/* 横に流れる作品の帯。指で弾いても 1 枚ずつ止まる */
+.workRail {
+  display: grid;
+  grid-auto-columns: min(22rem, 82vi);
+  grid-auto-flow: column;
+  gap: var(--rd-space-4);
+  padding-block-end: var(--rd-space-4);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-x: contain;
+}
+
+.workRail > * {
+  scroll-snap-align: start;
+}
+
+@supports (scrollbar-gutter: stable) {
+  .workRail {
+    scrollbar-gutter: stable;
+  }
+}
+
+.skillGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: var(--rd-space-4);
+}
+
+.skillItems {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--rd-space-2);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.skillItem {
+  padding-inline: var(--rd-space-3);
+  padding-block: var(--rd-space-1);
+  border-radius: var(--rd-radius-full);
+  background: var(--rd-color-surface-sunken);
+  font: var(--rd-type-small);
+}
+
+.closing {
+  --riml-closing-art: 8rem;
+
+  display: grid;
+  gap: var(--rd-space-4);
+  justify-items: center;
+  padding-block: var(--rd-space-16);
+  text-align: center;
+}
+
+/* 円盤とイラストを重ねる。イラストは切り抜き済みなので contain で全体が入る */
+.closingArt {
+  display: grid;
+  place-items: center;
+}
+
+.closingDisc {
+  grid-area: 1 / 1;
+  inline-size: calc(var(--riml-closing-art) * 0.78);
+  block-size: calc(var(--riml-closing-art) * 0.78);
+  border-radius: var(--rd-radius-full);
+  background: var(--rd-color-surface-raised);
+  box-shadow: var(--rd-shadow-raised);
+}
+
+.closingImage {
+  grid-area: 1 / 1;
+  inline-size: var(--riml-closing-art);
+  block-size: var(--riml-closing-art);
+  object-fit: contain;
+}
+
+/* ------------------------------------------------------------------ 動き */
+
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes riml-cue {
+    from {
+      opacity: 0.35;
+      translate: 0 calc(-1 * var(--rd-space-1));
+    }
+
+    to {
+      opacity: 1;
+      translate: 0 var(--rd-space-1);
+    }
+  }
+
+  /* ページの先頭にいる間だけ出る合図。スクロールすると消えるので、
+     見えているときしか動かない（自動再生の演出を置かないという規約の範囲） */
+  @supports (animation-timeline: view()) {
+    .scrollArrow {
+      animation-name: riml-cue;
+      animation-duration: auto;
+      animation-timing-function: linear;
+      animation-direction: alternate;
+      animation-timeline: view();
+    }
+  }
+
+  .artLayer,
+  .ctaPrimary,
+  .ctaSecondary {
+    transition:
+      opacity var(--rd-motion-duration-base) var(--rd-motion-easing-standard),
+      background var(--rd-motion-duration-fast) var(--rd-motion-easing-standard);
+  }
+
+  @supports ((animation-timeline: view()) and (animation-range: entry)) {
+    @keyframes riml-x-turn {
+      from {
+        rotate: -25deg;
+        scale: 0.7;
+      }
+
+      to {
+        rotate: 25deg;
+        scale: 1;
+      }
+    }
+
+    .xMark {
+      animation-name: riml-x-turn;
+      animation-duration: auto;
+      animation-timing-function: linear;
+      animation-fill-mode: both;
+      animation-timeline: view();
+    }
+  }
+}
+
+@media (forced-colors: active) {
+  .ctaPrimary {
+    border-block-end: var(--rd-border-width-default) solid ButtonText;
+  }
+}

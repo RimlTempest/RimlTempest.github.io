@@ -1,0 +1,56 @@
+.row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--rd-space-3);
+  align-items: center;
+  padding-inline: var(--rd-space-3);
+  padding-block: var(--rd-space-2);
+  border-radius: var(--rd-radius-md);
+  background: var(--rd-color-surface-sunken);
+}
+
+.label {
+  display: grid;
+  gap: var(--rd-space-1);
+}
+
+.name {
+  font-weight: var(--rd-font-weight-bold);
+}
+
+.code {
+  font-family: var(--rd-font-family-mono);
+  font-size: var(--rd-type-small-font-size);
+  font-variant-numeric: tabular-nums;
+  color: var(--rd-color-text-muted);
+}
+
+.button {
+  min-block-size: var(--rd-sizing-target-min);
+  padding-inline: var(--rd-space-4);
+  border-width: var(--rd-border-width-default);
+  border-style: solid;
+  border-color: var(--rd-color-border-strong);
+  border-radius: var(--rd-radius-full);
+  background: var(--rd-color-surface-raised);
+  color: var(--rd-color-text-default);
+  font: var(--rd-type-small);
+  cursor: pointer;
+}
+
+.button:hover {
+  background: var(--rd-color-surface-hover);
+}
+
+/* コピー済みは色だけでなく文言も変わる */
+.copied {
+  border-color: var(--rd-color-status-success-text);
+  color: var(--rd-color-status-success-text);
+  font-weight: var(--rd-font-weight-bold);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .button {
+    transition: background var(--rd-motion-duration-fast) var(--rd-motion-easing-standard);
+  }
+}

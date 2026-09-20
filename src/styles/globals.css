@@ -1,0 +1,125 @@
+/*
+ * サイト全体の土台。色・寸法・時間の値は持たず、riml-ds のトークン（--rd-*）を参照する。
+ * ここで定義する --riml-* は「このサイトの骨格」だけ（ページ余白、器の最大幅）。
+ */
+
+:root {
+  /* ページ左右の余白。モバイル 1rem → デスクトップ 4rem */
+  --riml-gutter: clamp(var(--rd-space-4), 4vi, var(--rd-space-16));
+
+  /* 本文の器。読み幅（80ch）より広い、カードが 3 枚並ぶ幅 */
+  --riml-container: 72rem;
+  --riml-container-narrow: 46rem;
+
+  /* 紙の目。窓が乗る下地 */
+  --riml-paper-dot: color-mix(in oklab, var(--rd-color-border-default) 28%, transparent);
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  min-block-size: 100dvb;
+  background-color: var(--rd-color-surface-default);
+  background-image: radial-gradient(var(--riml-paper-dot) 0.0625rem, transparent 0.0625rem);
+  background-position: 0 0;
+  background-size: var(--rd-space-6) var(--rd-space-6);
+  color: var(--rd-color-text-default);
+  font: var(--rd-type-body);
+}
+
+/* 本文の器 */
+.riml-container {
+  box-sizing: content-box;
+  max-inline-size: var(--riml-container);
+  margin-inline: auto;
+  padding-inline: var(--riml-gutter);
+}
+
+.riml-container-narrow {
+  max-inline-size: var(--riml-container-narrow);
+}
+
+/* ページの主な縦リズム */
+.riml-section {
+  padding-block: clamp(var(--rd-space-12), 8vb, var(--rd-space-16));
+}
+
+.riml-stack {
+  display: grid;
+  gap: var(--rd-space-4);
+}
+
+/* 見出しの組み。DESIGN.md「見出しは丸ゴシック、balance で折る」 */
+.riml-display {
+  font: var(--rd-type-display);
+  letter-spacing: var(--rd-letter-spacing-normal);
+}
+
+.riml-heading {
+  font: var(--rd-type-heading-1);
+}
+
+@supports (text-wrap: balance) {
+  .riml-display,
+  .riml-heading {
+    text-wrap: balance;
+  }
+}
+
+@supports (text-wrap: pretty) {
+  .riml-prose p {
+    text-wrap: pretty;
+  }
+}
+
+.riml-prose {
+  display: grid;
+  gap: var(--rd-space-4);
+  max-inline-size: var(--rd-sizing-measure-max);
+  color: var(--rd-color-text-default);
+}
+
+.riml-lead {
+  color: var(--rd-color-text-muted);
+  font-size: var(--rd-type-body-font-size);
+}
+
+.riml-small {
+  font: var(--rd-type-small);
+}
+
+/*
+ * 画面に入ってきたら少しだけ持ち上がる。装飾なので、対応していないブラウザには
+ * 何も足さない（progressive enhancement）。動きを減らす設定では出さない。
+ */
+@media (prefers-reduced-motion: no-preference) {
+  @supports ((animation-timeline: view()) and (animation-range: entry)) {
+    @keyframes riml-rise {
+      from {
+        opacity: 0;
+        translate: 0 var(--rd-space-8);
+      }
+    }
+
+    .riml-rise {
+      animation: riml-rise auto var(--rd-motion-easing-standard) backwards;
+      animation-timeline: view();
+      animation-range: entry 10% entry 70%;
+    }
+  }
+}
+
+/* 印刷では紙の目と影を消す */
+@media print {
+  body {
+    background-image: none;
+  }
+}
