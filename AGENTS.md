@@ -22,7 +22,7 @@ Next.js 16（App Router / RSC）を静的エクスポートし、GitHub Pages �
 | -------------------------------------- | ---------------------- |
 | TS / TSX を書く・直す                  | `riml-web-typescript`  |
 | CSS を書く・直す・stylelint が落ちた   | `riml-web-css`         |
-| 作品・表情・リンク・文言を足す         | `riml-web-content`     |
+| 作品・図版・リンク・文言を足す         | `riml-web-content`     |
 | ビルド・デプロイ・submodule の更新     | `riml-web-release`     |
 | UI・UX の見直し                        | `better-interface`     |
 | 「いま標準で何ができるか」を引く       | `modern-web-guidance`  |

@@ -62,7 +62,7 @@ push 前に typecheck とテストを流します。
 ```
 src/
   app/                  ルーティングと画面（App Router）
-    page.tsx              トップ。ヒーロー、表情ピッカー、作品、道具
+    page.tsx              トップ。キービジュアル、作品、道具、設定資料への導線
     about/                私について（キャラクターシート付き）
     work/                 作ったもの一覧
     work/[slug]/          作ったもの詳細（generateStaticParams で全 URL を列挙）
@@ -86,14 +86,20 @@ vendor/riml-ds/         デザインシステム（submodule）
 
 ## 設計上の決めごと
 
-- **トップの表情ピッカーに JavaScript を使っていません。** ラジオボタンと `:checked` の
-  兄弟セレクタだけで切り替わるので、Server Component のままクライアント JS は 0 バイトです。
-  キーボードの矢印キーでもそのまま動きます。
-- **`'use client'` は 2 ファイルだけ。** ヘッダー（現在地の判定）と、フレンドコードの
-  コピーボタン（`navigator.clipboard`）です。
-- **動きは `prefers-reduced-motion: no-preference` の中だけ**に書き、自動再生の演出は
-  置いていません。スクロール駆動のアニメーションは `@supports` で囲み、対応していない
-  ブラウザには何も足しません。
+- **キービジュアルの見せ場を CSS だけで作っています。** 床のグリッドは
+  `perspective()` と 2 本のグラデーション、放射状の光は `repeating-conic-gradient` 1 枚で、
+  画像を 1 枚も足していません。立ち絵の hover での切り替え（正面 → 斜め前）も、
+  見出しの 1 文字ずつのリビールも CSS だけなので Server Component のままです。
+- **`'use client'` は 3 ファイルだけ。** ヘッダー（現在地の判定）、フレンドコードの
+  コピーボタン（`navigator.clipboard`）、動きを止めるボタンです。
+- **キャラクターの図版は 1 枚のデザインシートから切り出しています。** 白いジャケットと
+  紙の背景は色でほとんど区別がつかないので、線画のエッジを壁にして塗りつぶしを止め、
+  半透明の縁からは背景色の混ざりを引き算しています。品質は評価器で機械的に確認します
+  （白フチ 0%、抜け残り 0〜2%、内部の穴なし）。
+- **動きは `prefers-reduced-motion: no-preference` の中だけ**に書いています。ループする
+  装飾（立ち絵の呼吸、床のスクロール、流れる帯）はヘッダーの「動きを止める」で止められます
+  （WCAG 2.2.2。5 秒を超えて自動で動くものには止める手段が要る）。スクロール駆動の
+  アニメーションは `@supports` で囲み、対応していないブラウザには何も足しません。
 - **Cache Components は使っていません。** Next.js 16 は `cacheComponents: true` と
   `output: 'export'` の併用を `Invariant: PPR cannot be enabled in export mode` で
   拒否します。このサイトのデータはすべてビルド時に確定するので、Server Components の

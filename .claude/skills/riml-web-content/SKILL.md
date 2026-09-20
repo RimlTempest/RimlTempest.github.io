@@ -1,6 +1,6 @@
 ---
 name: riml-web-content
-description: riml.work のコンテンツの足し方。成果物・表情・SNS リンク・フレンドコード・スキルを足す／直すときに読む。src/content が唯一のソースで、画面はそれを読むだけ。「作品を追加したい」「表情を増やしたい」「文言を変えたい」「画像をどこに置くか」で発火。
+description: riml.work のコンテンツの足し方。成果物・キャラクターの図版・SNS リンク・フレンドコード・スキルを足す／直すときに読む。src/content が唯一のソースで、画面はそれを読むだけ。「作品を追加したい」「設定資料の図版を増やしたい」「文言を変えたい」「画像をどこに置くか」で発火。
 ---
 
 # riml.work コンテンツ規約
@@ -18,7 +18,7 @@ JSX に文言を直接書かない。Server Component がビルド時に読み�
 | `src/content/skills.ts`  | 使う道具。3 つのグループ                |
 | `src/content/links.ts`   | SNS。24×24 の塗りパスを一緒に持つ       |
 | `src/content/games.ts`   | フレンドコード                          |
-| `src/content/faces.ts`   | 表情スプライトとせりふ                  |
+| `src/content/character.ts` | 設定資料の図版（三面図・表情・髪型・衣装）と配色 |
 
 ## 作ったものを足す
 
@@ -31,20 +31,34 @@ JSX に文言を直接書かない。Server Component がビルド時に読み�
 
 `generateStaticParams()` が `works` を読むので、ページは自動で増える。
 
-## 表情を足す
+## 設定資料の図版を足す
 
-表情ピッカーは **JavaScript を使わない**。CSS の
-`.input[value='<id>']:checked ~ .stage [data-face='<id>']` で 1 枚だけを見せている。
-だから **データと CSS の両方**を直す必要がある。
+図版は 1 枚のデザインシートから切り出して `public/riml/sheet/` に置く。
+`src/content/character.ts` が置き場所・ラベル・**実寸**を持つ。
 
-1. 画像を `public/riml/faces/<id>.webp` に置く（256×256、背景は透過）。
-2. `src/content/faces.ts` に `{ id, label, line, src }` を足す。
-3. `src/components/face-picker.module.css` の対応表に `<id>` の行を 2 つ足す。
-4. `bun test src` を走らせる。`faces.test.ts` が対応の抜けを落とす。
+1. 画像を `public/riml/sheet/<key>.webp` に書き出す。
+2. `src/content/character.ts` の該当する配列に `sheet(key, label, width, height, kind)` を足す。
+   - `kind: 'cutout'` … 背景を抜いたもの。そのまま面の上に置ける
+   - `kind: 'plate'` … 紙が絵の一部のもの。`PlateGrid` が紙色のカードに載せる
+3. `bun test src` を走らせる。`character.test.ts` が **書いた寸法と実ファイルの
+   WebP ヘッダを突き合わせる**ので、ずれていれば落ちる。
+
+`next/image` の最適化を切っている（静的エクスポート）ため、寸法がずれると
+レイアウトが動く。テストはそこを縛るためにある。
+
+### 切り抜きについて
+
+白いジャケットと紙の背景は色で区別できない（L1 で 8 しか違わない）。色距離だけの
+塗りつぶしでは服まで抜けるので、**線画のエッジを壁にして**止める。半透明の縁は
+背景色の混ざりを引き算する（`obs = a·fg + (1-a)·bg` を解く）。これをやらないと
+暗い背景で白く縁取られる。
+
+表情と顔のアップはタイルの内側に余白がほとんど無いので、切り抜かずに図版として扱う。
 
 ## 画像
 
-- 置き場所は `public/riml/`。形式は **WebP**（OGP 用の `og.png` とアイコンだけ PNG）。
+- 置き場所は `public/riml/`（設定資料は `public/riml/sheet/`）。形式は **WebP**
+  （OGP 用の `og.png` とアイコンだけ PNG）。
 - `next/image` を使う。`images.unoptimized: true` なので `width` / `height` は
   **実ファイルの寸法**を書く（レイアウトシフトを防ぐため）。
 - 装飾の画像は `alt=""` + `aria-hidden="true"`。意味のある画像には日本語の `alt`。

@@ -35,8 +35,9 @@ riml-ds（`vendor/riml-ds`）の規約をそのまま引き継ぐ。詳しい背
 | `src/components/copy-field.tsx`  | `navigator.clipboard` と「コピーしました」 |
 
 **状態を持つ UI でも、まず CSS でできないかを考える。**
-表情ピッカー（`src/components/face-picker.tsx`）は `:checked` と兄弟セレクタだけで
-切り替わるので Server Component のまま。クライアント JS は 0 バイト。
+キービジュアルの立ち絵の切り替え（正面 → 斜め前）は `:hover` / `:focus-within` と
+重ね合わせだけ、見出しの 1 文字ずつのリビールはビルド時の分割 + `animation-timeline: view()`
+だけで動く。どちらも Server Component のままでクライアント JS は 0 バイト。
 
 ## 2. 静的エクスポートの制約
 
