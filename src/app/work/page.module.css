@@ -1,0 +1,22 @@
+.head {
+  display: grid;
+  gap: var(--rd-space-3);
+  padding-block: var(--rd-space-12);
+}
+
+.title {
+  margin: 0;
+  font: var(--rd-type-display);
+}
+
+.lead {
+  margin: 0;
+  max-inline-size: var(--rd-sizing-measure-max);
+  color: var(--rd-color-text-muted);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+  gap: var(--rd-space-4);
+}

@@ -1,0 +1,7 @@
+[install]
+exact = true
+linker = "hoisted"
+
+[test]
+# vendor/riml-ds（submodule）のテストまで拾わないよう、このリポジトリの src だけを見る
+root = "./src"

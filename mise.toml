@@ -1,0 +1,10 @@
+# riml.work toolchain。riml-ds (vendor/riml-ds) と同じ組み合わせに固定する
+[tools]
+node = "26.8.1"
+bun = "1.4.0"
+
+[env]
+LEFTHOOK_BIN = "{{config_root}}/node_modules/lefthook-darwin-arm64/bin/lefthook"
+
+[settings]
+experimental = true

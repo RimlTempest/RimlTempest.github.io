@@ -1,0 +1,11 @@
+/* riml-ds の .rd-window に、このサイトの余白を足しただけの器 */
+.body {
+  display: grid;
+  gap: var(--rd-space-4);
+  padding: clamp(var(--rd-space-4), 3vi, var(--rd-space-8));
+}
+
+.lead {
+  color: var(--rd-color-text-muted);
+  font: var(--rd-type-small);
+}

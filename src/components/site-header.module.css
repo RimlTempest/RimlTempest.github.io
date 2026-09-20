@@ -1,0 +1,127 @@
+/* ページ全体を 1 枚の「窓」に見立てた帯。riml-ds の .rd-window-bar と同じ佇まい */
+.bar {
+  position: sticky;
+  z-index: var(--rd-layer-raised);
+  inset-block-start: 0;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  column-gap: var(--rd-space-3);
+  min-block-size: var(--rd-sizing-target-min);
+  padding-inline: var(--riml-gutter);
+  padding-block: var(--rd-space-2);
+  background: var(--rd-color-chrome-default);
+  color: var(--rd-color-chrome-text);
+
+  /* 帯の中だけの寸法 */
+  --riml-dot-size: 0.75rem;
+  --riml-brand-mark: 1.25rem;
+}
+
+/* 帯の左端の 3 つの丸。riml の色（ほっぺ・髪・紙）。押せない丸は置かないので、
+   これは「窓」であることを示す印として aria-hidden の装飾に留める */
+.dots {
+  display: flex;
+  gap: var(--rd-space-1);
+}
+
+.dot {
+  inline-size: var(--riml-dot-size);
+  block-size: var(--riml-dot-size);
+  border-radius: var(--rd-radius-full);
+  background: var(--rd-color-chrome-text);
+}
+
+.dotClose {
+  background: var(--rd-color-status-danger-default);
+}
+
+.dotExpand {
+  background: var(--rd-color-accent-default);
+}
+
+.dotCollapse {
+  background: var(--rd-color-chrome-text);
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--rd-space-1);
+  justify-content: center;
+}
+
+.link {
+  display: grid;
+  place-items: center;
+  min-block-size: var(--rd-sizing-target-min);
+  padding-inline: var(--rd-space-3);
+  border-radius: var(--rd-radius-full);
+  color: inherit;
+  font-weight: var(--rd-font-weight-bold);
+  font-size: var(--rd-type-small-font-size);
+  text-decoration: none;
+}
+
+.link:hover {
+  background: color-mix(in oklab, currentcolor 16%, transparent);
+}
+
+.link[aria-current='page'] {
+  background: color-mix(in oklab, currentcolor 24%, transparent);
+  text-decoration: underline;
+  text-underline-offset: var(--rd-space-1);
+}
+
+.brand {
+  display: flex;
+  gap: var(--rd-space-2);
+  align-items: center;
+  color: inherit;
+  font: var(--rd-type-heading-2);
+  text-decoration: none;
+}
+
+.brandMark {
+  inline-size: var(--riml-brand-mark);
+  block-size: var(--riml-brand-mark);
+  color: var(--rd-color-chrome-text);
+}
+
+/* 狭い画面では 2 段にする。1 段目は印と名前、2 段目にナビゲーション */
+@media (width < 40rem) {
+  .bar {
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+  }
+
+  .dots {
+    grid-area: 1 / 1;
+  }
+
+  .brand {
+    grid-area: 1 / 2;
+  }
+
+  .nav {
+    grid-area: 2 / 1 / 3 / 3;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .link {
+    transition: background var(--rd-motion-duration-fast) var(--rd-motion-easing-standard);
+  }
+}
+
+@media (forced-colors: active) {
+  .bar {
+    border-block-end: var(--rd-border-width-default) solid CanvasText;
+  }
+
+  .dot {
+    border-width: var(--rd-border-width-default);
+    border-style: solid;
+    border-color: CanvasText;
+  }
+}

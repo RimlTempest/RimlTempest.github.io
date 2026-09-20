@@ -1,32 +1,49 @@
-import * as React from 'react';
-import { ChakraProvider, extendTheme } from '@chakra-ui/react';
-import { StoryContext } from '@storybook/react';
+import type { Preview } from '@storybook/nextjs-vite'
+import '../src/styles/generated/riml-ds.css'
+import '../src/styles/globals.css'
 
-/**
- * Add global context for RTL-LTR switching
- */
-export const globalTypes = {
-  direction: {
-    name: 'Direction',
-    description: 'Direction for layout',
-    defaultValue: 'LTR',
-    toolbar: {
-      icon: 'globe',
-      items: ['LTR', 'RTL'],
+const preview: Preview = {
+  parameters: {
+    controls: { expanded: true },
+    // DESIGN.md の既定は AAA。story の段階で落とす
+    a11y: {
+      config: {
+        rules: [
+          { id: 'color-contrast-enhanced', enabled: true },
+          { id: 'target-size', enabled: true },
+        ],
+      },
+    },
+    backgrounds: { disable: true },
+  },
+  globalTypes: {
+    scheme: {
+      description: '配色',
+      defaultValue: 'light',
+      toolbar: {
+        title: '配色',
+        icon: 'circlehollow',
+        items: [
+          { value: 'light', title: 'ライト' },
+          { value: 'dark', title: 'ダーク' },
+        ],
+      },
     },
   },
-};
-
-const withChakra = (StoryFn: Function, context: StoryContext) => {
-  const { direction } = context.globals;
-  const dir = direction.toLowerCase();
-  return (
-    <ChakraProvider theme={extendTheme({ direction: dir })}>
-      <div dir={dir} id="story-wrapper" style={{ minHeight: '100vh' }}>
-        <StoryFn />
+  decorators: [
+    (Story, context) => (
+      <div
+        style={{
+          colorScheme: context.globals['scheme'] === 'dark' ? 'dark' : 'light',
+          background: 'var(--rd-color-surface-default)',
+          color: 'var(--rd-color-text-default)',
+          padding: 'var(--rd-space-6)',
+        }}
+      >
+        <Story />
       </div>
-    </ChakraProvider>
-  );
-};
+    ),
+  ],
+}
 
-export const decorators = [withChakra];
+export default preview

@@ -1,0 +1,46 @@
+name: deploy
+
+# main に入ったものを GitHub Pages（gh-pages ブランチ）へ出す。
+# 独自ドメイン www.riml.work は public/CNAME が out/ にコピーされて維持される。
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          submodules: recursive
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version-file: .bun-version
+
+      - name: install
+        run: bun install --frozen-lockfile
+
+      - name: build
+        run: bun run build
+
+      - name: build storybook into /storybook
+        run: |
+          bun run storybook:build
+          mv storybook-static out/storybook
+
+      - name: deploy
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./out
+          user_name: github-actions[bot]
+          user_email: github-actions[bot]@users.noreply.github.com

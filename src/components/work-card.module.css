@@ -1,0 +1,96 @@
+.card {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: var(--rd-space-3);
+  padding: var(--rd-space-4);
+  border-radius: var(--rd-radius-lg);
+  background: var(--rd-color-surface-raised);
+  box-shadow: var(--rd-shadow-raised);
+  color: var(--rd-color-text-default);
+}
+
+.head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--rd-space-2);
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.name {
+  margin: 0;
+  font: var(--rd-type-heading-2);
+}
+
+/* 状態は色だけで伝えない。文言と形（枠線の有無）でも分ける */
+.status {
+  display: inline-grid;
+  place-items: center;
+  padding-inline: var(--rd-space-2);
+  border-radius: var(--rd-radius-sm);
+  border-width: var(--rd-border-width-default);
+  border-style: solid;
+  border-color: var(--rd-color-border-default);
+  color: var(--rd-color-text-muted);
+  font: var(--rd-type-small);
+  white-space: nowrap;
+}
+
+.statusLive {
+  border-color: var(--rd-color-status-success-text);
+  color: var(--rd-color-status-success-text);
+}
+
+.statusBuilding {
+  border-color: var(--rd-color-accent-text);
+  color: var(--rd-color-accent-text);
+}
+
+.summary {
+  margin: 0;
+  color: var(--rd-color-text-default);
+}
+
+.stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--rd-space-1);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.chip {
+  padding-inline: var(--rd-space-2);
+  border-radius: var(--rd-radius-sm);
+  background: var(--rd-color-surface-sunken);
+  color: var(--rd-color-text-muted);
+  font: var(--rd-type-small);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--rd-space-3);
+  align-items: center;
+}
+
+.detail {
+  color: var(--rd-color-accent-text);
+  font-weight: var(--rd-font-weight-bold);
+}
+
+.external {
+  color: var(--rd-color-text-muted);
+  font: var(--rd-type-small);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .card {
+    transition: translate var(--rd-motion-duration-fast) var(--rd-motion-easing-standard);
+  }
+
+  .card:hover {
+    translate: 0 calc(-1 * var(--rd-space-1));
+  }
+}

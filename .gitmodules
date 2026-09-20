@@ -1,0 +1,3 @@
+[submodule "vendor/riml-ds"]
+	path = vendor/riml-ds
+	url = https://github.com/RimlTempest/riml-ds.git
