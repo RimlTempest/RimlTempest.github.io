@@ -1,0 +1,94 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "jsPlugins": ["./vendor/riml-ds/tools/lint/oxlint-plugin/index.js"],
+  "plugins": ["typescript", "unicorn", "oxc", "import", "promise", "react", "jsx-a11y", "nextjs"],
+  "categories": {
+    "correctness": "error",
+    "suspicious": "error",
+    "perf": "error",
+    "pedantic": "off",
+    "style": "off"
+  },
+  "env": { "browser": true, "es2024": true },
+  "rules": {
+    "riml-ds/no-class": "error",
+    "riml-ds/no-type-assertion": "error",
+    "riml-ds/no-enum": "error",
+
+    "typescript/no-explicit-any": "error",
+    "typescript/no-non-null-assertion": "error",
+    "typescript/no-unnecessary-type-assertion": "error",
+    "typescript/consistent-type-imports": "error",
+    "typescript/consistent-type-definitions": ["error", "type"],
+    "typescript/no-extraneous-class": "error",
+    "typescript/switch-exhaustiveness-check": "error",
+    "typescript/consistent-return": "off",
+    "typescript/no-floating-promises": "error",
+    "typescript/no-misused-promises": "error",
+
+    "eslint/no-console": ["error", { "allow": ["warn", "error"] }],
+    "eslint/eqeqeq": ["error", "always"],
+    "eslint/no-param-reassign": "error",
+    "eslint/prefer-const": "error",
+    "eslint/no-var": "error",
+    "eslint/no-shadow": "error",
+    "eslint/default-param-last": "error",
+    "eslint/prefer-object-spread": "error",
+    "unicorn/prefer-node-protocol": "error",
+    "unicorn/no-array-for-each": "off",
+    "promise/no-return-wrap": "error",
+    "promise/param-names": "error",
+
+    "import/no-cycle": "error",
+    "import/no-default-export": "error",
+
+    "react/jsx-key": "error",
+    "react/react-in-jsx-scope": "off",
+    "react/no-danger": "error",
+    "jsx-a11y/alt-text": "error",
+    "jsx-a11y/anchor-is-valid": "error",
+    "jsx-a11y/aria-props": "error",
+    "jsx-a11y/no-autofocus": "error",
+    "jsx-a11y/no-redundant-roles": "error"
+  },
+  "overrides": [
+    {
+      "files": [
+        "src/app/**",
+        "src/**/*.stories.tsx",
+        "*.config.ts",
+        "*.config.js",
+        ".storybook/**",
+        "next.config.ts",
+        "stylelint.config.js"
+      ],
+      "rules": { "import/no-default-export": "off" }
+    },
+    {
+      "files": ["src/content/**/*.ts", "src/lib/**/*.ts"],
+      "rules": { "riml-ds/no-throw-in-domain": "error" }
+    },
+    {
+      "files": ["src/app/layout.tsx", "**/*.stories.tsx", ".storybook/**"],
+      "rules": { "import/no-unassigned-import": "off" }
+    },
+    {
+      "files": ["**/*.test.ts", "**/*.test.tsx", "scripts/**"],
+      "rules": {
+        "typescript/no-explicit-any": "off",
+        "eslint/no-console": "off",
+        "import/no-default-export": "off",
+        "riml-ds/no-throw-in-domain": "off"
+      }
+    }
+  ],
+  "ignorePatterns": [
+    "**/node_modules/**",
+    "**/.next/**",
+    "**/out/**",
+    "**/storybook-static/**",
+    "vendor/**",
+    "src/styles/generated/**",
+    "**/*.d.ts"
+  ]
+}

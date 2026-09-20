@@ -1,0 +1,41 @@
+# staged なファイルだけを見る。全体の掃きは CI（bun run check）が持つ。
+pre-commit:
+  parallel: true
+  jobs:
+    - name: oxfmt
+      glob: '*.{js,jsx,ts,tsx,mjs,cjs,json,jsonc,css,md,yaml,yml}'
+      run: bunx oxfmt --no-error-on-unmatched-pattern {staged_files}
+      stage_fixed: true
+
+    - name: oxlint
+      glob: '*.{js,jsx,ts,tsx,mjs,cjs}'
+      run: bunx oxlint --type-aware --deny-warnings {staged_files}
+
+    - name: stylelint
+      glob: 'src/**/*.css'
+      run: bunx stylelint {staged_files}
+
+    - name: secrets
+      run: |
+        if git diff --cached -U0 -- ':!*.example' | grep -nE '^\+.*(BEGIN [A-Z ]*PRIVATE KEY|npm_[A-Za-z0-9]{36}|ghp_[A-Za-z0-9]{36}|gho_[A-Za-z0-9]{20,}|sk-[A-Za-z0-9]{20,})'; then
+          echo "Refusing to commit what looks like a secret." >&2
+          exit 1
+        fi
+
+pre-push:
+  parallel: false
+  jobs:
+    - name: typecheck
+      run: bun run typecheck
+
+    - name: test
+      run: bun test src
+
+commit-msg:
+  jobs:
+    - name: conventional-commit
+      run: |
+        head -1 "{1}" | grep -qE '^(feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert)(\([a-z0-9/-]+\))?!?: .{1,}' || {
+          echo "Commit message must be Conventional Commits, e.g. 'feat(top): add hero'" >&2
+          exit 1
+        }
