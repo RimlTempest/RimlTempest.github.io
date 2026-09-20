@@ -1,0 +1,37 @@
+1:"$Sreact.fragment"
+2:I[22016,["/_next/static/chunks/36adnmbltep9f.js"],""]
+3:I[97367,["/_next/static/chunks/36adnmbltep9f.js"],"OutletBoundary"]
+4:"$Sreact.suspense"
+8:I[97367,["/_next/static/chunks/36adnmbltep9f.js"],"ViewportBoundary"]
+9:I[97367,["/_next/static/chunks/36adnmbltep9f.js"],"MetadataBoundary"]
+:HL["/_next/static/chunks/1i7mv2p7zd-ky.css","style"]
+7:X
+19:X
+19:C
+0:{"buildId":"jP_iFH6EKomv_BgDV0Jvn","data":[{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"riml-container","children":[["$","header",null,{"className":"page-module__Ro7qTW__head","children":[["$","p",null,{"className":"page-module__Ro7qTW__back","children":["$","$L2",null,{"href":"/work","children":"← 作ったもの"}]}],["$","h1",null,{"className":"page-module__Ro7qTW__title","children":"riml-ds"}],["$","p",null,{"className":"page-module__Ro7qTW__summary","children":"qrcc と noter が共有するデザインシステムとコンポーネントライブラリ。"}]]}],["$","div",null,{"className":"page-module__Ro7qTW__layout","children":[["$","div",null,{"className":"riml-prose","children":[[["$","p","色・寸法・時間を W3C DTCG のトークンで定義し、そこから CSS 変数と TypeScript の定数を生成します。見た目の正はコードで、Figma は使いません。",{"children":"色・寸法・時間を W3C DTCG のトークンで定義し、そこから CSS 変数と TypeScript の定数を生成します。見た目の正はコードで、Figma は使いません。"}],["$","p","部品は Lit の Web Components が唯一のソース。React / Vue / Svelte / Astro 向けのラッパーは Custom Elements Manifest から生成するので、手で書いたラッパーがずれることがありません。",{"children":"部品は Lit の Web Components が唯一のソース。React / Vue / Svelte / Astro 向けのラッパーは Custom Elements Manifest から生成するので、手で書いたラッパーがずれることがありません。"}],["$","p","WCAG 2.2 の AAA を既定にしていて、コントラスト 7:1 とターゲット 44×44 は機械で検査しています。",{"children":"WCAG 2.2 の AAA を既定にしていて、コントラスト 7:1 とターゲット 44×44 は機械で検査しています。"}]],["$","div",null,{"className":"page-module__Ro7qTW__links","children":[null,["$","a",null,{"className":"page-module__Ro7qTW__linkGhost","href":"https://github.com/RimlTempest/riml-ds","target":"_blank","rel":"noreferrer","children":"リポジトリを見る"}]]}]]}],["$","section",null,{"className":"rd-window ","children":[["$","div",null,{"className":"rd-window-bar","children":["$","h2",null,{"className":"rd-window-title","children":"このプロダクト"}]}],["$","div",null,{"className":"window-panel-module__20eDQW__body","children":[null,["$","dl",null,{"className":"page-module__Ro7qTW__meta","children":[["$","div",null,{"children":[["$","dt",null,{"className":"page-module__Ro7qTW__term","children":"いまの状態"}],["$","dd",null,{"className":"page-module__Ro7qTW__value","children":"制作中"}]]}],["$","div",null,{"children":[["$","dt",null,{"className":"page-module__Ro7qTW__term","children":"使っているもの"}],["$","dd",null,{"children":["$","ul",null,{"className":"page-module__Ro7qTW__chips","children":[["$","li","TypeScript",{"className":"page-module__Ro7qTW__chip","children":"TypeScript"}],["$","li","Lit",{"className":"page-module__Ro7qTW__chip","children":"Lit"}],["$","li","Terrazzo",{"className":"page-module__Ro7qTW__chip","children":"Terrazzo"}],["$","li","Bun",{"className":"page-module__Ro7qTW__chip","children":"Bun"}],["$","li","Storybook",{"className":"page-module__Ro7qTW__chip","children":"Storybook"}]]}]}]]}]]}]]}]]}]]}]]}],[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/1i7mv2p7zd-ky.css","precedence":"next"}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":"$@6","staleTime":"$7","varyParams":null},{"rsc":["$","$1","h",{"children":[null,["$","$L8",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","2",{"name":"theme-color","content":"#39415b","media":"(prefers-color-scheme: light)"}],["$","meta","3",{"name":"theme-color","content":"#151a29","media":"(prefers-color-scheme: dark)"}],["$","meta","4",{"name":"color-scheme","content":"light dark"}]]}],["$","div",null,{"hidden":true,"children":["$","$L9",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"riml-ds — riml"}],["$","meta","1",{"name":"description","content":"qrcc と noter が共有するデザインシステムとコンポーネントライブラリ。"}],["$","meta","2",{"name":"application-name","content":"riml"}],["$","link","3",{"rel":"author","href":"https://www.riml.work"}],["$","meta","4",{"name":"author","content":"髙橋 大貴"}],["$","link","5",{"rel":"manifest","href":"/manifest.json"}],["$","meta","6",{"property":"og:title","content":"riml — Daiki Takahashi"}],["$","meta","7",{"property":"og:description","content":"riml（髙橋 大貴）のポートフォリオ。作ったもの、使う道具、連絡先をまとめています。"}],["$","meta","8",{"property":"og:url","content":"https://www.riml.work/"}],["$","meta","9",{"property":"og:site_name","content":"riml"}],["$","meta","10",{"property":"og:locale","content":"ja_JP"}],["$","meta","11",{"property":"og:image","content":"https://www.riml.work/riml/og.png"}],["$","meta","12",{"property":"og:image:width","content":"1200"}],["$","meta","13",{"property":"og:image:height","content":"630"}],"$La","$Lb","$Lc","$Ld","$Le","$Lf","$L10","$L11","$L12","$L13","$L14","$L15"]}]}]}],null]}],"isPartial":"$@16","staleTime":"$7","varyParams":null},{"rsc":"$L17","isPartial":"$@18","staleTime":"$7","varyParams":"$19"},{"rsc":"$L1a","isPartial":"$@1b","staleTime":"$7","varyParams":"$19"}],"isUpgradeableISRFallback":false,"a":"$@1c","rootVaryParams":null,"needsRuntimeRequest":"$@1d"}
+1e:I[27201,["/_next/static/chunks/36adnmbltep9f.js"],"IconMark"]
+1f:I[39756,["/_next/static/chunks/36adnmbltep9f.js"],"default"]
+20:I[37457,["/_next/static/chunks/36adnmbltep9f.js"],"default"]
+5:null
+a:["$","meta","14",{"property":"og:image:alt","content":"riml のアイコン"}]
+b:["$","meta","15",{"property":"og:type","content":"website"}]
+c:["$","meta","16",{"name":"twitter:card","content":"summary_large_image"}]
+d:["$","meta","17",{"name":"twitter:site","content":"@Fande4d"}]
+e:["$","meta","18",{"name":"twitter:creator","content":"@Fande4d"}]
+f:["$","meta","19",{"name":"twitter:title","content":"riml — Daiki Takahashi"}]
+10:["$","meta","20",{"name":"twitter:description","content":"riml（髙橋 大貴）のポートフォリオ。作ったもの、使う道具、連絡先をまとめています。"}]
+11:["$","meta","21",{"name":"twitter:image","content":"https://www.riml.work/riml/og.png"}]
+12:["$","link","22",{"rel":"icon","href":"/favicon.ico"}]
+13:["$","link","23",{"rel":"icon","href":"/icon-192x192.png","sizes":"192x192","type":"image/png"}]
+14:["$","link","24",{"rel":"apple-touch-icon","href":"/apple-touch-icon-180x180.png","sizes":"180x180"}]
+15:["$","$L1e","25",{}]
+17:["$","$1","c",{"children":[null,["$","$L1f",null,{"parallelRouterKey":"children","template":["$","$L20",null,{}]}]]}]
+1a:["$","$1","c",{"children":[null,["$","$L1f",null,{"parallelRouterKey":"children","template":["$","$L20",null,{}]}]]}]
+1d:true
+7:300
+7:C
+1c:0
+16:"$undefined"
+18:"$undefined"
+1b:"$undefined"
+6:"$undefined"
