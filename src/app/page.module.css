@@ -233,8 +233,8 @@
 }
 
 .x3 {
-  inset-block-end: 10%;
-  inset-inline-start: 6%;
+  inset-block-end: 2%;
+  inset-inline-start: calc(-1 * var(--rd-space-4));
   color: var(--rd-color-accent-default);
 }
 
@@ -336,6 +336,12 @@
   color: var(--rd-color-text-muted);
 }
 
+.closingArt {
+  inline-size: var(--riml-closing-art);
+  block-size: auto;
+  object-fit: contain;
+}
+
 .workGrid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
@@ -390,19 +396,34 @@
   }
 }
 
-.aboutArt {
-  --riml-about-art: min(22rem, 70vi);
+/* 表情の並び。3 列 × 2 行で、キャラクターの幅を持たせる */
+.faceRow {
+  --riml-face: min(6.5rem, 20vi);
 
   display: grid;
-  place-items: center;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--rd-space-4) var(--rd-space-3);
+  padding: 0;
   margin: 0;
+  list-style: none;
   justify-self: center;
 }
 
-.aboutArtImage {
-  inline-size: auto;
-  block-size: var(--riml-about-art);
+.faceItem {
+  display: grid;
+  gap: var(--rd-space-1);
+  justify-items: center;
+}
+
+.faceImage {
+  inline-size: var(--riml-face);
+  block-size: auto;
   object-fit: contain;
+}
+
+.faceLabel {
+  color: var(--rd-color-text-muted);
+  font: var(--rd-type-small);
 }
 
 .aboutText {
@@ -414,6 +435,8 @@
 /* ================================================================ 締め */
 
 .closing {
+  --riml-closing-art: min(9rem, 30vi);
+
   display: grid;
   gap: var(--rd-space-4);
   justify-items: center;

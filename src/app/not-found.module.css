@@ -9,12 +9,8 @@
 }
 
 .art {
-  inline-size: auto;
-  block-size: var(--riml-art);
-  padding: var(--rd-space-2);
-  border-radius: var(--rd-radius-md);
-  background: oklch(97.5% 0.004 90deg);
-  box-shadow: var(--rd-shadow-raised);
+  inline-size: var(--riml-art);
+  block-size: auto;
   object-fit: contain;
 }
 

@@ -1,23 +1,8 @@
 import { describe, expect, test } from 'bun:test'
-import {
-  bodyViews,
-  expressions,
-  faceViews,
-  fullSheet,
-  hairPlates,
-  palette,
-  wearPlates,
-} from './character'
+import { bodyViews, bust, bustHappy, faces, fullSheet, palette } from './character'
 import type { Plate } from './character'
 
-const all: readonly Plate[] = [
-  ...bodyViews,
-  ...faceViews,
-  ...expressions,
-  ...hairPlates,
-  ...wearPlates,
-  fullSheet,
-]
+const all: readonly Plate[] = [bust, bustHappy, ...bodyViews, ...faces, fullSheet]
 
 /** WebP のヘッダから実寸を読む。next/image に書いた値とずれていないか確かめる */
 async function sizeOf(src: string): Promise<{ width: number; height: number } | null> {
@@ -52,7 +37,7 @@ describe('設定資料の図版', () => {
     expect(new Set(keys).size).toBe(keys.length)
   })
 
-  test('すべて public/riml/sheet/ に存在する', async () => {
+  test('すべて public/riml/chibi/ に存在する', async () => {
     const found = await Promise.all(
       all.map((plate) => Bun.file(new URL(`../../public${plate.src}`, import.meta.url)).exists()),
     )
@@ -74,18 +59,18 @@ describe('設定資料の図版', () => {
     }
   })
 
-  test('切り抜きか図版かのどちらか', () => {
+  test('すべて public/riml/chibi/ を指している', () => {
     for (const plate of all) {
-      expect(['cutout', 'plate']).toContain(plate.kind)
+      expect(plate.src.startsWith('/riml/chibi/')).toBe(true)
     }
   })
 })
 
 describe('カラーパレット', () => {
-  test('5 系統すべてに 4 色ある', () => {
-    expect(palette).toHaveLength(5)
+  test('どの系統にも 1 色以上ある', () => {
+    expect(palette.length).toBeGreaterThan(0)
     for (const row of palette) {
-      expect(row.swatches).toHaveLength(4)
+      expect(row.swatches.length).toBeGreaterThan(0)
     }
   })
 

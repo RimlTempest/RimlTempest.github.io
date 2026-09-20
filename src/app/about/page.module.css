@@ -21,8 +21,8 @@
 }
 
 .headArtImage {
-  inline-size: auto;
-  block-size: var(--riml-hero-art);
+  inline-size: var(--riml-hero-art);
+  block-size: auto;
   object-fit: contain;
 }
 
@@ -109,6 +109,36 @@
 }
 
 /* カラーパレット */
+
+/* 表情と小物 */
+.faceGrid {
+  --riml-face: min(8rem, 26vi);
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--riml-face), 1fr));
+  gap: var(--rd-space-4);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.faceItem {
+  display: grid;
+  gap: var(--rd-space-2);
+  justify-items: center;
+}
+
+.faceImage {
+  inline-size: var(--riml-face);
+  block-size: auto;
+  object-fit: contain;
+}
+
+.faceLabel {
+  color: var(--rd-color-text-muted);
+  font: var(--rd-type-small);
+}
+
 .palette {
   display: grid;
   gap: var(--rd-space-3);

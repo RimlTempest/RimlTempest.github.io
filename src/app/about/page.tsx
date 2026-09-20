@@ -1,46 +1,33 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import type { CSSProperties } from 'react'
-import { PlateGrid } from '@/components/plate-grid'
 import { WindowPanel } from '@/components/window-panel'
-import {
-  bodyViews,
-  expressions,
-  faceViews,
-  fullSheet,
-  hairPlates,
-  palette,
-  wearPlates,
-} from '@/content/character'
+import { bodyViews, bust, faces, fullSheet, palette } from '@/content/character'
 import { intro, profileSections } from '@/content/profile'
 import { site } from '@/content/site'
 import styles from './page.module.css'
 
 export const metadata: Metadata = {
   title: '私について',
-  description: `${site.fullName}（${site.name}）の自己紹介と、キャラクターの設定資料。三面図・表情・衣装・配色。`,
+  description: `${site.fullName}（${site.name}）の自己紹介と、キャラクターの設定資料。三面図・表情・配色。`,
 }
 
 type SwatchStyle = CSSProperties & { readonly '--riml-swatch': string }
-
-const [front] = bodyViews
 
 export default function AboutPage() {
   return (
     <div className="riml-container">
       <header className={styles.head}>
-        {front === undefined ? null : (
-          <figure className={styles.headArt}>
-            <Image
-              className={styles.headArtImage}
-              src={front.src}
-              alt={`${site.name} の立ち絵（${front.label}）`}
-              width={front.width}
-              height={front.height}
-              priority
-            />
-          </figure>
-        )}
+        <figure className={styles.headArt}>
+          <Image
+            className={styles.headArtImage}
+            src={bust.src}
+            alt={`${site.name} の立ち絵`}
+            width={bust.width}
+            height={bust.height}
+            priority
+          />
+        </figure>
         <div className={styles.headText}>
           <h1 className={styles.title}>私について</h1>
           <p className={styles.names}>
@@ -69,8 +56,8 @@ export default function AboutPage() {
         ))}
 
         <WindowPanel
-          title="全身 5 方向"
-          lead="正面・横・背面・斜め前・斜め後ろ。横に流して見られます。"
+          title="全身 4 方向"
+          lead="正面・横・背面・斜め後ろ。横に流して見られます。"
           id="body"
         >
           <ul className={styles.bodyRail}>
@@ -89,29 +76,26 @@ export default function AboutPage() {
           </ul>
         </WindowPanel>
 
-        <WindowPanel title="顔のアップ" lead="正面・横顔・斜め 45 度。" id="face">
-          <PlateGrid plates={faceViews} min="11rem" height="12rem" />
+        <WindowPanel title="表情と小物" lead="ふだんの顔と、かぶりもの。" id="faces">
+          <ul className={styles.faceGrid}>
+            {faces.map((face) => (
+              <li key={face.key} className={styles.faceItem}>
+                <Image
+                  className={styles.faceImage}
+                  src={face.src}
+                  alt={face.label}
+                  width={face.width}
+                  height={face.height}
+                />
+                <span className={styles.faceLabel}>{face.label}</span>
+              </li>
+            ))}
+          </ul>
         </WindowPanel>
 
         <WindowPanel
-          title="表情"
-          lead="通常・微笑み・喜び・真剣・驚き・困り顔の 6 種。"
-          id="expressions"
-        >
-          <PlateGrid plates={expressions} min="8rem" height="10rem" />
-        </WindowPanel>
-
-        <WindowPanel title="髪型" lead="前髪・横髪・後ろ髪・髪飾り。" id="hair">
-          <PlateGrid plates={hairPlates} min="10rem" height="8rem" />
-        </WindowPanel>
-
-        <WindowPanel title="衣装・小物" lead="セーラージャケットと、その周りのもの。" id="wear">
-          <PlateGrid plates={wearPlates} min="10rem" height="10rem" />
-        </WindowPanel>
-
-        <WindowPanel
-          title="カラーパレット"
-          lead="riml-ds の --rd-* は、この 5 系統を AAA が成り立つ明度へ移し替えたものです。"
+          title="配色"
+          lead="riml-ds の --rd-* は、この青・赤・クリームを AAA が成り立つ明度へ移し替えたものです。"
           id="palette"
         >
           <dl className={styles.palette}>
@@ -145,7 +129,7 @@ export default function AboutPage() {
             <Image
               className={styles.sheetImage}
               src={fullSheet.src}
-              alt="riml のキャラクターデザインシート。全身 5 方向、顔のアップ、表情 6 種、髪型、衣装・小物、カラーパレット"
+              alt="riml のキャラクターデザインシート。全身 4 方向、表情、髪や小物の詳細"
               width={fullSheet.width}
               height={fullSheet.height}
             />

@@ -4,7 +4,7 @@ import { SplitText } from '@/components/split-text'
 import { WindowPanel } from '@/components/window-panel'
 import { WorkCard } from '@/components/work-card'
 import { XMark } from '@/components/x-mark'
-import { bodyViews } from '@/content/character'
+import { bust, bustHappy, faces } from '@/content/character'
 import { intro } from '@/content/profile'
 import { site } from '@/content/site'
 import { skillGroups } from '@/content/skills'
@@ -13,8 +13,6 @@ import styles from './page.module.css'
 
 /** トップに出す作品。全部は出さず、いま動いているものだけ */
 const featured = works.filter((work) => work.status !== 'private').slice(0, 4)
-
-const [front, , , front45] = bodyViews
 
 /** 帯に流す短い言葉。2 周ぶん並べて継ぎ目を消す */
 const tickerWords = [
@@ -61,26 +59,22 @@ export default function Home() {
         </div>
 
         <figure className={styles.kvArt}>
-          {front === undefined ? null : (
-            <Image
-              className={`${styles.kvArtImage} ${styles.kvArtMain}`}
-              src={front.src}
-              alt={`${site.name} の立ち絵`}
-              width={front.width}
-              height={front.height}
-              priority
-            />
-          )}
-          {front45 === undefined ? null : (
-            <Image
-              className={`${styles.kvArtImage} ${styles.kvArtAlt}`}
-              src={front45.src}
-              alt=""
-              width={front45.width}
-              height={front45.height}
-              aria-hidden="true"
-            />
-          )}
+          <Image
+            className={`${styles.kvArtImage} ${styles.kvArtMain}`}
+            src={bust.src}
+            alt={`${site.name} の立ち絵`}
+            width={bust.width}
+            height={bust.height}
+            priority
+          />
+          <Image
+            className={`${styles.kvArtImage} ${styles.kvArtAlt}`}
+            src={bustHappy.src}
+            alt=""
+            width={bustHappy.width}
+            height={bustHappy.height}
+            aria-hidden="true"
+          />
           <XMark className={`${styles.xMark} ${styles.x1}`} />
           <XMark className={`${styles.xMark} ${styles.x2}`} />
           <XMark className={`${styles.xMark} ${styles.x3}`} />
@@ -157,17 +151,20 @@ export default function Home() {
             </h2>
           </div>
           <div className={styles.aboutRow}>
-            {front45 === undefined ? null : (
-              <figure className={styles.aboutArt}>
-                <Image
-                  className={styles.aboutArtImage}
-                  src={front45.src}
-                  alt={`${site.name} の立ち絵（${front45.label}）`}
-                  width={front45.width}
-                  height={front45.height}
-                />
-              </figure>
-            )}
+            <ul className={styles.faceRow}>
+              {faces.map((face) => (
+                <li key={face.key} className={styles.faceItem}>
+                  <Image
+                    className={styles.faceImage}
+                    src={face.src}
+                    alt={face.label}
+                    width={face.width}
+                    height={face.height}
+                  />
+                  <span className={styles.faceLabel}>{face.label}</span>
+                </li>
+              ))}
+            </ul>
             <div className={styles.aboutText}>
               <div className="riml-prose">
                 {intro.map((line) => (
@@ -176,7 +173,7 @@ export default function Home() {
               </div>
               <p className={styles.sectionLead}>
                 青い髪、赤い目、クリーム色の肌。この 3 色が riml-ds の配色の出発点になっています。
-                三面図から表情、衣装の細部まで「私について」に置きました。
+                全身 4 方向と配色は「私について」に置きました。
               </p>
               <Link className={styles.buttonGhost} href="/about">
                 設定資料を開く
@@ -187,6 +184,14 @@ export default function Home() {
       </section>
 
       <section className={`riml-container ${styles.closing}`} aria-labelledby="contact-title">
+        <Image
+          className={styles.closingArt}
+          src={faces[0]?.src ?? bust.src}
+          alt=""
+          width={faces[0]?.width ?? bust.width}
+          height={faces[0]?.height ?? bust.height}
+          aria-hidden="true"
+        />
         <h2 className="riml-display-latin" id="contact-title">
           <SplitText text="contact" />
         </h2>
