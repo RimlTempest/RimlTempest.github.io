@@ -4,11 +4,13 @@ import { useState } from 'react'
 import styles from './motion-toggle.module.css'
 
 /**
- * ずっと動き続ける装飾を止める / 戻す。
- * WCAG 2.2.2（自動で始まり 5 秒を超える動きには止める手段を用意する）のため。
+ * 画面の動きを止める / 戻す。
+ * riml-ds に従ってこのサイトは自動再生する動きを持たないが、スクロールに結んだ
+ * 見出しの登場や、ポインタに反応する窓の中の演出も要らない人がいる。
+ * prefers-reduced-motion を設定していない人にも同じ止め方を用意する（WCAG 2.2.2）。
  *
- * 状態は <html data-motion="off"> に置き、CSS 側の --riml-play が
- * running / paused を切り替える。読み込むたびに動く状態から始まるので、
+ * 状態は <html data-motion="off"> に置く。globals.css がスクロールの動きを止め、
+ * StampCanvas はこの属性を見て反応しなくなる。読み込むたびに動く状態から始まるので、
  * localStorage には保存しない（保存すると初期描画と食い違う）。
  */
 export function MotionToggle() {

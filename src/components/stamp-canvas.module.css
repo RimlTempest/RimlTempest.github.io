@@ -1,0 +1,34 @@
+/*
+ * ポインタに反応して riml の髪どめの「×」が散る層。
+ * 装飾なので操作の邪魔をしない（pointer-events: none）。
+ * 自動では動かない — 指やマウスが動いたときにだけ描き、止まれば 1 秒ほどで消える。
+ */
+.layer {
+  position: absolute;
+  z-index: var(--rd-layer-raised);
+  inset: 0;
+  inline-size: 100%;
+  block-size: 100%;
+  pointer-events: none;
+}
+
+/*
+ * canvas の中に置く「はんこ」。canvas の代替内容なので普段は描画されないが、
+ * layoutsubtree が付いていればレイアウトはされ、drawElementImage で canvas に写せる。
+ * これで散る × が riml-ds の面・硬い影・丸ゴシックをそのまま持つ。
+ * API が無いブラウザではここは何も表示しない（代替内容は描かれない）。
+ */
+.stamp {
+  display: grid;
+  place-items: center;
+  inline-size: var(--rd-space-8);
+  block-size: var(--rd-space-8);
+  border-radius: var(--rd-radius-full);
+  background: var(--rd-color-surface-raised);
+  box-shadow: var(--rd-shadow-raised);
+  color: var(--rd-color-brand-signature);
+  font-family: var(--rd-font-family-display);
+  font-size: var(--rd-type-heading-2-font-size);
+  font-weight: var(--rd-font-weight-bold);
+  line-height: 1;
+}

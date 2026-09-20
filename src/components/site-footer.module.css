@@ -4,7 +4,7 @@
 
   margin-block-start: var(--rd-space-16);
   padding-block: var(--rd-space-8);
-  border-block-start: 2px dotted var(--rd-color-border-default);
+  border-block-start: calc(var(--rd-border-width-default) * 2) dotted var(--rd-color-border-default);
   color: var(--rd-color-text-muted);
 }
 

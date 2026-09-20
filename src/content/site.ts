@@ -7,6 +7,8 @@ export const site = {
   tagline: 'フロントエンドを書く人。青髪と赤い目の看板を掲げています。',
   description: 'riml（髙橋 大貴）のポートフォリオ。作ったもの、使う道具、連絡先をまとめています。',
   url: 'https://www.riml.work',
+  /** 窓の帯に出す表札 */
+  domain: 'www.riml.work',
   locale: 'ja_JP',
   twitter: '@Fande4d',
   ogImage: '/riml/og.png',

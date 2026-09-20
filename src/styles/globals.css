@@ -1,6 +1,10 @@
 /*
  * サイト全体の土台。色・寸法・時間の値は持たず、riml-ds のトークン（--rd-*）を参照する。
  * ここで定義する --riml-* は「このサイトの骨格」だけ（ページ余白、器の最大幅）。
+ *
+ * 見た目の決まりは riml-ds の docs/brand.md に従う:
+ * 面は 1 色（グラデーション・ぼかし・フィルタを使わない）、影は硬い、区切りは点線、
+ * モーションは操作への応答にだけ使う（自動再生しない）。
  */
 
 :root {
@@ -11,26 +15,12 @@
   --riml-container: 72rem;
   --riml-container-narrow: 46rem;
 
-  /* 紙の目。窓が乗る下地 */
-  --riml-paper-dot: color-mix(in oklab, var(--rd-color-border-default) 28%, transparent);
-
   /*
    * このサイトのイージング。行き過ぎて戻る 1 つだけを決めて、
    * 反応のある動き（hover / press）は全部これで統一する。
    * 画面に入ってくる動きは riml-ds の easing-standard を使う。
    */
   --riml-ease-out: cubic-bezier(0.19, 1.6, 0.42, 0.97);
-
-  /*
-   * ずっと動き続ける装飾（呼吸・床のスクロール）の再生状態。
-   * ヘッダーの「動きを止める」で :root[data-motion='off'] に切り替わる。
-   * WCAG 2.2.2（自動で始まり 5 秒を超える動きには止める手段を用意する）のため。
-   */
-  --riml-play: running;
-}
-
-:root[data-motion='off'] {
-  --riml-play: paused;
 }
 
 html {
@@ -46,9 +36,6 @@ html {
 body {
   min-block-size: 100dvb;
   background-color: var(--rd-color-surface-default);
-  background-image: radial-gradient(var(--riml-paper-dot) 0.0625rem, transparent 0.0625rem);
-  background-position: 0 0;
-  background-size: var(--rd-space-6) var(--rd-space-6);
   color: var(--rd-color-text-default);
   font: var(--rd-type-body);
 }
@@ -75,16 +62,14 @@ body {
   gap: var(--rd-space-4);
 }
 
-/* 欧文の大見出し。LP の骨格を作る、細長い大文字 */
-.riml-display-latin {
+/* 区切りは点線（brand.md §7.6）。面の切り替えで区切れるところには引かない */
+.riml-rule {
+  inline-size: 100%;
+  block-size: 0;
+  border-block-start: calc(var(--rd-border-width-default) * 2) dotted var(--rd-color-border-default);
+  border-block-end: 0 solid transparent;
+  border-inline: 0 solid transparent;
   margin: 0;
-  color: var(--rd-color-brand-primary);
-  font-family: var(--rd-font-family-display);
-  font-size: clamp(3rem, 12vi, 9rem);
-  font-weight: var(--rd-font-weight-bold);
-  line-height: var(--rd-line-height-display);
-  letter-spacing: var(--rd-letter-spacing-wide);
-  text-transform: uppercase;
 }
 
 /* 見出しの組み。DESIGN.md「見出しは丸ゴシック、balance で折る」 */
@@ -127,8 +112,8 @@ body {
 }
 
 /*
- * 画面に入ってきたら少しだけ持ち上がる。装飾なので、対応していないブラウザには
- * 何も足さない（progressive enhancement）。動きを減らす設定では出さない。
+ * 画面に入ってきたら少しだけ持ち上がる。スクロール（＝利用者の操作）に結んだ動きで、
+ * 勝手には始まらない。対応していないブラウザには何も足さない。
  */
 @media (prefers-reduced-motion: no-preference) {
   @supports ((animation-timeline: view()) and (animation-range: entry)) {
@@ -147,9 +132,17 @@ body {
   }
 }
 
-/* 印刷では紙の目と影を消す */
+/*
+ * ヘッダーの「動きを止める」。prefers-reduced-motion を設定していない人にも
+ * 同じ止め方を用意する（WCAG 2.2.2）。スクロールに結んだ動きもここで止まる。
+ */
+:root[data-motion='off'] .riml-rise {
+  animation: none;
+}
+
+/* 印刷では影を消す */
 @media print {
-  body {
-    background-image: none;
+  .riml-rule {
+    border-block-start-color: var(--rd-color-border-strong);
   }
 }
