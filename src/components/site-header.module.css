@@ -19,7 +19,10 @@
 }
 
 /* 帯の左端の 3 つの丸。riml の色（ほっぺ・髪・紙）。押せない丸は置かないので、
-   これは「窓」であることを示す印として aria-hidden の装飾に留める */
+   これは「窓」であることを示す印として aria-hidden の装飾に留める。
+   意味色をそのまま置くとライトの帯（インク）に沈むので、帯の文字色（クリーム）を
+   混ぜて持ち上げ、非文字の 3:1 を確保する。riml-ds が chrome.control.* を
+   公開したら、そのトークンに置き換える */
 .dots {
   display: flex;
   gap: var(--rd-space-1);
@@ -33,11 +36,15 @@
 }
 
 .dotClose {
-  background: var(--rd-color-status-danger-default);
+  background: color-mix(
+    in oklab,
+    var(--rd-color-status-danger-default) 45%,
+    var(--rd-color-chrome-text)
+  );
 }
 
 .dotExpand {
-  background: var(--rd-color-accent-default);
+  background: color-mix(in oklab, var(--rd-color-accent-default) 45%, var(--rd-color-chrome-text));
 }
 
 .dotCollapse {
