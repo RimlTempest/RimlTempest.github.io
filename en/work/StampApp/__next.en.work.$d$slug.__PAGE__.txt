@@ -1,0 +1,46 @@
+1:"$Sreact.fragment"
+2:I[22016,["/_next/static/chunks/2uocy576kgy_0.js"],""]
+3:I[97367,["/_next/static/chunks/2uocy576kgy_0.js"],"OutletBoundary"]
+4:"$Sreact.suspense"
+8:I[97367,["/_next/static/chunks/2uocy576kgy_0.js"],"ViewportBoundary"]
+9:I[97367,["/_next/static/chunks/2uocy576kgy_0.js"],"MetadataBoundary"]
+:HL["/_next/static/chunks/1jbrokoijva1y.css","style"]
+7:X
+19:X
+19:C
+0:{"buildId":"PqoUkbUlL8dzvjvOmmKQe","data":[{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"riml-container","children":[["$","header",null,{"className":"work-detail-module__DsW_0a__head","children":[["$","p",null,{"className":"work-detail-module__DsW_0a__back","children":["$","$L2",null,{"href":"/en/work","children":"← Work"}]}],["$","h1",null,{"className":"work-detail-module__DsW_0a__title","children":"StampApp"}],["$","p",null,{"className":"work-detail-module__DsW_0a__summary","children":"A stamp-card app skeleton built with Dart and Flutter."}]]}],["$","div",null,{"className":"work-detail-module__DsW_0a__layout","children":[["$","div",null,{"className":"riml-prose","children":[[["$","p","A stamp-card app shaped so it can be reused as a template.",{"children":"A stamp-card app shaped so it can be reused as a template."}],["$","p","The repository is private at the moment.",{"children":"The repository is private at the moment."}]],["$","div",null,{"className":"work-detail-module__DsW_0a__links","children":[null,null]}]]}],["$","section",null,{"className":"rd-window ","children":[["$","div",null,{"className":"rd-window-bar","children":["$","h2",null,{"className":"rd-window-title","children":"About this project"}]}],["$","div",null,{"className":"window-panel-module__20eDQW__body","children":[null,["$","dl",null,{"className":"work-detail-module__DsW_0a__meta","children":[["$","div",null,{"children":[["$","dt",null,{"className":"work-detail-module__DsW_0a__term","children":"Status"}],["$","dd",null,{"className":"work-detail-module__DsW_0a__value","children":"Private"}]]}],["$","div",null,{"children":[["$","dt",null,{"className":"work-detail-module__DsW_0a__term","children":"Built with"}],["$","dd",null,{"children":["$","ul",null,{"className":"work-detail-module__DsW_0a__chips","children":[["$","li","Dart",{"className":"work-detail-module__DsW_0a__chip","children":"Dart"}],["$","li","Flutter",{"className":"work-detail-module__DsW_0a__chip","children":"Flutter"}]]}]}]]}]]}]]}]]}]]}]]}],[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/1jbrokoijva1y.css","precedence":"next"}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":"$@6","staleTime":"$7","varyParams":null},{"rsc":["$","$1","h",{"children":[null,["$","$L8",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","2",{"name":"theme-color","content":"#39415b","media":"(prefers-color-scheme: light)"}],["$","meta","3",{"name":"theme-color","content":"#151a29","media":"(prefers-color-scheme: dark)"}],["$","meta","4",{"name":"color-scheme","content":"light dark"}]]}],["$","div",null,{"hidden":true,"children":["$","$L9",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"StampApp — riml"}],["$","meta","1",{"name":"description","content":"A stamp-card app skeleton built with Dart and Flutter."}],["$","meta","2",{"name":"application-name","content":"riml"}],["$","link","3",{"rel":"author","href":"https://www.riml.work"}],["$","meta","4",{"name":"author","content":"髙橋 大貴"}],["$","link","5",{"rel":"manifest","href":"/manifest.json"}],["$","link","6",{"rel":"canonical","href":"https://www.riml.work/en/work/StampApp/"}],["$","link","7",{"rel":"alternate","hrefLang":"ja","href":"https://www.riml.work/work/StampApp/"}],["$","link","8",{"rel":"alternate","hrefLang":"en","href":"https://www.riml.work/en/work/StampApp/"}],["$","link","9",{"rel":"alternate","hrefLang":"x-default","href":"https://www.riml.work/work/StampApp/"}],["$","meta","10",{"name":"mobile-web-app-capable","content":"yes"}],["$","meta","11",{"name":"apple-mobile-web-app-title","content":"riml"}],["$","meta","12",{"name":"apple-mobile-web-app-status-bar-style","content":"black-translucent"}],["$","meta","13",{"property":"og:title","content":"StampApp"}],["$","meta","14",{"property":"og:description","content":"A stamp-card app skeleton built with Dart and Flutter."}],["$","meta","15",{"property":"og:url","content":"https://www.riml.work/en/work/StampApp/"}],["$","meta","16",{"property":"og:site_name","content":"riml"}],["$","meta","17",{"property":"og:locale","content":"en_US"}],["$","meta","18",{"property":"og:image","content":"https://www.riml.work/riml/og.png"}],["$","meta","19",{"property":"og:image:width","content":"1200"}],["$","meta","20",{"property":"og:image:height","content":"630"}],["$","meta","21",{"property":"og:image:alt","content":"riml"}],"$La","$Lb","$Lc","$Ld","$Le","$Lf","$L10","$L11","$L12","$L13","$L14","$L15"]}]}]}],null]}],"isPartial":"$@16","staleTime":"$7","varyParams":null},{"rsc":"$L17","isPartial":"$@18","staleTime":"$7","varyParams":"$19"},{"rsc":"$L1a","isPartial":"$@1b","staleTime":"$7","varyParams":"$19"},{"rsc":"$L1c","isPartial":"$@1d","staleTime":"$7","varyParams":"$19"},{"rsc":"$L1e","isPartial":"$@1f","staleTime":"$7","varyParams":null}],"isUpgradeableISRFallback":false,"a":"$@20","rootVaryParams":null,"needsRuntimeRequest":"$@21"}
+22:I[27201,["/_next/static/chunks/2uocy576kgy_0.js"],"IconMark"]
+23:I[39756,["/_next/static/chunks/2uocy576kgy_0.js"],"default"]
+24:I[37457,["/_next/static/chunks/2uocy576kgy_0.js"],"default"]
+25:I[75961,["/_next/static/chunks/2uocy576kgy_0.js"],"SiteChrome"]
+26:I[5500,["/_next/static/chunks/2uocy576kgy_0.js","/_next/static/chunks/3asgzusumqy02.js"],"Image"]
+27:I[36265,["/_next/static/chunks/2uocy576kgy_0.js"],"ServiceWorker"]
+:HL["/_next/static/chunks/3mzuvzey6s8q3.css","style"]
+:HL["/_next/static/chunks/2gv1dgjoc015x.css","style"]
+5:null
+a:["$","meta","22",{"property":"og:type","content":"website"}]
+b:["$","meta","23",{"name":"twitter:card","content":"summary_large_image"}]
+c:["$","meta","24",{"name":"twitter:site","content":"@Fande4d"}]
+d:["$","meta","25",{"name":"twitter:creator","content":"@Fande4d"}]
+e:["$","meta","26",{"name":"twitter:title","content":"StampApp"}]
+f:["$","meta","27",{"name":"twitter:description","content":"A stamp-card app skeleton built with Dart and Flutter."}]
+10:["$","meta","28",{"name":"twitter:image","content":"https://www.riml.work/riml/og.png"}]
+11:["$","link","29",{"rel":"icon","href":"/favicon.ico","sizes":"16x16 32x32 48x48"}]
+12:["$","link","30",{"rel":"icon","href":"/icon-192x192.png","sizes":"192x192","type":"image/png"}]
+13:["$","link","31",{"rel":"icon","href":"/icon-512x512.png","sizes":"512x512","type":"image/png"}]
+14:["$","link","32",{"rel":"apple-touch-icon","href":"/apple-touch-icon-180x180.png","sizes":"180x180"}]
+15:["$","$L22","33",{}]
+17:["$","$1","c",{"children":[null,["$","$L23",null,{"parallelRouterKey":"children","template":["$","$L24",null,{}]}]]}]
+1a:["$","$1","c",{"children":[null,["$","$L23",null,{"parallelRouterKey":"children","template":["$","$L24",null,{}]}]]}]
+1c:["$","$1","c",{"children":[null,["$","$L23",null,{"parallelRouterKey":"children","template":["$","$L24",null,{}]}]]}]
+1e:["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/3mzuvzey6s8q3.css","precedence":"next"}],["$","script","script-0",{"src":"/_next/static/chunks/2uocy576kgy_0.js","async":true}]],["$","html",null,{"lang":"ja","children":[["$","head",null,{"children":["$","script",null,{"src":"/before-paint.js"}]}],["$","body",null,{"children":[["$","$L25",null,{"children":["$","$L23",null,{"parallelRouterKey":"children","template":["$","$L24",null,{}],"notFound":[["$","div",null,{"className":"riml-container not-found-module__HS70Aa__wrap","children":[["$","$L26",null,{"className":"not-found-module__HS70Aa__art","src":"/riml/chibi/acc-surprise.webp","alt":"","width":310,"height":348,"aria-hidden":"true"}],["$","p",null,{"className":"not-found-module__HS70Aa__code","children":"404"}],[["$","div","ja",{"className":"not-found-module__HS70Aa__block","lang":"ja","children":[["$","h1",null,{"className":"not-found-module__HS70Aa__title","children":"ページが見つかりません"}],["$","p",null,{"className":"not-found-module__HS70Aa__lead","children":"URL が変わったか、消えたページかもしれません。"}],["$","$L2",null,{"className":"not-found-module__HS70Aa__back","href":"/","children":"トップへ戻る"}]]}],["$","div","en",{"className":"not-found-module__HS70Aa__block","lang":"en","children":[["$","h1",null,{"className":"not-found-module__HS70Aa__title","children":"Page not found"}],["$","p",null,{"className":"not-found-module__HS70Aa__lead","children":"The URL may have changed, or the page may be gone."}],["$","$L2",null,{"className":"not-found-module__HS70Aa__back","href":"/en","children":"Back to home"}]]}]]]}],[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/2gv1dgjoc015x.css","precedence":"next"}]]]}]}],["$","$L27",null,{}]]}]]}]]}]
+7:300
+21:true
+7:C
+20:0
+16:"$undefined"
+18:"$undefined"
+1b:"$undefined"
+1d:"$undefined"
+1f:"$undefined"
+6:"$undefined"

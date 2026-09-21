@@ -7,10 +7,23 @@
  * 画像を差し替えたのに古いまま出る、という事故を起こさないため。
  */
 
-const CACHE = 'riml-v2'
+const CACHE = 'riml-v3'
 
 /** 取りこぼしても致命的でない、最初に温めておくもの */
-const SHELL = ['/', '/about/', '/work/', '/contact/', '/404.html', '/manifest.json']
+const SHELL = [
+  '/',
+  '/about/',
+  '/work/',
+  '/contact/',
+  '/en/',
+  '/en/about/',
+  '/en/work/',
+  '/en/contact/',
+  '/404.html',
+  '/manifest.json',
+  // 最初の描画より前に走るので、オフラインでも取れる必要がある
+  '/before-paint.js',
+]
 
 /** 中身が変わればファイル名も変わるもの。キャッシュ優先にしてよい */
 const IMMUTABLE = /^\/_next\/static\//

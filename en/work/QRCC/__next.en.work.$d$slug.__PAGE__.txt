@@ -1,0 +1,59 @@
+1:"$Sreact.fragment"
+2:I[22016,["/_next/static/chunks/2uocy576kgy_0.js"],""]
+3:I[97367,["/_next/static/chunks/2uocy576kgy_0.js"],"OutletBoundary"]
+4:"$Sreact.suspense"
+8:I[97367,["/_next/static/chunks/2uocy576kgy_0.js"],"ViewportBoundary"]
+9:I[97367,["/_next/static/chunks/2uocy576kgy_0.js"],"MetadataBoundary"]
+:HL["/_next/static/chunks/1jbrokoijva1y.css","style"]
+7:X
+26:X
+26:C
+0:{"buildId":"PqoUkbUlL8dzvjvOmmKQe","data":[{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"riml-container","children":[["$","header",null,{"className":"work-detail-module__DsW_0a__head","children":[["$","p",null,{"className":"work-detail-module__DsW_0a__back","children":["$","$L2",null,{"href":"/en/work","children":"← Work"}]}],["$","h1",null,{"className":"work-detail-module__DsW_0a__title","children":"qrcc"}],["$","p",null,{"className":"work-detail-module__DsW_0a__summary","children":"Generate, read, manage and print QR codes and barcodes."}]]}],["$","div",null,{"className":"work-detail-module__DsW_0a__layout","children":[["$","div",null,{"className":"riml-prose","children":[[["$","p","A tool for making and reading QR codes quickly. It started as a way to learn Gatsby; it is now being rewritten on TanStack Start (RSC) and Rust (workers-rs).",{"children":"A tool for making and reading QR codes quickly. It started as a way to learn Gatsby; it is now being rewritten on TanStack Start (RSC) and Rust (workers-rs)."}],["$","p","The constraint is that it has to run entirely inside the Cloudflare Workers free tier.",{"children":"The constraint is that it has to run entirely inside the Cloudflare Workers free tier."}]],["$","div",null,{"className":"work-detail-module__DsW_0a__links","children":[["$","a",null,{"className":"work-detail-module__DsW_0a__linkButton","href":"https://qrcc.riml.work","target":"_blank","rel":"noreferrer","aria-label":"qrcc: Open site（new tab）","children":"Open site"}],["$","a",null,{"className":"work-detail-module__DsW_0a__linkGhost","href":"https://github.com/RimlTempest/qrcc2","target":"_blank","rel":"noreferrer","aria-label":"qrcc: View repository（new tab）","children":"View repository"}]]}]]}],["$","section",null,{"className":"rd-window ","children":[["$","div",null,{"className":"rd-window-bar","children":["$","h2",null,{"className":"rd-window-title","children":"About this project"}]}],["$","div",null,{"className":"window-panel-module__20eDQW__body","children":[null,["$","dl",null,{"className":"work-detail-module__DsW_0a__meta","children":[["$","div",null,{"children":[["$","dt",null,{"className":"work-detail-module__DsW_0a__term","children":"Status"}],["$","dd",null,{"className":"work-detail-module__DsW_0a__value","children":"Live"}]]}],["$","div",null,{"children":[["$","dt",null,{"className":"work-detail-module__DsW_0a__term","children":"Built with"}],["$","dd",null,{"children":["$","ul",null,{"className":"work-detail-module__DsW_0a__chips","children":[["$","li","TanStack Start",{"className":"work-detail-module__DsW_0a__chip","children":"TanStack Start"}],["$","li","Rust / workers-rs",{"className":"work-detail-module__DsW_0a__chip","children":"Rust / workers-rs"}],["$","li","Cloudflare Workers",{"className":"work-detail-module__DsW_0a__chip","children":"Cloudflare Workers"}]]}]}]]}]]}]]}]]}]]}]]}],[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/1jbrokoijva1y.css","precedence":"next"}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":"$@6","staleTime":"$7","varyParams":null},{"rsc":["$","$1","h",{"children":[null,["$","$L8",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","2",{"name":"theme-color","content":"#39415b","media":"(prefers-color-scheme: light)"}],["$","meta","3",{"name":"theme-color","content":"#151a29","media":"(prefers-color-scheme: dark)"}],["$","meta","4",{"name":"color-scheme","content":"light dark"}]]}],["$","div",null,{"hidden":true,"children":["$","$L9",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"qrcc — riml"}],["$","meta","1",{"name":"description","content":"Generate, read, manage and print QR codes and barcodes."}],["$","meta","2",{"name":"application-name","content":"riml"}],["$","link","3",{"rel":"author","href":"https://www.riml.work"}],["$","meta","4",{"name":"author","content":"髙橋 大貴"}],["$","link","5",{"rel":"manifest","href":"/manifest.json"}],["$","link","6",{"rel":"canonical","href":"https://www.riml.work/en/work/QRCC/"}],["$","link","7",{"rel":"alternate","hrefLang":"ja","href":"https://www.riml.work/work/QRCC/"}],["$","link","8",{"rel":"alternate","hrefLang":"en","href":"https://www.riml.work/en/work/QRCC/"}],"$La","$Lb","$Lc","$Ld","$Le","$Lf","$L10","$L11","$L12","$L13","$L14","$L15","$L16","$L17","$L18","$L19","$L1a","$L1b","$L1c","$L1d","$L1e","$L1f","$L20","$L21","$L22"]}]}]}],null]}],"isPartial":"$@23","staleTime":"$7","varyParams":null},{"rsc":"$L24","isPartial":"$@25","staleTime":"$7","varyParams":"$26"},{"rsc":"$L27","isPartial":"$@28","staleTime":"$7","varyParams":"$26"},{"rsc":"$L29","isPartial":"$@2a","staleTime":"$7","varyParams":"$26"},{"rsc":"$L2b","isPartial":"$@2c","staleTime":"$7","varyParams":null}],"isUpgradeableISRFallback":false,"a":"$@2d","rootVaryParams":null,"needsRuntimeRequest":"$@2e"}
+2f:I[27201,["/_next/static/chunks/2uocy576kgy_0.js"],"IconMark"]
+30:I[39756,["/_next/static/chunks/2uocy576kgy_0.js"],"default"]
+31:I[37457,["/_next/static/chunks/2uocy576kgy_0.js"],"default"]
+32:I[75961,["/_next/static/chunks/2uocy576kgy_0.js"],"SiteChrome"]
+33:I[5500,["/_next/static/chunks/2uocy576kgy_0.js","/_next/static/chunks/3asgzusumqy02.js"],"Image"]
+34:I[36265,["/_next/static/chunks/2uocy576kgy_0.js"],"ServiceWorker"]
+:HL["/_next/static/chunks/3mzuvzey6s8q3.css","style"]
+:HL["/_next/static/chunks/2gv1dgjoc015x.css","style"]
+5:null
+a:["$","link","9",{"rel":"alternate","hrefLang":"x-default","href":"https://www.riml.work/work/QRCC/"}]
+b:["$","meta","10",{"name":"mobile-web-app-capable","content":"yes"}]
+c:["$","meta","11",{"name":"apple-mobile-web-app-title","content":"riml"}]
+d:["$","meta","12",{"name":"apple-mobile-web-app-status-bar-style","content":"black-translucent"}]
+e:["$","meta","13",{"property":"og:title","content":"qrcc"}]
+f:["$","meta","14",{"property":"og:description","content":"Generate, read, manage and print QR codes and barcodes."}]
+10:["$","meta","15",{"property":"og:url","content":"https://www.riml.work/en/work/QRCC/"}]
+11:["$","meta","16",{"property":"og:site_name","content":"riml"}]
+12:["$","meta","17",{"property":"og:locale","content":"en_US"}]
+13:["$","meta","18",{"property":"og:image","content":"https://www.riml.work/riml/og.png"}]
+14:["$","meta","19",{"property":"og:image:width","content":"1200"}]
+15:["$","meta","20",{"property":"og:image:height","content":"630"}]
+16:["$","meta","21",{"property":"og:image:alt","content":"riml"}]
+17:["$","meta","22",{"property":"og:type","content":"website"}]
+18:["$","meta","23",{"name":"twitter:card","content":"summary_large_image"}]
+19:["$","meta","24",{"name":"twitter:site","content":"@Fande4d"}]
+1a:["$","meta","25",{"name":"twitter:creator","content":"@Fande4d"}]
+1b:["$","meta","26",{"name":"twitter:title","content":"qrcc"}]
+1c:["$","meta","27",{"name":"twitter:description","content":"Generate, read, manage and print QR codes and barcodes."}]
+1d:["$","meta","28",{"name":"twitter:image","content":"https://www.riml.work/riml/og.png"}]
+1e:["$","link","29",{"rel":"icon","href":"/favicon.ico","sizes":"16x16 32x32 48x48"}]
+1f:["$","link","30",{"rel":"icon","href":"/icon-192x192.png","sizes":"192x192","type":"image/png"}]
+20:["$","link","31",{"rel":"icon","href":"/icon-512x512.png","sizes":"512x512","type":"image/png"}]
+21:["$","link","32",{"rel":"apple-touch-icon","href":"/apple-touch-icon-180x180.png","sizes":"180x180"}]
+22:["$","$L2f","33",{}]
+24:["$","$1","c",{"children":[null,["$","$L30",null,{"parallelRouterKey":"children","template":["$","$L31",null,{}]}]]}]
+27:["$","$1","c",{"children":[null,["$","$L30",null,{"parallelRouterKey":"children","template":["$","$L31",null,{}]}]]}]
+29:["$","$1","c",{"children":[null,["$","$L30",null,{"parallelRouterKey":"children","template":["$","$L31",null,{}]}]]}]
+2b:["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/3mzuvzey6s8q3.css","precedence":"next"}],["$","script","script-0",{"src":"/_next/static/chunks/2uocy576kgy_0.js","async":true}]],["$","html",null,{"lang":"ja","children":[["$","head",null,{"children":["$","script",null,{"src":"/before-paint.js"}]}],["$","body",null,{"children":[["$","$L32",null,{"children":["$","$L30",null,{"parallelRouterKey":"children","template":["$","$L31",null,{}],"notFound":[["$","div",null,{"className":"riml-container not-found-module__HS70Aa__wrap","children":[["$","$L33",null,{"className":"not-found-module__HS70Aa__art","src":"/riml/chibi/acc-surprise.webp","alt":"","width":310,"height":348,"aria-hidden":"true"}],["$","p",null,{"className":"not-found-module__HS70Aa__code","children":"404"}],[["$","div","ja",{"className":"not-found-module__HS70Aa__block","lang":"ja","children":[["$","h1",null,{"className":"not-found-module__HS70Aa__title","children":"ページが見つかりません"}],["$","p",null,{"className":"not-found-module__HS70Aa__lead","children":"URL が変わったか、消えたページかもしれません。"}],["$","$L2",null,{"className":"not-found-module__HS70Aa__back","href":"/","children":"トップへ戻る"}]]}],["$","div","en",{"className":"not-found-module__HS70Aa__block","lang":"en","children":[["$","h1",null,{"className":"not-found-module__HS70Aa__title","children":"Page not found"}],["$","p",null,{"className":"not-found-module__HS70Aa__lead","children":"The URL may have changed, or the page may be gone."}],["$","$L2",null,{"className":"not-found-module__HS70Aa__back","href":"/en","children":"Back to home"}]]}]]]}],[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/2gv1dgjoc015x.css","precedence":"next"}]]]}]}],["$","$L34",null,{}]]}]]}]]}]
+7:300
+2e:true
+7:C
+2d:0
+23:"$undefined"
+25:"$undefined"
+28:"$undefined"
+2a:"$undefined"
+2c:"$undefined"
+6:"$undefined"
