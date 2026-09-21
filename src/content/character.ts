@@ -28,16 +28,8 @@ const plate = (
 })
 
 /** 主役の立ち絵。ふだんは正面、触ると笑顔になる */
-export const bust = plate('bust', 'riml', 888, 900)
-export const bustHappy = plate('bust-happy', 'riml（笑顔）', 909, 900)
-
-/** 全身 4 方向 */
-export const bodyViews: readonly Plate[] = [
-  plate('body-front', '正面', 213, 572),
-  plate('body-side', '横', 172, 565),
-  plate('body-back', '背面', 186, 568),
-  plate('body-back45', '斜め後ろ', 169, 556),
-] as const
+export const bust = plate('bust', 'riml', 900, 876)
+export const bustHappy = plate('bust-happy', 'riml（笑顔）', 900, 876)
 
 /** 表情と小物 */
 export const faces: readonly Plate[] = [
