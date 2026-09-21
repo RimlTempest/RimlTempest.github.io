@@ -1,18 +1,36 @@
 {
+  "id": "/",
   "name": "riml — Daiki Takahashi",
   "short_name": "riml",
   "description": "riml（髙橋 大貴）のポートフォリオ",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
+  "display_override": ["standalone", "minimal-ui", "browser"],
+  "orientation": "any",
   "dir": "ltr",
   "lang": "ja",
   "background_color": "#fcf4e8",
   "theme_color": "#39415b",
+  "categories": ["personal", "portfolio"],
   "icons": [
-    { "src": "/android-chrome-192x192.png", "sizes": "192x192", "type": "image/png" },
-    { "src": "/android-chrome-256x256.png", "sizes": "256x256", "type": "image/png" },
-    { "src": "/android-chrome-384x384.png", "sizes": "384x384", "type": "image/png" },
-    { "src": "/android-chrome-512x512.png", "sizes": "512x512", "type": "image/png" }
+    { "src": "/android-chrome-192x192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/android-chrome-256x256.png", "sizes": "256x256", "type": "image/png", "purpose": "any" },
+    { "src": "/android-chrome-384x384.png", "sizes": "384x384", "type": "image/png", "purpose": "any" },
+    { "src": "/android-chrome-512x512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-maskable-192x192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "/icon-maskable-512x512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    {
+      "name": "作ったもの",
+      "url": "/work/",
+      "icons": [{ "src": "/icon-192x192.png", "sizes": "192x192", "type": "image/png" }]
+    },
+    {
+      "name": "連絡先",
+      "url": "/contact/",
+      "icons": [{ "src": "/icon-192x192.png", "sizes": "192x192", "type": "image/png" }]
+    }
   ]
 }
