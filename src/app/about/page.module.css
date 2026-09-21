@@ -4,7 +4,8 @@
   align-items: end;
   padding-block: var(--rd-space-12) var(--rd-space-8);
 
-  --riml-hero-art: min(20rem, 60vi);
+  /* 全身は縦に長いので、幅ではなく高さで大きさを決める */
+  --riml-hero-art: min(28rem, 52vb);
 }
 
 @media (width >= 56rem) {
@@ -21,8 +22,9 @@
 }
 
 .headArtImage {
-  inline-size: var(--riml-hero-art);
-  block-size: auto;
+  inline-size: auto;
+  block-size: var(--riml-hero-art);
+  max-inline-size: 100%;
   object-fit: contain;
 }
 

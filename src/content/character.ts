@@ -31,6 +31,9 @@ const plate = (
 export const bust = plate('bust', 'riml', 900, 876)
 export const bustHappy = plate('bust-happy', 'riml（笑顔）', 900, 876)
 
+/** 全身。縦に長いので、置き場所では高さで大きさを決める */
+export const standing = plate('standing', 'riml（全身）', 431, 1100)
+
 /** 表情と小物 */
 export const faces: readonly Plate[] = [
   plate('acc-plain', 'ふつう', 336, 346),

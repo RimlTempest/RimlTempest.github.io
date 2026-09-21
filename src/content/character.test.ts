@@ -1,8 +1,8 @@
 import { describe, expect, test } from 'bun:test'
-import { bust, bustHappy, faces } from './character'
+import { bust, bustHappy, faces, standing } from './character'
 import type { Plate } from './character'
 
-const all: readonly Plate[] = [bust, bustHappy, ...faces]
+const all: readonly Plate[] = [bust, bustHappy, standing, ...faces]
 
 /** WebP のヘッダから実寸を読む。next/image に書いた値とずれていないか確かめる */
 async function sizeOf(src: string): Promise<{ width: number; height: number } | null> {

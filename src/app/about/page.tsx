@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { WindowPanel } from '@/components/window-panel'
-import { bust } from '@/content/character'
+import { standing } from '@/content/character'
 import { intro, profileSections } from '@/content/profile'
 import { site } from '@/content/site'
 import { skillGroups } from '@/content/skills'
@@ -20,10 +20,10 @@ export default function AboutPage() {
         <figure className={styles.headArt}>
           <Image
             className={styles.headArtImage}
-            src={bust.src}
-            alt={`${site.name} の似顔絵`}
-            width={bust.width}
-            height={bust.height}
+            src={standing.src}
+            alt={`${site.name} の立ち絵`}
+            width={standing.width}
+            height={standing.height}
             priority
           />
         </figure>
