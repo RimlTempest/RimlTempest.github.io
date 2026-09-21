@@ -19,12 +19,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params
   const work = findWork(slug)
-  if (work === undefined) return { title: ui.notFoundTitle.ja }
+  if (work === undefined) return { title: ui.notFoundTitle.en }
   return pageMetadata({
-    locale: 'ja',
+    locale: 'en',
     path: `/work/${work.slug}`,
     title: work.name,
-    description: work.summary.ja,
+    description: work.summary.en,
   })
 }
 
@@ -32,5 +32,5 @@ export default async function Page({ params }: { readonly params: Promise<Params
   const { slug } = await params
   const work = findWork(slug)
   if (work === undefined) notFound()
-  return <WorkDetailPage work={work} locale="ja" />
+  return <WorkDetailPage work={work} locale="en" />
 }

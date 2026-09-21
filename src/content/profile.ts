@@ -2,35 +2,41 @@
  * 自己紹介の中身。
  *
  * 出どころは本人の公開プロフィール（LAPRAS: https://lapras.com/public/Riml）と
- * GitHub のプロフィール、および登壇スライド・記事の公開ページ。
+ * GitHub のプロフィール、および登壇スライド・イベントレポート・記事の公開ページ。
  * 推測は書かない。古くなったらここだけ直す。
+ *
+ * 登壇タイトルと記事タイトルは日本語で公開されているものなので、英語版でもそのまま置く。
+ * 翻訳すると「実在しない題名」になってしまうため。
  */
+import type { Text, TextList } from './i18n'
 
 export type Highlight = {
-  readonly label: string
-  readonly detail: string
+  readonly label: Text
+  readonly detail: Text
 }
 
 export type ProfileSection = {
   readonly id: string
-  readonly title: string
-  readonly lead: string
+  readonly title: Text
+  readonly lead: Text
   readonly highlights: readonly Highlight[]
 }
 
 export type Talk = {
+  /** 公開されている題名。訳さない */
   readonly title: string
   /** どこで話したか */
-  readonly event: string
+  readonly event: Text
   /** YYYY-MM */
   readonly date: string
   /** スライドかレポートの場所。どちらも無いものもある */
   readonly url?: string
   /** リンク先の名前。読み上げ名に入れる */
-  readonly source?: string
+  readonly source?: Text
 }
 
 export type Writing = {
+  /** 公開されている題名。訳さない */
   readonly title: string
   readonly where: string
   readonly url: string
@@ -39,93 +45,117 @@ export type Writing = {
 }
 
 /** 見出しの下に出る 3 行。長い自己紹介の代わり。 */
-export const intro = [
-  'Web のフロントエンドを書いています。',
-  '都内の上場企業でシニアエンジニア（マネージャー）として、フロントエンド組織の立ち上げとデザインシステムづくりをしています。',
-  '個人でもデザインシステム（riml-ds）と、その上に載るプロダクトを作っています。',
-] as const
+export const intro: TextList = {
+  ja: [
+    'Web のフロントエンドを書いています。',
+    '都内の上場企業でシニアエンジニア（マネージャー）として、フロントエンド組織の立ち上げとデザインシステムづくりをしています。',
+    '個人でもデザインシステム（riml-ds）と、その上に載るプロダクトを作っています。',
+  ],
+  en: [
+    'I write frontends for the web.',
+    'At a listed company in Tokyo I work as a senior engineer and manager, building up a frontend organisation and its design system.',
+    'On my own time I build a design system (riml-ds) and the products that sit on it.',
+  ],
+}
 
 /** いまの立ち位置。名刺に書くくらいのこと */
 export const currentRole = {
-  organization: '株式会社オプティム',
-  title: 'シニアエンジニア（マネージャー）',
-  location: 'Tokyo',
+  organization: { ja: '株式会社オプティム', en: 'OPTiM Corporation' },
+  title: {
+    ja: 'シニアエンジニア（マネージャー）',
+    en: 'Senior engineer (manager)',
+  },
+  location: { ja: '東京', en: 'Tokyo' },
   /** 仕事でやっていること */
   duties: [
-    'フロントエンド組織の立ち上げ',
-    'デザインシステムの設計・構築',
-    'フロントエンドアーキテクト',
-    'チームマネジメント・メンバー育成',
+    { ja: 'フロントエンド組織の立ち上げ', en: 'Starting up a frontend organisation' },
+    { ja: 'デザインシステムの設計・構築', en: 'Designing and building a design system' },
+    { ja: 'フロントエンドアーキテクト', en: 'Frontend architecture' },
+    { ja: 'チームマネジメント・メンバー育成', en: 'Team management and mentoring' },
   ],
   /** 声をかけてもらうときの前提 */
-  availability: '転職は考えていません。副業を探しています。',
+  availability: {
+    ja: '転職は考えていません。副業を探しています。',
+    en: 'Not looking to change jobs. Open to side work.',
+  },
 } as const
 
 export const profileSections: readonly ProfileSection[] = [
   {
     id: 'likes',
-    title: '好きなもの',
-    lead: '画面の外のこと。',
+    title: { ja: '好きなもの', en: 'Things I like' },
+    lead: { ja: '画面の外のこと。', en: 'Away from the screen.' },
     highlights: [
       {
-        label: 'リズムゲーム',
-        detail:
-          'CHUNITHM と maimai は虹レートまで。第 2 回ガルパ杯は二次予選（仙台）に出ました。BeatTube はプレイヤーランキング最大 5 位。',
+        label: { ja: 'リズムゲーム', en: 'Rhythm games' },
+        detail: {
+          ja: 'CHUNITHM と maimai は虹レートまで。第 2 回ガルパ杯は二次予選（仙台）に出ました。BeatTube はプレイヤーランキング最大 5 位。',
+          en: 'Rainbow rate in CHUNITHM and maimai. Reached the second qualifier (Sendai) of the 2nd Garupa Cup. Peaked at 5th on the BeatTube player ranking.',
+        },
       },
       {
-        label: '動画',
-        detail: 'VTuber の配信とアニメ。『転生したらスライムだった件』が一番好きです。',
+        label: { ja: '動画', en: 'Video' },
+        detail: {
+          ja: 'VTuber の配信とアニメ。『転生したらスライムだった件』が一番好きです。',
+          en: 'VTuber streams and anime. That Time I Got Reincarnated as a Slime is my favourite.',
+        },
       },
       {
-        label: 'つくること',
-        detail: 'Connect2019 優秀賞、校内ハッカソンで最優秀賞と企業賞をもらいました。',
+        label: { ja: 'つくること', en: 'Making things' },
+        detail: {
+          ja: 'Connect2019 優秀賞、校内ハッカソンで最優秀賞と企業賞をもらいました。',
+          en: 'Excellence Award at Connect2019; grand prize and a company prize at a school hackathon.',
+        },
       },
     ],
   },
 ] as const
 
+const speakerDeck: Text = { ja: 'Speaker Deck', en: 'Speaker Deck' }
+const eventReport: Text = { ja: 'イベントレポート', en: 'event report' }
+
 /** 話したこと。新しい順 */
 export const talks: readonly Talk[] = [
   {
     title: 'React で動画作成を試してみた！',
-    event: 'React Tokyo ミートアップ #17',
+    event: { ja: 'React Tokyo ミートアップ #17', en: 'React Tokyo Meetup #17' },
     date: '2026-06',
     url: 'https://zenn.dev/react_tokyo/articles/2026-06-19-meetup-17',
-    source: 'イベントレポート',
+    source: eventReport,
   },
   {
     title: 'ポスタートーク',
-    event: 'React Tokyo フェス 2026',
+    event: { ja: 'React Tokyo フェス 2026', en: 'React Tokyo Fes 2026' },
     date: '2026-02',
   },
   {
     title: 'フロントエンド開発者のための「厄払い」（メイントーク）',
-    event: 'React Tokyo ミートアップ #13',
+    event: { ja: 'React Tokyo ミートアップ #13', en: 'React Tokyo Meetup #13' },
     date: '2026-01',
     url: 'https://zenn.dev/react_tokyo/articles/2026-01-23-meetup-13',
-    source: 'イベントレポート',
+    source: eventReport,
   },
   {
     title:
       'デザインとエンジニアリングの架け橋を目指す OPTiM のデザインシステム「nucleus」の軌跡と広げ方',
-    event: '共同登壇',
+    event: { ja: '共同登壇', en: 'Co-presented' },
     date: '2025-10',
     url: 'https://speakerdeck.com/optim/20251024-next-design-shimizu-takahashi',
-    source: 'Speaker Deck',
+    source: speakerDeck,
   },
   {
     title: 'Cline に Next.js のプロジェクト改善をお願いしてみた',
-    event: 'React Tokyo ミートアップ #3',
+    event: { ja: 'React Tokyo ミートアップ #3', en: 'React Tokyo Meetup #3' },
     date: '2025-03',
     url: 'https://speakerdeck.com/optim/20250321-reacttokyo-lt',
-    source: 'Speaker Deck',
+    source: speakerDeck,
   },
   {
     title: 'Nuxt3 マイグレーションについて',
-    event: 'Vue Fes Japan 2024 Pre LT Party',
+    event: { ja: 'Vue Fes Japan 2024 Pre LT Party', en: 'Vue Fes Japan 2024 Pre LT Party' },
     date: '2024-10',
     url: 'https://speakerdeck.com/optim/nuxt-migration',
-    source: 'Speaker Deck',
+    source: speakerDeck,
   },
 ] as const
 

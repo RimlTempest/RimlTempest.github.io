@@ -3,11 +3,11 @@ import { siteDescription } from '@/content/site'
 import { pageMetadata } from '@/lib/metadata'
 
 export const metadata = pageMetadata({
-  locale: 'ja',
+  locale: 'en',
   path: '',
-  description: siteDescription.ja,
+  description: siteDescription.en,
 })
 
 export default function Page() {
-  return <HomePage locale="ja" />
+  return <HomePage locale="en" />
 }

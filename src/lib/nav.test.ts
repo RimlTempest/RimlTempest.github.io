@@ -1,37 +1,45 @@
 import { describe, expect, test } from 'bun:test'
-import { isCurrent, navItems } from './nav'
+import { isCurrent, navLabels, navOrder, routes } from './nav'
+import { locales } from '@/content/i18n'
 
-describe('isCurrent', () => {
+describe('ナビゲーション', () => {
   test('トップは完全一致のときだけ現在地', () => {
-    expect(isCurrent('/', '/')).toBe(true)
-    expect(isCurrent('/about/', '/')).toBe(false)
+    expect(isCurrent('/', 'ja', 'home')).toBe(true)
+    expect(isCurrent('/about/', 'ja', 'home')).toBe(false)
+    expect(isCurrent('/en', 'en', 'home')).toBe(true)
+    expect(isCurrent('/en/', 'en', 'home')).toBe(true)
+    expect(isCurrent('/en/about/', 'en', 'home')).toBe(false)
   })
 
-  test('末尾スラッシュの有無どちらでも一致する', () => {
-    expect(isCurrent('/about/', '/about')).toBe(true)
-    expect(isCurrent('/about', '/about')).toBe(true)
+  test('下の階層も親を現在地として扱う', () => {
+    expect(isCurrent('/work/', 'ja', 'work')).toBe(true)
+    expect(isCurrent('/work/DotArt/', 'ja', 'work')).toBe(true)
+    expect(isCurrent('/en/work/DotArt/', 'en', 'work')).toBe(true)
   })
 
-  test('下の階層も親を現在地にする', () => {
-    expect(isCurrent('/work/DotArt/', '/work')).toBe(true)
+  test('別の項目を現在地にしない', () => {
+    expect(isCurrent('/work/', 'ja', 'about')).toBe(false)
+    expect(isCurrent('/en/work/', 'en', 'about')).toBe(false)
   })
 
-  test('前方一致だけで誤判定しない', () => {
-    expect(isCurrent('/workshop/', '/work')).toBe(false)
-    expect(isCurrent('/contact/', '/work')).toBe(false)
-  })
-})
-
-describe('navItems', () => {
-  test('リンク先が重複しない', () => {
-    const hrefs = navItems.map((item) => item.href)
-    expect(new Set(hrefs).size).toBe(hrefs.length)
+  test('どの言語でも同じ数の項目がある', () => {
+    for (const locale of locales) {
+      expect(Object.keys(routes[locale]).length).toBe(navOrder.length)
+    }
   })
 
-  test('どのページでも現在地はちょうど 1 つ', () => {
-    for (const pathname of ['/', '/about/', '/work/', '/work/DotArt/', '/contact/']) {
-      const matches = navItems.filter((item) => isCurrent(pathname, item.href))
-      expect(matches).toHaveLength(1)
+  test('どの項目も両方の言語のラベルを持つ', () => {
+    for (const key of navOrder) {
+      for (const locale of locales) {
+        expect(navLabels[key][locale].length).toBeGreaterThan(0)
+      }
+    }
+  })
+
+  test('英語のパスは /en で始まる', () => {
+    for (const key of navOrder) {
+      expect(routes.en[key].startsWith('/en')).toBe(true)
+      expect(routes.ja[key].startsWith('/en')).toBe(false)
     }
   })
 })

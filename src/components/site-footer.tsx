@@ -1,14 +1,13 @@
+import type { Locale } from '@/content/i18n'
 import { socialLinks } from '@/content/links'
-import { site } from '@/content/site'
+import { ui } from '@/content/ui'
 import styles from './site-footer.module.css'
 
-export function SiteFooter() {
+export function SiteFooter({ locale }: { readonly locale: Locale }) {
   return (
     <footer className={styles.footer}>
       <div className={`riml-container ${styles.inner}`}>
-        <p className={styles.note}>
-          © {site.fullName}（{site.name}）
-        </p>
+        <p className={styles.note}>© {ui.footerRights[locale]}</p>
         <ul className={styles.links}>
           {socialLinks.map((link) => (
             <li key={link.id}>

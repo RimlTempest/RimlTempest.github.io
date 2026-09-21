@@ -1,51 +1,12 @@
-import type { Metadata, Viewport } from 'next'
+import type { Viewport } from 'next'
 import { ServiceWorker } from '@/components/service-worker'
-import { SiteFooter } from '@/components/site-footer'
-import { SiteHeader } from '@/components/site-header'
-import { site } from '@/content/site'
+import { SiteChrome } from '@/components/site-chrome'
+import { defaultLocale, htmlLang } from '@/content/i18n'
+import { rootMetadata } from '@/lib/metadata'
 import '@/styles/generated/riml-ds.css'
 import '@/styles/globals.css'
 
-export const metadata: Metadata = {
-  metadataBase: new URL(site.url),
-  title: {
-    default: site.title,
-    template: `%s — ${site.name}`,
-  },
-  description: site.description,
-  applicationName: site.name,
-  authors: [{ name: site.fullName, url: site.url }],
-  manifest: '/manifest.json',
-  appleWebApp: {
-    capable: true,
-    title: site.name,
-    // 帯と同じインク色にするため、標準の黒ではなく半透明にしてこちらで塗る
-    statusBarStyle: 'black-translucent',
-  },
-  icons: {
-    icon: [
-      { url: '/favicon.ico', sizes: '16x16 32x32 48x48' },
-      { url: '/icon-192x192.png', sizes: '192x192', type: 'image/png' },
-      { url: '/icon-512x512.png', sizes: '512x512', type: 'image/png' },
-    ],
-    apple: [{ url: '/apple-touch-icon-180x180.png', sizes: '180x180' }],
-  },
-  openGraph: {
-    type: 'website',
-    url: site.url,
-    siteName: site.name,
-    title: site.title,
-    description: site.description,
-    locale: site.locale,
-    images: [{ url: site.ogImage, width: 1200, height: 630, alt: `${site.name} のアイコン` }],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    site: site.twitter,
-    creator: site.twitter,
-    images: [site.ogImage],
-  },
-}
+export const metadata = rootMetadata(defaultLocale)
 
 export const viewport: Viewport = {
   themeColor: [
@@ -57,14 +18,17 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { readonly children: React.ReactNode }) {
   return (
-    <html lang="ja">
+    <html lang={htmlLang[defaultLocale]}>
+      <head>
+        {/*
+          配色と言語を、最初の描画より前に <html> へ入れる（public/before-paint.js）。
+          next/script の beforeInteractive は Next のローダー経由で走るので描画に間に合わず、
+          配色が一瞬ちらつく。同期に読む素の <script> にしてあるのはそのため。
+        */}
+        <script src="/before-paint.js" />
+      </head>
       <body>
-        <a className="rd-skip-link" href="#main">
-          本文へ
-        </a>
-        <SiteHeader />
-        <main id="main">{children}</main>
-        <SiteFooter />
+        <SiteChrome>{children}</SiteChrome>
         <ServiceWorker />
       </body>
     </html>

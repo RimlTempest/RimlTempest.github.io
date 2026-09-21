@@ -6,8 +6,11 @@ import { WorkCard } from './work-card'
 const sample: Work = {
   slug: 'sample',
   name: 'sample-app',
-  summary: 'カードの見た目を確かめるための見本です。',
-  body: ['詳細ページ用の本文。'],
+  summary: {
+    ja: 'カードの見た目を確かめるための見本です。',
+    en: 'A sample for checking how the card looks.',
+  },
+  body: { ja: ['詳細ページ用の本文。'], en: ['Body text for the detail page.'] },
   status: 'live',
   stack: ['TypeScript', 'Next.js'],
   siteUrl: 'https://example.com',
@@ -18,13 +21,17 @@ const meta = {
   title: 'components/WorkCard',
   component: WorkCard,
   parameters: { layout: 'centered' },
-  args: { work: sample },
+  args: { work: sample, locale: 'ja' },
 } satisfies Meta<typeof WorkCard>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
 export const Live: Story = {}
+
+export const English: Story = {
+  args: { locale: 'en' },
+}
 
 export const Building: Story = {
   args: { work: { ...sample, status: 'building' } },
@@ -53,8 +60,10 @@ export const Dense: Story = {
   args: {
     work: {
       ...sample,
-      summary:
-        '要約が長いときの折り返しを見るための文です。カードの高さは grid-template-rows で揃うので、並べたときに下端がずれません。',
+      summary: {
+        ja: '要約が長いときの折り返しを見るための文です。カードの高さは grid-template-rows で揃うので、並べたときに下端がずれません。',
+        en: 'A long summary, to see how it wraps. The cards line up along the bottom because their height comes from grid-template-rows.',
+      },
       stack: ['TypeScript', 'Next.js', 'React', 'CSS Modules', 'Bun', 'Storybook'],
     },
   },

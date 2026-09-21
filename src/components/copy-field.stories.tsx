@@ -5,7 +5,7 @@ const meta = {
   title: 'components/CopyField',
   component: CopyField,
   parameters: { layout: 'centered' },
-  args: { name: 'CHUNITHM', value: '1007302938635' },
+  args: { name: 'CHUNITHM', value: '1007302938635', locale: 'ja' },
 } satisfies Meta<typeof CopyField>
 
 export default meta
@@ -13,6 +13,10 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
 
+export const English: Story = {
+  args: { name: 'CHUNITHM', value: '1007302938635', locale: 'en' },
+}
+
 export const ShortCode: Story = {
-  args: { name: 'ガルパ', value: '349329' },
+  args: { name: 'ガルパ', value: '349329', locale: 'ja' },
 }

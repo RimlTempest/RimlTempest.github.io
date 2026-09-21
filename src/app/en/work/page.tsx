@@ -3,12 +3,12 @@ import { ui } from '@/content/ui'
 import { pageMetadata } from '@/lib/metadata'
 
 export const metadata = pageMetadata({
-  locale: 'ja',
+  locale: 'en',
   path: '/work',
-  title: ui.worksTitle.ja,
-  description: ui.workMeta.ja,
+  title: ui.worksTitle.en,
+  description: ui.workMeta.en,
 })
 
 export default function Page() {
-  return <WorkListPage locale="ja" />
+  return <WorkListPage locale="en" />
 }

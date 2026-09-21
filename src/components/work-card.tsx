@@ -1,4 +1,6 @@
 import Link from 'next/link'
+import type { Locale } from '@/content/i18n'
+import { ui } from '@/content/ui'
 import type { Work } from '@/content/works'
 import { statusLabel } from '@/content/works'
 import styles from './work-card.module.css'
@@ -14,6 +16,7 @@ type WorkCardProps = {
   readonly work: Work
   /** 見出しのレベル。カードの上に何があるかは呼ぶ側しか知らない */
   readonly headingLevel?: 2 | 3
+  readonly locale: Locale
 }
 
 /**
@@ -24,18 +27,20 @@ type WorkCardProps = {
  * aria-label に必ず含める（WCAG 2.5.3 名前に含まれるラベル）。
  * 外部リンクは新しいタブで開くので、そのことも名前に書く（WCAG 3.2.5 要求による変化）。
  */
-export function WorkCard({ work, headingLevel = 3 }: WorkCardProps) {
+export function WorkCard({ work, headingLevel = 3, locale }: WorkCardProps) {
   const Heading = headingLevel === 2 ? 'h2' : 'h3'
+  const detailLabel = ui.workDetail[locale]
+  const detailAria = `${work.name}: ${detailLabel}`
   return (
     <article className={styles.card}>
       <div className={styles.head}>
         <Heading className={styles.name}>{work.name}</Heading>
         <span className={`${styles.status} ${statusClass[work.status]}`}>
-          {statusLabel[work.status]}
+          {statusLabel[work.status][locale]}
         </span>
       </div>
 
-      <p className={styles.summary}>{work.summary}</p>
+      <p className={styles.summary}>{work.summary[locale]}</p>
 
       <ul className={styles.stack}>
         {work.stack.map((item) => (
@@ -46,22 +51,26 @@ export function WorkCard({ work, headingLevel = 3 }: WorkCardProps) {
       </ul>
 
       <div className={styles.actions}>
-        <Link
-          className={styles.detail}
-          href={`/work/${work.slug}`}
-          aria-label={`${work.name} をくわしく見る`}
-        >
-          くわしく
-        </Link>
+        {/* typedRoutes は動的ルートを型で確かめるので、言語ごとに別の Link を置く。
+            1 つにまとめると href の型が和集合になり、どちらのルートにも当たらなくなる */}
+        {locale === 'ja' ? (
+          <Link className={styles.detail} href={`/work/${work.slug}`} aria-label={detailAria}>
+            {detailLabel}
+          </Link>
+        ) : (
+          <Link className={styles.detail} href={`/en/work/${work.slug}`} aria-label={detailAria}>
+            {detailLabel}
+          </Link>
+        )}
         {work.siteUrl === undefined ? null : (
           <a
             className={styles.external}
             href={work.siteUrl}
             target="_blank"
             rel="noreferrer"
-            aria-label={`${work.name} のサイトを開く（新しいタブ）`}
+            aria-label={`${work.name}: ${ui.workOpenSite[locale]}（${ui.newTab[locale]}）`}
           >
-            サイトを開く
+            {ui.workOpenSite[locale]}
           </a>
         )}
         {work.repoUrl === undefined ? null : (
@@ -70,9 +79,9 @@ export function WorkCard({ work, headingLevel = 3 }: WorkCardProps) {
             href={work.repoUrl}
             target="_blank"
             rel="noreferrer"
-            aria-label={`${work.name} のリポジトリ（新しいタブ）`}
+            aria-label={`${work.name}: ${ui.workRepo[locale]}（${ui.newTab[locale]}）`}
           >
-            リポジトリ
+            {ui.workRepo[locale]}
           </a>
         )}
       </div>

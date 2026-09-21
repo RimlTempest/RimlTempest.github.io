@@ -1,6 +1,8 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import type { Locale } from '@/content/i18n'
+import { ui } from '@/content/ui'
 import styles from './copy-field.module.css'
 
 /** コピー済み表示が戻るまでの時間 */
@@ -9,13 +11,14 @@ const copiedDuration = 2000
 type CopyFieldProps = {
   readonly name: string
   readonly value: string
+  readonly locale: Locale
 }
 
 /**
  * フレンドコードを 1 タップで渡すための行。
  * JavaScript が無い環境でも値は読めるので、ボタンが効かないだけで困らない。
  */
-export function CopyField({ name, value }: CopyFieldProps) {
+export function CopyField({ name, value, locale }: CopyFieldProps) {
   const [copied, setCopied] = useState(false)
   const timer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined)
 
@@ -46,7 +49,7 @@ export function CopyField({ name, value }: CopyFieldProps) {
         className={`${styles.button} ${copied ? styles.copied : ''}`}
         onClick={() => void copy()}
       >
-        {copied ? 'コピーしました' : 'コピー'}
+        {copied ? ui.copied[locale] : ui.copy[locale]}
       </button>
     </div>
   )

@@ -43,3 +43,10 @@
   font-weight: var(--rd-font-weight-bold);
   text-decoration: none;
 }
+
+/* 言語ごとのひとかたまり。1 枚の 404 に両方の言語を出す */
+.block {
+  display: grid;
+  gap: var(--rd-space-3);
+  justify-items: center;
+}

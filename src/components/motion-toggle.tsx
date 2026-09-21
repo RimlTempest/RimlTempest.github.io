@@ -1,6 +1,8 @@
 'use client'
 
 import { useState } from 'react'
+import type { Locale } from '@/content/i18n'
+import { ui } from '@/content/ui'
 import styles from './motion-toggle.module.css'
 
 /**
@@ -13,7 +15,7 @@ import styles from './motion-toggle.module.css'
  * StampCanvas はこの属性を見て反応しなくなる。読み込むたびに動く状態から始まるので、
  * localStorage には保存しない（保存すると初期描画と食い違う）。
  */
-export function MotionToggle() {
+export function MotionToggle({ locale }: { readonly locale: Locale }) {
   const [paused, setPaused] = useState(false)
 
   const toggle = () => {
@@ -26,7 +28,7 @@ export function MotionToggle() {
     }
   }
 
-  const label = paused ? '動きを戻す' : '動きを止める'
+  const label = paused ? ui.motionResume[locale] : ui.motionStop[locale]
 
   return (
     <button

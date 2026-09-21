@@ -1,0 +1,122 @@
+/**
+ * 画面の文言。ページの中身（作ったもの・自己紹介）は content/ の各ファイルが持ち、
+ * ここには「見出し」「ボタン」「注記」のような、画面の骨格の言葉だけを置く。
+ *
+ * 型注釈を付けないのは、キーを文字列の集合として推論させるため。
+ * `ui.worksTitle` と書いたときに、存在しないキーをその場で落としたい。
+ */
+export const ui = {
+  // 共通
+  skipToContent: { ja: '本文へ', en: 'Skip to content' },
+  siteNav: { ja: 'サイト内', en: 'Site' },
+  languageNav: { ja: '言語', en: 'Language' },
+  motionStop: { ja: '動きを止める', en: 'Stop motion' },
+  motionResume: { ja: '動きを戻す', en: 'Resume motion' },
+  newTab: { ja: '新しいタブ', en: 'new tab' },
+
+  // トップ
+  heroEyebrow: { ja: 'portfolio', en: 'portfolio' },
+  heroCta: { ja: '作ったものを見る', en: 'See my work' },
+  heroCtaAbout: { ja: '私について', en: 'About me' },
+  heroHint: {
+    ja: '窓の中をさわると、riml の髪どめが散ります。',
+    en: "Move inside the window and riml's hair clips scatter.",
+  },
+  worksTitle: { ja: '作ったもの', en: 'Work' },
+  worksLead: {
+    ja: 'いま動いているものを 4 つ。止まっているものも、止まっていると書いてあります。',
+    en: 'Four that are running. The ones that stopped say so.',
+  },
+  worksMore: { ja: 'すべての作品を見る →', en: 'See all work →' },
+  toolboxTitle: { ja: '使う道具', en: 'Toolbox' },
+  toolboxLead: {
+    ja: '「習熟度 ◯ %」はやめました。実際にどれくらい触っているかで 3 つに分けています。',
+    en: 'No percentage bars. Sorted by how often I actually reach for them.',
+  },
+  aboutTitle: { ja: '私について', en: 'About' },
+  aboutTeaserLead: {
+    ja: 'いまの仕事、作っているもの、話したことと書いたもの、使う道具。',
+    en: 'The job, the talks, the writing, the tools.',
+  },
+  aboutMore: { ja: 'もっと読む', en: 'Read more' },
+  contactTitle: { ja: '連絡先', en: 'Contact' },
+  closingTitle: { ja: '声をかけてください', en: 'Say hello' },
+  closingLead: {
+    ja: '仕事の話も、ゲームのフレンド申請も、どちらでも。',
+    en: 'Work, or a friend request in a rhythm game. Either is fine.',
+  },
+  closingCta: { ja: '連絡先を見る', en: 'See contact' },
+
+  // 私について
+  aboutNames: { ja: 'riml / 髙橋 大貴', en: 'riml / Daiki Takahashi' },
+  aboutMeta: {
+    ja: '髙橋 大貴（riml）の詳細。いまの仕事、話したことと書いたもの、使う道具。',
+    en: 'Daiki Takahashi (riml) in detail: the job, the talks, the writing, the tools.',
+  },
+  nowTitle: { ja: 'いまの仕事', en: 'Work right now' },
+  nowLead: { ja: '名刺に書くくらいのこと。', en: 'About as much as fits on a business card.' },
+  fieldOrganization: { ja: '所属', en: 'Company' },
+  fieldTitle: { ja: '役割', en: 'Role' },
+  fieldLocation: { ja: '拠点', en: 'Based in' },
+  fieldDuties: { ja: 'やっていること', en: 'What I do' },
+  talksTitle: { ja: '話したこと', en: 'Talks' },
+  talksLead: {
+    ja: 'スライドかイベントレポートが公開されているものはリンクがあります。',
+    en: 'Linked where the slides or the event report are public.',
+  },
+  writingsTitle: { ja: '書いたもの', en: 'Writing' },
+  writingsLead: {
+    ja: '仕事のブログと、個人の記事から。',
+    en: 'From the company blog and my own posts.',
+  },
+  aboutToWork: { ja: '作ったものを見る →', en: 'See my work →' },
+  aboutToContact: { ja: '連絡先を見る →', en: 'See contact →' },
+
+  // 作ったもの
+  workMeta: {
+    ja: 'riml が作ったもの。公開しているものと、いま手を入れているもの。',
+    en: "What riml has built: what's public, and what's still being worked on.",
+  },
+  workLead: {
+    ja: '公開しているものと、いま手を入れているもの。止まっているものも、止まっていると書いてあります。',
+    en: "What's public and what I'm still working on. The ones that stopped say so.",
+  },
+  workDetail: { ja: 'くわしく', en: 'Details' },
+  workOpenSite: { ja: 'サイトを開く', en: 'Open site' },
+  workRepo: { ja: 'リポジトリ', en: 'Repository' },
+  workBack: { ja: '← 作ったもの', en: '← Work' },
+  workStack: { ja: '使っているもの', en: 'Built with' },
+  workAbout: { ja: 'このプロダクト', en: 'About this project' },
+  workStatus: { ja: 'いまの状態', en: 'Status' },
+  workOpenRepo: { ja: 'リポジトリを見る', en: 'View repository' },
+
+  // 連絡先
+  contactMeta: {
+    ja: 'riml への連絡先と、リズムゲームのフレンドコード。',
+    en: 'How to reach riml, plus rhythm game friend codes.',
+  },
+  contactLead: {
+    ja: '仕事の話は GitHub か X が早いです。フレンドコードはボタンでコピーできます。',
+    en: 'GitHub or X is quickest for work. The friend codes copy with a button.',
+  },
+  accountsTitle: { ja: 'アカウント', en: 'Accounts' },
+  accountsLead: {
+    ja: '返事が早い順に並べています。',
+    en: 'Ordered by how fast I answer.',
+  },
+  friendCodesTitle: { ja: 'フレンドコード', en: 'Friend codes' },
+  friendCodesLead: { ja: '音ゲーで遊びましょう。', en: "Let's play." },
+  copy: { ja: 'コピー', en: 'Copy' },
+  copied: { ja: 'コピーしました', en: 'Copied' },
+
+  // 見つからない
+  notFoundTitle: { ja: 'ページが見つかりません', en: 'Page not found' },
+  notFoundLead: {
+    ja: 'URL が変わったか、消えたページかもしれません。',
+    en: 'The URL may have changed, or the page may be gone.',
+  },
+  notFoundCta: { ja: 'トップへ戻る', en: 'Back to home' },
+
+  // フッター
+  footerRights: { ja: '髙橋 大貴（riml）', en: 'Daiki Takahashi (riml)' },
+} as const

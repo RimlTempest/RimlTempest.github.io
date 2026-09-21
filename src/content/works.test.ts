@@ -1,4 +1,5 @@
 import { describe, expect, test } from 'bun:test'
+import { locales } from './i18n'
 import { findWork, statusLabel, works } from './works'
 
 describe('works', () => {
@@ -13,16 +14,20 @@ describe('works', () => {
     }
   })
 
-  test('要約と本文が空でない', () => {
+  test('要約と本文が、どの言語でも空でない', () => {
     for (const work of works) {
-      expect(work.summary.length).toBeGreaterThan(0)
-      expect(work.body.length).toBeGreaterThan(0)
+      for (const locale of locales) {
+        expect(work.summary[locale].length).toBeGreaterThan(0)
+        expect(work.body[locale].length).toBeGreaterThan(0)
+      }
     }
   })
 
-  test('状態にはすべて日本語のラベルがある', () => {
+  test('状態にはどの言語でもラベルがある', () => {
     for (const work of works) {
-      expect(statusLabel[work.status]).toBeTruthy()
+      for (const locale of locales) {
+        expect(statusLabel[work.status][locale].length).toBeGreaterThan(0)
+      }
     }
   })
 
