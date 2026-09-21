@@ -21,6 +21,36 @@
     { "src": "/icon-maskable-192x192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
     { "src": "/icon-maskable-512x512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
   ],
+  "screenshots": [
+    {
+      "src": "/riml/screenshots/wide-home.jpg",
+      "sizes": "1280x720",
+      "type": "image/jpeg",
+      "form_factor": "wide",
+      "label": "トップページ"
+    },
+    {
+      "src": "/riml/screenshots/wide-work.jpg",
+      "sizes": "1280x720",
+      "type": "image/jpeg",
+      "form_factor": "wide",
+      "label": "作ったもの"
+    },
+    {
+      "src": "/riml/screenshots/narrow-home.jpg",
+      "sizes": "390x760",
+      "type": "image/jpeg",
+      "form_factor": "narrow",
+      "label": "トップページ"
+    },
+    {
+      "src": "/riml/screenshots/narrow-work.jpg",
+      "sizes": "390x760",
+      "type": "image/jpeg",
+      "form_factor": "narrow",
+      "label": "作ったもの"
+    }
+  ],
   "shortcuts": [
     {
       "name": "作ったもの",
