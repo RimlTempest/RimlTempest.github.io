@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next'
+import { ServiceWorker } from '@/components/service-worker'
 import { SiteFooter } from '@/components/site-footer'
 import { SiteHeader } from '@/components/site-header'
 import { site } from '@/content/site'
@@ -15,10 +16,17 @@ export const metadata: Metadata = {
   applicationName: site.name,
   authors: [{ name: site.fullName, url: site.url }],
   manifest: '/manifest.json',
+  appleWebApp: {
+    capable: true,
+    title: site.name,
+    // 帯と同じインク色にするため、標準の黒ではなく半透明にしてこちらで塗る
+    statusBarStyle: 'black-translucent',
+  },
   icons: {
     icon: [
-      { url: '/favicon.ico' },
+      { url: '/favicon.ico', sizes: '16x16 32x32 48x48' },
       { url: '/icon-192x192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/icon-512x512.png', sizes: '512x512', type: 'image/png' },
     ],
     apple: [{ url: '/apple-touch-icon-180x180.png', sizes: '180x180' }],
   },
@@ -57,6 +65,7 @@ export default function RootLayout({ children }: { readonly children: React.Reac
         <SiteHeader />
         <main id="main">{children}</main>
         <SiteFooter />
+        <ServiceWorker />
       </body>
     </html>
   )
