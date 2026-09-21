@@ -5,7 +5,9 @@
  */
 .layer {
   position: absolute;
-  z-index: var(--rd-layer-raised);
+
+  /* 窓の面の上、本文より後ろ。ページの土台と同じ段に置く */
+  z-index: var(--rd-layer-base);
   inset: 0;
   inline-size: 100%;
   block-size: 100%;

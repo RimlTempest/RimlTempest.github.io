@@ -36,8 +36,8 @@
 }
 
 .heroCopy {
+  /* canvas より前に出す。z-index は足さない（足すと sticky のヘッダーを越えてしまう） */
   position: relative;
-  z-index: var(--rd-layer-raised);
   display: grid;
   gap: var(--rd-space-4);
   justify-items: start;
@@ -166,8 +166,8 @@
 .heroArt {
   --riml-hero-art: min(26rem, 76vi);
 
+  /* canvas より前に出す。z-index は足さない（.heroCopy と同じ理由） */
   position: relative;
-  z-index: var(--rd-layer-raised);
   display: grid;
   place-items: center;
   margin: 0;
