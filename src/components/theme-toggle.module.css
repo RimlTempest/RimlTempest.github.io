@@ -1,0 +1,41 @@
+/* 帯の上のボタン。site-header / motion-toggle と同じ佇まいに揃える */
+.button {
+  display: grid;
+  grid-auto-flow: column;
+  gap: var(--rd-space-1);
+  place-items: center;
+  min-block-size: var(--rd-sizing-target-min);
+  min-inline-size: var(--rd-sizing-target-min);
+  padding-inline: var(--rd-space-3);
+  border-width: 0;
+  border-radius: var(--rd-radius-full);
+  background: transparent;
+  color: inherit;
+  font-size: var(--rd-type-small-font-size);
+  cursor: pointer;
+}
+
+/* 帯の上の hover は下線だけ（薄い塗りでは 7:1 に届かない。site-header と同じ理由） */
+.button:hover {
+  text-decoration: underline;
+  text-underline-offset: var(--rd-space-1);
+}
+
+.icon {
+  inline-size: var(--rd-space-4);
+  block-size: var(--rd-space-4);
+}
+
+/*
+ * いまの状態の名前。狭い画面では記号だけにする。
+ * 読み上げ用の名前は別に .rd-visually-hidden で持っているので、消してよい。
+ */
+.name {
+  font-weight: var(--rd-font-weight-bold);
+}
+
+@media (width < 30rem) {
+  .name {
+    display: none;
+  }
+}

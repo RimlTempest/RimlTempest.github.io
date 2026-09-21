@@ -80,6 +80,13 @@
         "import/no-default-export": "off",
         "riml-ds/no-throw-in-domain": "off"
       }
+    },
+    {
+      // 配色と言語を最初の描画より前に入れるスクリプト。描画を止めるのが目的なので、
+      // 「同期スクリプトを置かない」規則をここだけ外す。中身は public/before-paint.js の
+      // 固定ファイル（500 バイト弱）で、差し込む文字列は無い。
+      "files": ["src/app/layout.tsx"],
+      "rules": { "nextjs/no-sync-scripts": "off" }
     }
   ],
   "ignorePatterns": [

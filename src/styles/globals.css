@@ -23,6 +23,19 @@
   --riml-ease-out: cubic-bezier(0.19, 1.6, 0.42, 0.97);
 }
 
+/*
+ * 配色。既定は OS に従う（layout.tsx の viewport が color-scheme: light dark を出す）。
+ * ヘッダーのボタンで固定すると <html data-color-scheme> が入り、ここで上書きする。
+ * 色そのものは riml-ds のトークンが light-dark() で持っているので、ここでは切り替えない。
+ */
+:root[data-color-scheme='light'] {
+  color-scheme: light;
+}
+
+:root[data-color-scheme='dark'] {
+  color-scheme: dark;
+}
+
 html {
   scroll-behavior: auto;
 }
