@@ -3,14 +3,26 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { WindowPanel } from '@/components/window-panel'
 import { standing } from '@/content/character'
-import { intro, profileSections } from '@/content/profile'
+import {
+  currentRole,
+  intro,
+  profileLinks,
+  profileSections,
+  talks,
+  writings,
+} from '@/content/profile'
 import { site } from '@/content/site'
 import { skillGroups } from '@/content/skills'
 import styles from './page.module.css'
 
 export const metadata: Metadata = {
   title: '私について',
-  description: `${site.fullName}（${site.name}）の自己紹介。いま作っているもの、使う道具、好きなもの。`,
+  description: `${site.fullName}（${site.name}）の詳細。いまの仕事、作っているもの、登壇と記事、使う道具。`,
+}
+
+/** 外部リンクは新しいタブで開くので、読み上げ名にもそう書く（WCAG 3.2.5） */
+function externalLabel(title: string, where: string) {
+  return `${title}（${where}・新しいタブ）`
 }
 
 export default function AboutPage() {
@@ -41,6 +53,34 @@ export default function AboutPage() {
       </header>
 
       <div className={styles.sections}>
+        <WindowPanel title="いまの仕事" lead="名刺に書くくらいのこと。" id="now">
+          <dl className={styles.facts}>
+            <div className={styles.fact}>
+              <dt className={styles.term}>所属</dt>
+              <dd className={styles.desc}>{currentRole.organization}</dd>
+            </div>
+            <div className={styles.fact}>
+              <dt className={styles.term}>役割</dt>
+              <dd className={styles.desc}>{currentRole.title}</dd>
+            </div>
+            <div className={styles.fact}>
+              <dt className={styles.term}>拠点</dt>
+              <dd className={styles.desc}>{currentRole.location}</dd>
+            </div>
+            <div className={styles.fact}>
+              <dt className={styles.term}>やっていること</dt>
+              <dd className={styles.desc}>
+                <ul className={styles.duties}>
+                  {currentRole.duties.map((duty) => (
+                    <li key={duty}>{duty}</li>
+                  ))}
+                </ul>
+              </dd>
+            </div>
+          </dl>
+          <p className={styles.availability}>{currentRole.availability}</p>
+        </WindowPanel>
+
         {profileSections.map((section) => (
           <WindowPanel key={section.id} title={section.title} lead={section.lead} id={section.id}>
             <dl className={styles.highlights}>
@@ -53,6 +93,54 @@ export default function AboutPage() {
             </dl>
           </WindowPanel>
         ))}
+
+        <WindowPanel
+          title="話したこと"
+          lead="スライドを公開しているものはリンクがあります。"
+          id="talks"
+        >
+          <ul className={styles.entries}>
+            {talks.map((talk) => (
+              <li key={`${talk.event}-${talk.title}`} className={styles.entry}>
+                <span className={styles.entryMeta}>{talk.event}</span>
+                {talk.url === undefined ? (
+                  <span className={styles.entryTitle}>{talk.title}</span>
+                ) : (
+                  <a
+                    className={styles.entryLink}
+                    href={talk.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={externalLabel(talk.title, 'Speaker Deck')}
+                  >
+                    {talk.title}
+                  </a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </WindowPanel>
+
+        <WindowPanel title="書いたもの" lead="仕事のブログと、個人の記事から。" id="writings">
+          <ul className={styles.entries}>
+            {writings.map((writing) => (
+              <li key={writing.url} className={styles.entry}>
+                <span className={styles.entryMeta}>
+                  {writing.date} · {writing.where}
+                </span>
+                <a
+                  className={styles.entryLink}
+                  href={writing.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={externalLabel(writing.title, writing.where)}
+                >
+                  {writing.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </WindowPanel>
 
         <WindowPanel
           title="使う道具"
@@ -76,6 +164,25 @@ export default function AboutPage() {
               </div>
             ))}
           </dl>
+        </WindowPanel>
+
+        <WindowPanel title="ほかの場所" lead="活動のもとになっているところ。" id="elsewhere">
+          <ul className={styles.entries}>
+            {profileLinks.map((link) => (
+              <li key={link.url} className={styles.entry}>
+                <span className={styles.entryMeta}>{link.label}</span>
+                <a
+                  className={styles.entryLink}
+                  href={link.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={externalLabel(link.handle, link.label)}
+                >
+                  {link.handle}
+                </a>
+              </li>
+            ))}
+          </ul>
         </WindowPanel>
 
         <p className={styles.more}>

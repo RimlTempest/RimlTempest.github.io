@@ -160,7 +160,7 @@ export default function Home() {
               ))}
             </div>
             <p className={styles.sectionLead}>
-              いま作っているもの、使う道具、画面の外で好きなこと。
+              いまの仕事、作っているもの、話したことと書いたもの、使う道具。
             </p>
             <Link className={styles.buttonSecondary} href="/about">
               もっと読む
