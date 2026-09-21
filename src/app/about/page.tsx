@@ -3,14 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { WindowPanel } from '@/components/window-panel'
 import { standing } from '@/content/character'
-import {
-  currentRole,
-  intro,
-  profileLinks,
-  profileSections,
-  talks,
-  writings,
-} from '@/content/profile'
+import { currentRole, intro, profileSections, talks, writings } from '@/content/profile'
 import { site } from '@/content/site'
 import { skillGroups } from '@/content/skills'
 import styles from './page.module.css'
@@ -96,14 +89,16 @@ export default function AboutPage() {
 
         <WindowPanel
           title="話したこと"
-          lead="スライドを公開しているものはリンクがあります。"
+          lead="スライドかイベントレポートが公開されているものはリンクがあります。"
           id="talks"
         >
           <ul className={styles.entries}>
             {talks.map((talk) => (
-              <li key={`${talk.event}-${talk.title}`} className={styles.entry}>
-                <span className={styles.entryMeta}>{talk.event}</span>
-                {talk.url === undefined ? (
+              <li key={`${talk.date}-${talk.title}`} className={styles.entry}>
+                <span className={styles.entryMeta}>
+                  {talk.date} · {talk.event}
+                </span>
+                {talk.url === undefined || talk.source === undefined ? (
                   <span className={styles.entryTitle}>{talk.title}</span>
                 ) : (
                   <a
@@ -111,7 +106,7 @@ export default function AboutPage() {
                     href={talk.url}
                     target="_blank"
                     rel="noreferrer"
-                    aria-label={externalLabel(talk.title, 'Speaker Deck')}
+                    aria-label={externalLabel(talk.title, talk.source)}
                   >
                     {talk.title}
                   </a>
@@ -164,25 +159,6 @@ export default function AboutPage() {
               </div>
             ))}
           </dl>
-        </WindowPanel>
-
-        <WindowPanel title="ほかの場所" lead="活動のもとになっているところ。" id="elsewhere">
-          <ul className={styles.entries}>
-            {profileLinks.map((link) => (
-              <li key={link.url} className={styles.entry}>
-                <span className={styles.entryMeta}>{link.label}</span>
-                <a
-                  className={styles.entryLink}
-                  href={link.url}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={externalLabel(link.handle, link.label)}
-                >
-                  {link.handle}
-                </a>
-              </li>
-            ))}
-          </ul>
         </WindowPanel>
 
         <p className={styles.more}>

@@ -22,8 +22,12 @@ export type Talk = {
   readonly title: string
   /** どこで話したか */
   readonly event: string
-  /** スライドの場所。公開していないものもある */
+  /** YYYY-MM */
+  readonly date: string
+  /** スライドかレポートの場所。どちらも無いものもある */
   readonly url?: string
+  /** リンク先の名前。読み上げ名に入れる */
+  readonly source?: string
 }
 
 export type Writing = {
@@ -59,31 +63,6 @@ export const currentRole = {
 
 export const profileSections: readonly ProfileSection[] = [
   {
-    id: 'making',
-    title: 'いま作っているもの',
-    lead: 'ひとつの見た目の基準を決めて、その上にプロダクトを並べていく、ということをしています。',
-    highlights: [
-      {
-        label: 'riml-ds',
-        detail:
-          'トークン（W3C DTCG）と Lit の Web Components でできたデザインシステム。React / Vue / Svelte / Astro 向けのラッパーは Custom Elements Manifest から生成します。',
-      },
-      {
-        label: 'qrcc',
-        detail:
-          'QR・バーコードの生成と読み取り、管理、印刷。TanStack Start と Rust（workers-rs）を Cloudflare Workers に載せています。',
-      },
-      {
-        label: 'DotArt',
-        detail: 'ブラウザだけでドット絵を描くアプリ。',
-      },
-      {
-        label: 'noter',
-        detail: '簡易ノートアプリ。riml-ds の部品を最初に試す場所になっています。',
-      },
-    ],
-  },
-  {
     id: 'likes',
     title: '好きなもの',
     lead: '画面の外のこと。',
@@ -108,44 +87,67 @@ export const profileSections: readonly ProfileSection[] = [
 /** 話したこと。新しい順 */
 export const talks: readonly Talk[] = [
   {
-    title:
-      'デザインとエンジニアリングの架け橋を目指す OPTiM のデザインシステム「nucleus」の軌跡と広げ方',
-    event: '2025 年 10 月・共同登壇',
-    url: 'https://speakerdeck.com/optim/20251024-next-design-shimizu-takahashi',
+    title: 'React で動画作成を試してみた！',
+    event: 'React Tokyo ミートアップ #17',
+    date: '2026-06',
+    url: 'https://zenn.dev/react_tokyo/articles/2026-06-19-meetup-17',
+    source: 'イベントレポート',
   },
   {
     title: 'ポスタートーク',
-    event: 'React Tokyo fes',
+    event: 'React Tokyo フェス 2026',
+    date: '2026-02',
   },
   {
-    title: 'メイントーク',
+    title: 'フロントエンド開発者のための「厄払い」（メイントーク）',
     event: 'React Tokyo ミートアップ #13',
+    date: '2026-01',
+    url: 'https://zenn.dev/react_tokyo/articles/2026-01-23-meetup-13',
+    source: 'イベントレポート',
+  },
+  {
+    title:
+      'デザインとエンジニアリングの架け橋を目指す OPTiM のデザインシステム「nucleus」の軌跡と広げ方',
+    event: '共同登壇',
+    date: '2025-10',
+    url: 'https://speakerdeck.com/optim/20251024-next-design-shimizu-takahashi',
+    source: 'Speaker Deck',
   },
   {
     title: 'Cline に Next.js のプロジェクト改善をお願いしてみた',
     event: 'React Tokyo ミートアップ #3',
+    date: '2025-03',
     url: 'https://speakerdeck.com/optim/20250321-reacttokyo-lt',
+    source: 'Speaker Deck',
   },
   {
     title: 'Nuxt3 マイグレーションについて',
     event: 'Vue Fes Japan 2024 Pre LT Party',
+    date: '2024-10',
     url: 'https://speakerdeck.com/optim/nuxt-migration',
+    source: 'Speaker Deck',
   },
 ] as const
 
-/** 書いたもの。新しい順 */
+/**
+ * 書いたもの。新しい順。
+ *
+ * 本人が書いた記事だけを置く。会社のブログには同僚が本人の登壇を紹介した記事も
+ * あるが、それは「書いたもの」ではないので入れない。
+ */
 export const writings: readonly Writing[] = [
-  {
-    title: 'オプティムにおける Platform Engineering の現在地',
-    where: 'OPTiM TECH BLOG',
-    url: 'https://tech-blog.optim.co.jp/entry/2026/02/09/100000',
-    date: '2026-02',
-  },
   {
     title: 'Next.js でのロールベースアクセス制御の苦難',
     where: 'OPTiM TECH BLOG',
     url: 'https://tech-blog.optim.co.jp/entry/2026/01/28/100000',
     date: '2026-01',
+  },
+  {
+    title:
+      'エンジニアが全社横断のイベント「一人一言でゲームを作る！？AI体験会」を企画から運営までやってみた',
+    where: 'OPTiM TECH BLOG',
+    url: 'https://tech-blog.optim.co.jp/entry/2025/07/22/100000',
+    date: '2025-07',
   },
   {
     title: 'エンジニアが「ゆるっと同時視聴会」をやってみた',
@@ -171,11 +173,4 @@ export const writings: readonly Writing[] = [
     url: 'https://zenn.dev/riml/articles/31ce684d88f9ad',
     date: '2021-10',
   },
-] as const
-
-/** もっと読みたい人の行き先 */
-export const profileLinks = [
-  { label: 'Zenn', handle: 'zenn.dev/riml', url: 'https://zenn.dev/riml' },
-  { label: 'LAPRAS', handle: 'lapras.com/public/Riml', url: 'https://lapras.com/public/Riml' },
-  { label: 'connpass', handle: 'connpass.com/user/riml', url: 'https://connpass.com/user/riml' },
 ] as const
