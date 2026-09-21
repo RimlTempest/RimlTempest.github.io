@@ -53,8 +53,8 @@ export const intro: TextList = {
   ],
   en: [
     'I write frontends for the web.',
-    'At a listed company in Tokyo I work as a senior engineer and manager, building up a frontend organisation and its design system.',
-    'On my own time I build a design system (riml-ds) and the products that sit on it.',
+    "I'm a senior engineer and manager at a listed company in Tokyo, where I'm building up the frontend organization and its design system.",
+    'In my own time I build a design system, riml-ds, and the products that sit on top of it.',
   ],
 }
 
@@ -68,8 +68,8 @@ export const currentRole = {
   location: { ja: '東京', en: 'Tokyo' },
   /** 仕事でやっていること */
   duties: [
-    { ja: 'フロントエンド組織の立ち上げ', en: 'Starting up a frontend organisation' },
-    { ja: 'デザインシステムの設計・構築', en: 'Designing and building a design system' },
+    { ja: 'フロントエンド組織の立ち上げ', en: 'Building up the frontend organization' },
+    { ja: 'デザインシステムの設計・構築', en: 'Designing and building the design system' },
     { ja: 'フロントエンドアーキテクト', en: 'Frontend architecture' },
     { ja: 'チームマネジメント・メンバー育成', en: 'Team management and mentoring' },
   ],
@@ -90,21 +90,21 @@ export const profileSections: readonly ProfileSection[] = [
         label: { ja: 'リズムゲーム', en: 'Rhythm games' },
         detail: {
           ja: 'CHUNITHM と maimai は虹レートまで。第 2 回ガルパ杯は二次予選（仙台）に出ました。BeatTube はプレイヤーランキング最大 5 位。',
-          en: 'Rainbow rate in CHUNITHM and maimai. Reached the second qualifier (Sendai) of the 2nd Garupa Cup. Peaked at 5th on the BeatTube player ranking.',
+          en: 'Rainbow rate in CHUNITHM and maimai. Made it to the second qualifier in Sendai at the 2nd Garupa Cup. Peaked at 5th on the BeatTube player ranking.',
         },
       },
       {
         label: { ja: '動画', en: 'Video' },
         detail: {
           ja: 'VTuber の配信とアニメ。『転生したらスライムだった件』が一番好きです。',
-          en: 'VTuber streams and anime. That Time I Got Reincarnated as a Slime is my favourite.',
+          en: 'VTuber streams and anime. My favorite is That Time I Got Reincarnated as a Slime.',
         },
       },
       {
         label: { ja: 'つくること', en: 'Making things' },
         detail: {
           ja: 'Connect2019 優秀賞、校内ハッカソンで最優秀賞と企業賞をもらいました。',
-          en: 'Excellence Award at Connect2019; grand prize and a company prize at a school hackathon.',
+          en: 'An Excellence Award at Connect2019, and the grand prize and a company prize at a school hackathon.',
         },
       },
     ],

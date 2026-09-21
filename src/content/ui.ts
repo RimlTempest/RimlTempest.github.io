@@ -8,11 +8,10 @@
 export const ui = {
   // 共通
   skipToContent: { ja: '本文へ', en: 'Skip to content' },
-  siteNav: { ja: 'サイト内', en: 'Site' },
+  siteNav: { ja: 'サイト内', en: 'Main' },
   languageNav: { ja: '言語', en: 'Language' },
-  motionStop: { ja: '動きを止める', en: 'Stop motion' },
-  motionResume: { ja: '動きを戻す', en: 'Resume motion' },
-  newTab: { ja: '新しいタブ', en: 'new tab' },
+  motionStop: { ja: '動きを止める', en: 'Turn off motion' },
+  motionResume: { ja: '動きを戻す', en: 'Turn motion back on' },
 
   // トップ
   heroEyebrow: { ja: 'portfolio', en: 'portfolio' },
@@ -20,12 +19,12 @@ export const ui = {
   heroCtaAbout: { ja: '私について', en: 'About me' },
   heroHint: {
     ja: '窓の中をさわると、riml の髪どめが散ります。',
-    en: "Move inside the window and riml's hair clips scatter.",
+    en: "Move the pointer inside the window and riml's hair clips scatter.",
   },
   worksTitle: { ja: '作ったもの', en: 'Work' },
   worksLead: {
     ja: 'いま動いているものを 4 つ。止まっているものも、止まっていると書いてあります。',
-    en: 'Four that are running. The ones that stopped say so.',
+    en: 'Four that are up and running. Where something has stopped, it says so.',
   },
   worksMore: { ja: 'すべての作品を見る →', en: 'See all work →' },
   toolboxTitle: { ja: '使う道具', en: 'Toolbox' },
@@ -43,9 +42,9 @@ export const ui = {
   closingTitle: { ja: '声をかけてください', en: 'Say hello' },
   closingLead: {
     ja: '仕事の話も、ゲームのフレンド申請も、どちらでも。',
-    en: 'Work, or a friend request in a rhythm game. Either is fine.',
+    en: 'Work, or a friend request in a rhythm game — either is welcome.',
   },
-  closingCta: { ja: '連絡先を見る', en: 'See contact' },
+  closingCta: { ja: '連絡先を見る', en: 'Get in touch' },
 
   // 私について
   aboutNames: { ja: 'riml / 髙橋 大貴', en: 'riml / Daiki Takahashi' },
@@ -53,7 +52,7 @@ export const ui = {
     ja: '髙橋 大貴（riml）の詳細。いまの仕事、話したことと書いたもの、使う道具。',
     en: 'Daiki Takahashi (riml) in detail: the job, the talks, the writing, the tools.',
   },
-  nowTitle: { ja: 'いまの仕事', en: 'Work right now' },
+  nowTitle: { ja: 'いまの仕事', en: 'Current role' },
   nowLead: { ja: '名刺に書くくらいのこと。', en: 'About as much as fits on a business card.' },
   fieldOrganization: { ja: '所属', en: 'Company' },
   fieldTitle: { ja: '役割', en: 'Role' },
@@ -62,7 +61,7 @@ export const ui = {
   talksTitle: { ja: '話したこと', en: 'Talks' },
   talksLead: {
     ja: 'スライドかイベントレポートが公開されているものはリンクがあります。',
-    en: 'Linked where the slides or the event report are public.',
+    en: 'Linked where the slides or an event report are public.',
   },
   writingsTitle: { ja: '書いたもの', en: 'Writing' },
   writingsLead: {
@@ -70,16 +69,16 @@ export const ui = {
     en: 'From the company blog and my own posts.',
   },
   aboutToWork: { ja: '作ったものを見る →', en: 'See my work →' },
-  aboutToContact: { ja: '連絡先を見る →', en: 'See contact →' },
+  aboutToContact: { ja: '連絡先を見る →', en: 'Get in touch →' },
 
   // 作ったもの
   workMeta: {
     ja: 'riml が作ったもの。公開しているものと、いま手を入れているもの。',
-    en: "What riml has built: what's public, and what's still being worked on.",
+    en: "What riml has built — what's public, and what's still in progress.",
   },
   workLead: {
     ja: '公開しているものと、いま手を入れているもの。止まっているものも、止まっていると書いてあります。',
-    en: "What's public and what I'm still working on. The ones that stopped say so.",
+    en: "What's public, and what I'm still working on. Where something has stopped, it says so.",
   },
   workDetail: { ja: 'くわしく', en: 'Details' },
   workOpenSite: { ja: 'サイトを開く', en: 'Open site' },
@@ -97,15 +96,15 @@ export const ui = {
   },
   contactLead: {
     ja: '仕事の話は GitHub か X が早いです。フレンドコードはボタンでコピーできます。',
-    en: 'GitHub or X is quickest for work. The friend codes copy with a button.',
+    en: 'GitHub or X is quickest for anything work-related. The buttons copy the friend codes.',
   },
   accountsTitle: { ja: 'アカウント', en: 'Accounts' },
   accountsLead: {
     ja: '返事が早い順に並べています。',
-    en: 'Ordered by how fast I answer.',
+    en: 'Ordered by how quickly I reply.',
   },
   friendCodesTitle: { ja: 'フレンドコード', en: 'Friend codes' },
-  friendCodesLead: { ja: '音ゲーで遊びましょう。', en: "Let's play." },
+  friendCodesLead: { ja: '音ゲーで遊びましょう。', en: "Let's play sometime." },
   copy: { ja: 'コピー', en: 'Copy' },
   copied: { ja: 'コピーしました', en: 'Copied' },
 

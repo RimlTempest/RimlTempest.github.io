@@ -7,14 +7,11 @@ import { currentRole, intro, profileSections, talks, writings } from '@/content/
 import { site } from '@/content/site'
 import { skillGroups } from '@/content/skills'
 import { ui } from '@/content/ui'
+import { externalLabel } from '@/lib/label'
 import { routes } from '@/lib/nav'
 import styles from './about.module.css'
 
 export function AboutPage({ locale }: { readonly locale: Locale }) {
-  /** 外部リンクは新しいタブで開くので、読み上げ名にもそう書く（WCAG 3.2.5） */
-  const externalLabel = (title: string, where: string) =>
-    `${title}（${where}・${ui.newTab[locale]}）`
-
   return (
     <div className="riml-container">
       <header className={styles.head}>
@@ -104,7 +101,7 @@ export function AboutPage({ locale }: { readonly locale: Locale }) {
                     target="_blank"
                     rel="noreferrer"
                     lang="ja"
-                    aria-label={externalLabel(talk.title, talk.source[locale])}
+                    aria-label={externalLabel(locale, talk.title, talk.source[locale])}
                   >
                     {talk.title}
                   </a>
@@ -127,7 +124,7 @@ export function AboutPage({ locale }: { readonly locale: Locale }) {
                   target="_blank"
                   rel="noreferrer"
                   lang="ja"
-                  aria-label={externalLabel(writing.title, writing.where)}
+                  aria-label={externalLabel(locale, writing.title, writing.where)}
                 >
                   {writing.title}
                 </a>

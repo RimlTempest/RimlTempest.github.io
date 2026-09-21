@@ -30,7 +30,7 @@ export const siteDescription: Text = {
 
 export const siteTagline: Text = {
   ja: 'フロントエンドを書く人。青髪と赤い目の看板を掲げています。',
-  en: 'A frontend engineer, behind a blue-haired, red-eyed sign.',
+  en: 'I write frontends. The blue hair and red eyes are the sign over the door.',
 }
 
 /** ページ名 — %s — riml の形 */

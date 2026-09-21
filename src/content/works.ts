@@ -33,8 +33,8 @@ export const works: readonly Work[] = [
         'WCAG 2.2 の AAA を既定にしていて、コントラスト 7:1 とターゲット 44×44 は機械で検査しています。',
       ],
       en: [
-        'Colour, size and duration are defined as W3C DTCG tokens, and the CSS variables and TypeScript constants are generated from them. Code is the source of truth for how things look; there is no Figma file.',
-        'Lit Web Components are the single source for the components themselves. The React, Vue, Svelte and Astro wrappers are generated from the Custom Elements Manifest, so a hand-written wrapper can never drift out of step.',
+        'Color, size and duration are defined as W3C DTCG tokens, and the CSS variables and TypeScript constants are generated from them. Code is the source of truth for how things look — there is no Figma file.',
+        'Lit Web Components are the single source for the components themselves. The React, Vue, Svelte and Astro wrappers are generated from the Custom Elements Manifest, so no hand-written wrapper can drift out of step.',
         'WCAG 2.2 AAA is the default, and the 7:1 contrast and 44×44 target rules are checked by machine.',
       ],
     },
@@ -56,7 +56,7 @@ export const works: readonly Work[] = [
       ],
       en: [
         'A tool for making and reading QR codes quickly. It started as a way to learn Gatsby; it is now being rewritten on TanStack Start (RSC) and Rust (workers-rs).',
-        'The constraint is that it has to run entirely inside the Cloudflare Workers free tier.',
+        'The rule I set myself: it has to run entirely inside the Cloudflare Workers free tier.',
       ],
     },
     status: 'live',
@@ -77,8 +77,8 @@ export const works: readonly Work[] = [
         'パレットとキャンバスの操作をどこまで小さくできるかを試した場所でもあります。',
       ],
       en: [
-        'A pixel art editor you can draw in the moment it opens — no install, no sign-up.',
-        'It was also where I tried to find out how small the palette and canvas controls could get.',
+        'A pixel art editor you can draw in the moment it opens. No install, no sign-up.',
+        'It was also where I found out how small the palette and canvas controls could get.',
       ],
     },
     status: 'live',
@@ -91,7 +91,7 @@ export const works: readonly Work[] = [
     name: 'noter',
     summary: {
       ja: '書き捨てから清書までを 1 枚で扱う簡易ノートアプリ。',
-      en: 'A small notes app that takes one page from scribble to fair copy.',
+      en: 'A small notes app that takes a page from scribble to fair copy.',
     },
     body: {
       ja: [
@@ -100,7 +100,7 @@ export const works: readonly Work[] = [
       ],
       en: [
         'I wanted somewhere to put things down as I thought of them.',
-        "It is also the first place riml-ds's components get used for real.",
+        'It is also the first place riml-ds components get used for real.',
       ],
     },
     status: 'building',
@@ -121,7 +121,7 @@ export const works: readonly Work[] = [
       ],
       en: [
         'A Next.js and TypeScript setup laid out so that someone meeting it for the first time can read it.',
-        'The aim was to record why each setting is there, rather than just listing the settings.',
+        'The aim was to record why each setting is there, not just list them.',
       ],
     },
     status: 'archived',

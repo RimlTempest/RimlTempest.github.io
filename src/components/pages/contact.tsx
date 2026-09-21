@@ -32,7 +32,7 @@ export function ContactPage({ locale }: { readonly locale: Locale }) {
                     <path d={link.path} />
                   </svg>
                   <span className={styles.socialName}>{link.label}</span>
-                  <span className={styles.socialHandle}>{link.handle}</span>
+                  <span className={styles.socialHandle}>{link.handle[locale]}</span>
                 </a>
               </li>
             ))}

@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import type { Locale } from '@/content/i18n'
 import { ui } from '@/content/ui'
+import { externalLabel } from '@/lib/label'
 import type { Work } from '@/content/works'
 import { statusLabel } from '@/content/works'
 import styles from './work-card.module.css'
@@ -68,7 +69,7 @@ export function WorkCard({ work, headingLevel = 3, locale }: WorkCardProps) {
             href={work.siteUrl}
             target="_blank"
             rel="noreferrer"
-            aria-label={`${work.name}: ${ui.workOpenSite[locale]}（${ui.newTab[locale]}）`}
+            aria-label={externalLabel(locale, `${work.name}: ${ui.workOpenSite[locale]}`)}
           >
             {ui.workOpenSite[locale]}
           </a>
@@ -79,7 +80,7 @@ export function WorkCard({ work, headingLevel = 3, locale }: WorkCardProps) {
             href={work.repoUrl}
             target="_blank"
             rel="noreferrer"
-            aria-label={`${work.name}: ${ui.workRepo[locale]}（${ui.newTab[locale]}）`}
+            aria-label={externalLabel(locale, `${work.name}: ${ui.workRepo[locale]}`)}
           >
             {ui.workRepo[locale]}
           </a>

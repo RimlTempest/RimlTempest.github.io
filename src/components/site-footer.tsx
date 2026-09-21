@@ -16,7 +16,7 @@ export function SiteFooter({ locale }: { readonly locale: Locale }) {
                 href={link.href}
                 rel="me noreferrer"
                 target="_blank"
-                title={`${link.label}: ${link.handle}`}
+                title={`${link.label}: ${link.handle[locale]}`}
               >
                 <svg
                   className={styles.icon}

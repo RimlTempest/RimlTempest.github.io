@@ -27,7 +27,7 @@ export const skillGroups: readonly SkillGroup[] = [
     title: { ja: 'よく書く', en: 'Often' },
     note: {
       ja: '必要になったら手が動く範囲。',
-      en: 'My hands know these when the job calls for them.',
+      en: 'I reach for these when a job needs them.',
     },
     items: [
       'Lit / Web Components',

@@ -4,6 +4,7 @@ import type { Locale } from '@/content/i18n'
 import { ui } from '@/content/ui'
 import type { Work } from '@/content/works'
 import { statusLabel } from '@/content/works'
+import { externalLabel } from '@/lib/label'
 import { routes } from '@/lib/nav'
 import styles from './work-detail.module.css'
 
@@ -13,8 +14,6 @@ type WorkDetailProps = {
 }
 
 export function WorkDetailPage({ work, locale }: WorkDetailProps) {
-  const external = (label: string) => `${label}（${ui.newTab[locale]}）`
-
   return (
     <div className="riml-container">
       <header className={styles.head}>
@@ -38,7 +37,7 @@ export function WorkDetailPage({ work, locale }: WorkDetailProps) {
                 href={work.siteUrl}
                 target="_blank"
                 rel="noreferrer"
-                aria-label={external(`${work.name}: ${ui.workOpenSite[locale]}`)}
+                aria-label={externalLabel(locale, `${work.name}: ${ui.workOpenSite[locale]}`)}
               >
                 {ui.workOpenSite[locale]}
               </a>
@@ -49,7 +48,7 @@ export function WorkDetailPage({ work, locale }: WorkDetailProps) {
                 href={work.repoUrl}
                 target="_blank"
                 rel="noreferrer"
-                aria-label={external(`${work.name}: ${ui.workOpenRepo[locale]}`)}
+                aria-label={externalLabel(locale, `${work.name}: ${ui.workOpenRepo[locale]}`)}
               >
                 {ui.workOpenRepo[locale]}
               </a>
