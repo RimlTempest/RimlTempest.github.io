@@ -49,7 +49,7 @@ export default function ContactPage() {
           <div className={styles.codes}>
             {platforms.map((platform) => (
               <div key={platform} className={`${styles.codes} ${styles.group}`}>
-                <h4 className={styles.groupTitle}>{platformLabel[platform]}</h4>
+                <h3 className={styles.groupTitle}>{platformLabel[platform]}</h3>
                 {accountsOf(platform).map((account) => (
                   <CopyField key={account.id} name={account.title} value={account.friendCode} />
                 ))}

@@ -21,7 +21,7 @@ export default function WorkIndexPage() {
       <div className={styles.grid}>
         {works.map((work) => (
           <div key={work.slug} className={`riml-rise ${styles.item}`}>
-            <WorkCard work={work} />
+            <WorkCard work={work} headingLevel={2} />
           </div>
         ))}
       </div>

@@ -16,12 +16,16 @@ const segmenter = new Intl.Segmenter('ja', { granularity: 'grapheme' })
 
 /**
  * 1 文字ずつ span に分ける。分割はビルド時に済むのでクライアント JavaScript は要らない。
- * 読み上げが 1 文字ずつにならないよう、全体を aria-label で渡し中身は aria-hidden にする。
+ *
+ * 読み上げが 1 文字ずつにならないよう、**見えない本文をそのまま置き**、分割したほうを
+ * aria-hidden にする。role を持たない span に aria-label は付けられない（ARIA の禁止属性。
+ * 支援技術によっては読み飛ばされる）。
  */
 export function SplitText({ text, className, offset = 0 }: SplitTextProps) {
   const chars = Array.from(segmenter.segment(text), (segment) => segment.segment)
   return (
-    <span className={className} aria-label={text}>
+    <span className={className}>
+      <span className="rd-visually-hidden">{text}</span>
       <span className={styles.line} aria-hidden="true">
         {chars.map((char, index) => {
           const style: CharStyle = { '--riml-i': index + offset }

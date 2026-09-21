@@ -5,8 +5,18 @@
 }
 
 .back {
+  margin-inline-start: calc(-1 * var(--rd-space-2));
   color: var(--rd-color-text-muted);
   font: var(--rd-type-small);
+}
+
+/* 文章の中の語ではなく単独の導線。44x44 を満たす（WCAG 2.5.5 AAA） */
+.back a {
+  display: inline-grid;
+  place-items: center;
+  min-block-size: var(--rd-sizing-target-min);
+  padding-inline: var(--rd-space-2);
+  border-radius: var(--rd-radius-sm);
 }
 
 .title {

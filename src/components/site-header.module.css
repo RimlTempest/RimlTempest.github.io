@@ -70,14 +70,21 @@
   text-decoration: none;
 }
 
+/*
+ * 帯の上で背景をうっすら明るくすると、帯の文字（クリーム）との比が 7:1 を割る
+ * （16% の混色で 5.48:1、8% でも 6.79:1）。hover は下線だけで示し、色は変えない。
+ */
 .link:hover {
-  background: color-mix(in oklab, currentcolor 16%, transparent);
-}
-
-.link[aria-current='page'] {
-  background: color-mix(in oklab, currentcolor 24%, transparent);
   text-decoration: underline;
   text-underline-offset: var(--rd-space-1);
+}
+
+/* 現在地は帯を反転させた塗り。chrome.text / chrome.default は riml-ds が
+   7:1 を検査している組み合わせ（ライト 9.22、ダーク 8.46）。
+   色だけで伝えないよう aria-current と太字も併せて持つ */
+.link[aria-current='page'] {
+  background: var(--rd-color-chrome-text);
+  color: var(--rd-color-chrome-default);
 }
 
 .end {
@@ -90,6 +97,7 @@
   display: flex;
   gap: var(--rd-space-2);
   align-items: center;
+  min-block-size: var(--rd-sizing-target-min);
   color: inherit;
   font: var(--rd-type-heading-2);
   text-decoration: none;
